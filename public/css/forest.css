@@ -1,0 +1,60 @@
+/* Original CSS File from janne.tumblr.com, modified for own use */
+body {
+ background-color: black;
+ padding: 0px;
+ margin: 0px;
+ font-family: Verdana, sans-serif;
+ font-size: 1em;
+ color: white;
+ text-align: center;
+}
+
+a {
+ color: aquamarine;
+ text-decoration: none;
+ border-bottom: 1px dotted blue;
+}
+
+a:hover {
+ border-bottom: 1px solid blue;
+}
+
+h1, h2, h3, h4 {
+ font-family: Georgia, 'Times New Roman', serif;
+}
+
+h1 {
+ text-align: center;
+ margin: 0px;
+ padding: 25px 0px 15px;
+ background-color: #f9faf4;
+ font-size: 2.2em;
+ color: white;
+}
+p.palkki {
+ font-size: 0.6em;
+}
+th {
+ background-color: grey;
+ border: none;
+ font-size: 15px;
+ font-weight: bold;
+ text-align: center;
+}
+td {
+ color: white;
+ border: none;
+ font-size: 10px;
+ text-align: left;
+}
+div.firma {
+ background-color: black;
+ opacity:0.6;
+ border:1px solid grey;
+ filter:alpha(opacity=60); /* For IE8 and earlier */
+}
+label {
+ font-size: 12px;
+ font-weight: bold;
+ vertical-align: bottom;
+}
