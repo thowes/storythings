@@ -19,6 +19,9 @@ pull:
 push:
 	git push origin master
 
+st:
+	git status
+
 status:
 	git status
 
