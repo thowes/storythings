@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+#OTHER
+database.yml
+doc/
+session.npp
+.secret
