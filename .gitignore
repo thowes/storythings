@@ -18,5 +18,7 @@
 #OTHER
 database.yml
 doc/
+rails.png
 session.npp
 .secret
+*.sublime-*
