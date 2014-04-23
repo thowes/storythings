@@ -1,22 +1,10 @@
 Storythings::Application.routes.draw do
-  #get "achievements/index"
-  #get "badges/index"
-  #get "questions/index"
-  #get "users/index"
-  #get "containers/index"
-  #get "items/index"
-  #get "users/indx"
-  #get "lists/index"
-  #get "welcome/index"
-  resources :items
-  resources :lists
-  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  #root 'welcome#index'
-  root to: "welcome#index"
+  # root 'welcome#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

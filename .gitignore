@@ -18,7 +18,8 @@
 #OTHER
 database.yml
 doc/
+test/
 rails.png
 session.npp
 .secret
-*.sublime-*
+*.sublime*
