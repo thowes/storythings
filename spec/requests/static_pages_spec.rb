@@ -9,7 +9,7 @@ describe "Static pages" do
     end
     it "should have the title 'Home'" do
       visit '/static_pages/home'
-      expect(page).to have_title("Storythings | Home")
+      expect(page).to have_title("Storythings")
     end
   end
 
