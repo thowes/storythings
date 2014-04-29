@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Storythings::Application.config.secret_key_base = 'a43c7e2025bf30487f1b927e7c9657e12f3b049a555e23b1b275d3afbc54265b13a0d240091465f55263643cb88f3ed462cfdd85d62c69ab2e3e29aeda8c46ae'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Storythings::Application.config.secret_key_base = secure_token
