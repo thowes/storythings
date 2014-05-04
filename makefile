@@ -4,11 +4,8 @@ add:
 cim:
 	git_projekti_cim
 
-co:
-	git checkout https://github.com/thowes/storythings
-
 clone:
-	git clone https://github.com/thowes/storythings
+	git clone https://github.com/thowes/storythings.git
 
 commit:
 	git commit
