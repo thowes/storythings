@@ -30,13 +30,6 @@ group :doc do
 end
 
 group :production do
+	gem 'unicorn'
 	gem 'rails_12factor', '0.0.2'
 end
-
-gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
