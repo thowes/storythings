@@ -18,9 +18,9 @@
 #OTHER
 database.yml
 doc/
+.env
+Gemfile.lock
 test/
 rails.png
-session.npp
 .secret
 *.sublime*
-.env
