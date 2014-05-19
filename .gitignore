@@ -19,7 +19,6 @@
 database.yml
 doc/
 .env
-Gemfile.lock
 test/
 rails.png
 .secret
