@@ -22,6 +22,9 @@ pull:
 push:
 	git push
 
+repo:
+	@git remote -v
+
 st:
 	@git status
 

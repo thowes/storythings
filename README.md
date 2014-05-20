@@ -1,6 +1,6 @@
 # README
 
-This README for Storythings app. Very early version available in storythings.herokuapps.com.
+This README for Storythings web app. Very early version available in storythings.herokuapps.com.
 
 Things you may want to cover:
 
@@ -19,4 +19,3 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions: using Heroku for deployment.
-
