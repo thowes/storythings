@@ -15,11 +15,12 @@
 /log/*.log
 /tmp
 
-#OTHER
+# Ignore other unneeded fies
 database.yml
 doc/
 .env
-test/
 rails.png
 .secret
+test/
 *.sublime*
+*.project
