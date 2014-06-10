@@ -110,13 +110,11 @@ describe "User pages" do
 			it { should have_title("Edit user") }
 			it { should have_link('change', href: 'http://gravatar.com/emails') }
 		end
-
 		describe "with invalid information" do
 			before { click_button "Save changes" }
 
 			it { should have_content('error') }
 		end
-
 		describe "with valid information" do
 			let(:new_name)  { "New Name" }
 			let(:new_email) { "new@example.com" }
@@ -133,7 +131,6 @@ describe "User pages" do
 			specify { expect(user.reload.name).to  eq new_name }
 			specify { expect(user.reload.email).to eq new_email }
 		end
-		
 		describe "forbidden attributes" do
 			let(:params) do
 				{ user: { admin: true, password: user.password,
@@ -147,4 +144,28 @@ describe "User pages" do
 		end
 	end
 	
+	describe "following/followers" do
+		let(:user) { FactoryGirl.create(:user) }
+		let(:other_user) { FactoryGirl.create(:user) }
+		before { user.follow!(other_user) }
+		describe "followed users" do
+			before do
+				sign_in user
+				visit following_user_path(user)
+			end
+			it { should have_title(full_title('Following')) }
+			it { should have_selector('h3', text: 'Following') }
+			it { should have_link(other_user.name, href: user_path(other_user)) }
+		end
+		describe "followers" do
+			before do
+				sign_in other_user
+				visit followers_user_path(other_user)
+			end
+			it { should have_title(full_title('Followers')) }
+			it { should have_selector('h3', text: 'Followers') }
+			it { should have_link(user.name, href: user_path(user)) }
+		end
+	end
+
 end
