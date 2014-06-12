@@ -16,7 +16,7 @@ FactoryGirl.define do
 	end
 
 	factory :item do
-		name "Lorem ipsum"
+		name "Old Laptop"
 		user
 	end
 end
