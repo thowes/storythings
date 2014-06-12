@@ -130,8 +130,9 @@ describe "Authentication" do
 					before { delete item_path(FactoryGirl.create(:item)) }
 					specify { expect(response).to redirect_to(signin_path) }
 				end
+				# testing for other controller actions is lacking.
 			end
-			
+
 		end
 
 		describe "as wrong user" do
