@@ -163,17 +163,25 @@ describe User do
 	end
 
 	describe "item associations" do
-    before { @user.save }
-    let!(:older_item) do
-      FactoryGirl.create(:item, user: @user, created_at: 1.day.ago)
-    end
-    let!(:newer_item) do
-      FactoryGirl.create(:item, user: @user, created_at: 1.hour.ago)
-    end
-    it "should have the right items in the right order" do
-      expect(@user.items.to_a).to eq [newer_item, older_item]
-    end
-  end
+		before { @user.save }
+		let!(:older_item) do
+			FactoryGirl.create(:item, user: @user, created_at: 1.day.ago)
+		end
+		let!(:newer_item) do
+			FactoryGirl.create(:item, user: @user, created_at: 1.hour.ago)
+		end
+		it "should have the right items in the right order" do
+			expect(@user.items.to_a).to eq [newer_item, older_item]
+		end
+		it "should destroy associated items" do
+			items = @user.items.to_a
+			@user.destroy
+			expect(items).not_to be_empty
+			items.each do |item|
+				expect(Item.where(id: item.id)).to be_empty
+			end
+		end
+	end
 
 	describe "following" do
 		let(:other_user) { FactoryGirl.create(:user) }
