@@ -15,7 +15,8 @@
 /log/*.log
 /tmp
 
-# Ignore other unneeded fies
+# Ignore other unneeded files
+application.yml
 database.yml
 doc/
 .env

@@ -7,18 +7,16 @@ class ItemsController < ApplicationController
   def show
   end
 
-  def show
+  def create
   end
 
   def edit
-  end 
+  end
 
   def update
-  end 
-
-  def create
   end
 
   def destroy
   end
+
 end
