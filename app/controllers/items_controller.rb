@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
-  before_action :signed_in_user
+  before_action :signed_in_user, only: [:create, :destroy]
 
-  #def index
-  #end
+  def index
+  end
 
-  #def show
-  #end
+  def show
+  end
 
   def create
   end
