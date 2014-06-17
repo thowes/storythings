@@ -11,14 +11,16 @@
       <%= render 'shared/stats' %>
     </section>
   </aside>
+
   <div class="span8">
-      <%= render 'follow_form' if signed_in? %>
+   <%= render 'follow_form' if signed_in? %>
+      <h3>Items (<%= @user.items.count %>)</h3>
       <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
-      <%= will_paginate @microposts %>
-    <% end %>
+      <%= will_paginate @microposts %>    
+   <% end %>
   </div>
 </div>

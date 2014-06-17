@@ -46,8 +46,15 @@ describe "User pages" do
 		let(:user) { FactoryGirl.create(:user) }
 		let!(:m1) { FactoryGirl.create(:micropost, user: user, content: "Foo") }
 		let!(:m2) { FactoryGirl.create(:micropost, user: user, content: "Bar") }
-		let!(:i1) { FactoryGirl.create(:item, user: user, name: "Foo") }
-		let!(:i2) { FactoryGirl.create(:item, user: user, name: "Bar") }
+		let!(:i1) { FactoryGirl.create(:item, user: user, name: "Junk A") }
+		let!(:i2) { FactoryGirl.create(:item, user: user, name: "Laptop") }
+		let!(:i3) { FactoryGirl.create(:item, user: user, name: "Stuff B") }
+		let!(:i4) { FactoryGirl.create(:item, user: user, name: "Thing C") }
+		let!(:i5) { FactoryGirl.create(:item, user: user, name: "Trinket D") }
+		let!(:i6) { FactoryGirl.create(:item, user: user, name: "Chekovs Gun") }
+		let!(:i7) { FactoryGirl.create(:item, user: user, name: "Katana") }
+		let!(:i8) { FactoryGirl.create(:item, user: user, name: "The One Ring") }
+		let!(:i9) { FactoryGirl.create(:item, user: user, name: "Pandoras Box") }
 		before { visit user_path(user) }
 		it { should have_content(user.name) }
 		it { should have_title(user.name) }
@@ -57,8 +64,6 @@ describe "User pages" do
 			it { should have_content(user.microposts.count) }
 		end
 		describe "items" do
-			it { should have_content(i1.name) }
-			it { should have_content(i2.name) }
 			it { should have_content(user.items.count) }
 		end
     describe "follow/unfollow buttons" do
