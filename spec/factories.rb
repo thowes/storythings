@@ -19,4 +19,9 @@ FactoryGirl.define do
 		name "Old Laptop"
 		user
 	end
+
+	factory :box do
+		name "Trash Can"
+		user
+	end
 end

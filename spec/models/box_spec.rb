@@ -2,10 +2,11 @@ require 'spec_helper'
 
 describe Box do
 	let(:user) { FactoryGirl.create(:user) }
-	before { @box = user.boxes.build(name: "Trash Can") }
+	before { @box = user.items.build(name: "Laptop Bag") }
 
 	subject { @box }
 	it { should respond_to(:name) }
+	#it { should respond_to(:is_a_box) }
 	it { should respond_to(:user_id) }
 	it { should respond_to(:user) }
 	it { should be_valid }

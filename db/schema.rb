@@ -16,22 +16,15 @@ ActiveRecord::Schema.define(version: 20140618120904) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "boxes", force: true do |t|
-    t.string   "name"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "boxes", ["user_id", "created_at"], name: "index_boxes_on_user_id_and_created_at", using: :btree
-
   create_table "items", force: true do |t|
     t.string   "name"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_a_box",   default: false
   end
 
+  add_index "items", ["is_a_box"], name: "index_items_on_is_a_box", using: :btree
   add_index "items", ["user_id", "created_at"], name: "index_items_on_user_id_and_created_at", using: :btree
 
   create_table "microposts", force: true do |t|

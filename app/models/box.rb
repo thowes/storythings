@@ -1,6 +1,6 @@
 class Box < ActiveRecord::Base
-	belongs_to :user
+	belongs_to :item
 	default_scope -> { order('created_at DESC') }
-	validates :name, presence: true, length: { maximum: 80 }
-	validates :user_id, presence: true
+	validates :description, presence: true, length: { maximum: 500 }
+	validates :item_id, presence: true
 end
