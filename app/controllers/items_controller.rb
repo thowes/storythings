@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-	before_action :signed_in_user, only: [:create, :destroy]
+	before_action :signed_in_user
 
 	def index
 	end
@@ -14,12 +14,8 @@ class ItemsController < ApplicationController
 
 	def create
 		@item = current_user.items.build(item_params)
-		if @Item.save
+		if @item.save
 			flash[:success] = "Item created!"
-			redirect_to items_url
-		else
-			@feed_items = []
-			render 'static_pages/home'
 		end
 	end
 
