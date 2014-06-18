@@ -16,6 +16,7 @@ describe "Authentication" do
 		describe "with invalid information" do
 			before { click_button "Sign in" }
 			it { should have_title('Sign in') }
+			it { should_not have_link('Add') }
 			it { should_not have_link('Items') }
 			it { should_not have_link('Boxes') }
 			it { should_not have_link('Profile') }
@@ -32,6 +33,7 @@ describe "Authentication" do
 			let(:user) { FactoryGirl.create(:user) }
 			before { sign_in user }
 			it { should have_title(user.name) }
+			it { should have_link('Add',     href: add_path) }
 			it { should have_link('Items',     href: items_path) }
 			it { should have_link('Boxes',     href: boxes_path) }
 			it { should have_link('Users',       href: users_path) }
@@ -42,6 +44,7 @@ describe "Authentication" do
 			describe "followed by signout" do
 				before { click_link "Sign out" }
 				it { should have_link('Sign in') }
+				it { should_not have_link('Add') }
 				it { should_not have_link('Items') }
 				it { should_not have_link('Boxes') }
 				it { should_not have_link('Profile') }

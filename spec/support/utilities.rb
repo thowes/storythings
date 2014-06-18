@@ -1,10 +1,15 @@
-def full_title(page_title)
-	base_title = "Storythings"
-	if page_title.empty?
-		base_title
-	else
-		"#{base_title} | #{page_title}"
-	end
+include ApplicationHelper
+
+
+shared_examples_for "all static pages" do
+		it { should have_selector('h1', text: page_title) }
+		it { should have_title(full_title(page_title)) }
+		it { should have_link('About', href: about_path) }
+		it { should have_link('Home', href: root_path) }
+		it { should have_link('Help', href: help_path) }
+		it { should have_link('Contact', href: contact_path) }
+		it { should have_link('News') }
+		it { should have_link('storythings', href: root_path) }
 end
 
 def valid_signin(user)

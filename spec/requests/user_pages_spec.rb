@@ -119,8 +119,8 @@ describe "User pages" do
 
 	describe "signup page" do
 		before { visit signup_path }
-		it { should have_content('Sign up') }
-		it { should have_title(full_title('Sign up')) }
+		let(:page_title) { 'Sign up' }
+		it_should_behave_like "all static pages"
 	end
 
 	describe "signup" do
