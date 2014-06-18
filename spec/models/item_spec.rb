@@ -6,7 +6,7 @@ describe Item do
 
 	subject { @item }
 	it { should respond_to(:name) }
-	#it { should respond_to(:is_a_box) }
+	it { should respond_to(:is_a_box) }
 	it { should respond_to(:user_id) }
 	it { should respond_to(:user) }
 	it { should be_valid }
@@ -25,5 +25,4 @@ describe Item do
 		before { @item.name = "a" * 81 }
 		it { should_not be_valid }
 	end
-	
 end

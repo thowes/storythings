@@ -21,7 +21,8 @@ FactoryGirl.define do
 	end
 
 	factory :box do
-		name "Trash Can"
+		name "Foobox"
+		is_a_box true
 		user
 	end
 end
