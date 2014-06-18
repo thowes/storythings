@@ -7,9 +7,11 @@ Storythings::Application.routes.draw do
 	resources :sessions, only: [:new, :create, :destroy]
 	resources :microposts, only: [:create, :destroy]
 	resources :relationships, only: [:create, :destroy]
-	resources :items, only: [:index, :show, :create, :destroy]
-	get "boxes/index"
+	resources :items, only: [:index, :new, :create, :destroy]
+	resources :boxes, only: [:index, :new]
 	root  'static_pages#home'
+	match '/add',     to: 'items#new',            via: 'get'
+	match '/box',     to: 'boxes#new',            via: 'get'
 	match '/signup',  to: 'users#new',            via: 'get'
 	match '/signin',  to: 'sessions#new',         via: 'get'
 	match '/signout', to: 'sessions#destroy',     via: 'delete'
