@@ -7,7 +7,7 @@ Storythings::Application.routes.draw do
 	resources :sessions, only: [:new, :create, :destroy]
 	resources :microposts, only: [:create, :destroy]
 	resources :relationships, only: [:create, :destroy]
-	resources :items, only: [:index, :new, :create, :destroy]
+	resources :items
 	resources :boxes, only: [:index, :new]
 	root  'static_pages#home'
 	match '/add',     to: 'items#new',            via: 'get'
