@@ -17,6 +17,7 @@ describe User do
 	it { should respond_to(:admin) }
 	it { should respond_to(:microposts) }
 	it { should respond_to(:items) }
+	it { should respond_to(:boxes) }
 	it { should respond_to(:feed) }
 	it { should respond_to(:relationships) }
 	it { should respond_to(:followed_users) }
