@@ -13,11 +13,13 @@ class ItemsController < ApplicationController
 	end
 
 	def create
-		@item = Item.new(params[:item])    # Not the final implementation!
+		@item = current_user.items.build(item_params)
 		if @Item.save
-			# Handle a successful save.
+			flash[:success] = "Item created!"
+			redirect_to items_url
 		else
-			render 'new'
+			@feed_items = []
+			render 'static_pages/home'
 		end
 	end
 
@@ -30,4 +32,8 @@ class ItemsController < ApplicationController
 	def destroy
 	end
 
+	private
+		def item_params
+			params.require(:item).permit(:item)
+		end
 end
