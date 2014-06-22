@@ -10,7 +10,7 @@ describe "Boxes pages" do
 			it_should_behave_like "pages before login"
 		end
 		describe "new box page" do
-			before { visit boxes_new_path }
+			before { visit new_box_path }
 			let(:page_title) { 'New Box' }
 			it_should_behave_like "pages before login"
 		end
@@ -23,10 +23,10 @@ describe "Boxes pages" do
 			before { visit boxes_path }
 			let(:page_title) { 'Boxes' }
 			it_should_behave_like "all static pages"
-			it { should have_link('Create New Box', href: box_path) }
+			it { should have_link('Create New Box', href: new_box_path) }
 		end
 		describe "new box page" do
-			before { visit box_path }
+			before { visit new_box_path }
 			let(:page_title) { 'New Box' }
 			it_should_behave_like "all static pages"
 		end
