@@ -2,28 +2,20 @@ class BadgesController < ApplicationController
   before_action :set_badge, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user
   
-  # GET /badges
-  # GET /badges.json
   def index
     @badges = Badge.all
   end
 
-  # GET /badges/1
-  # GET /badges/1.json
   def show
   end
 
-  # GET /badges/new
   def new
     @badge = Badge.new
   end
 
-  # GET /badges/1/edit
   def edit
   end
 
-  # POST /badges
-  # POST /badges.json
   def create
     @badge = Badge.new(badge_params)
 
@@ -38,8 +30,6 @@ class BadgesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /badges/1
-  # PATCH/PUT /badges/1.json
   def update
     respond_to do |format|
       if @badge.update(badge_params)
@@ -52,8 +42,6 @@ class BadgesController < ApplicationController
     end
   end
 
-  # DELETE /badges/1
-  # DELETE /badges/1.json
   def destroy
     @badge.destroy
     respond_to do |format|

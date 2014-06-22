@@ -3,12 +3,13 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@box) do |f| %>
+    <%= form_for(@item) do |i| %>
+    	<%= render 'shared/error_messages', object: i.object %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= i.label :name %>
+      <%= i.text_field :name %>
 
-      <%= f.submit "Create New Box", class: "btn btn-large btn-primary" %>
+      <%= i.submit "Create New Box", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>
