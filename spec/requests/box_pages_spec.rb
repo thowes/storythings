@@ -10,7 +10,7 @@ describe "Boxes pages" do
 			it_should_behave_like "pages before login"
 		end
 		describe "new box page" do
-			before { visit box_path }
+			before { visit boxes_new_path }
 			let(:page_title) { 'New Box' }
 			it_should_behave_like "pages before login"
 		end
