@@ -15,12 +15,12 @@ class ItemsController < ApplicationController
 
 	def new
 		@item = Item.new
-		@item.is_a_box = false
+		#@item.is_a_box = false
 	end
 
 	def newbox
 		@item = Item.new
-		@item.is_a_box = true
+		#@item.is_a_box = true
 	end
 
 	def create

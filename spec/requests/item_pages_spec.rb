@@ -43,6 +43,7 @@ describe "Item pages" do
 			it_should_behave_like "pages after login"
 			it { should have_content(i1.name) }
 			it { should_not have_content(i2.name) }
+			it { should have_link('Create New Box', href: newbox_path) }
 		end
 		describe "new item page" do
 			before { visit add_path }
