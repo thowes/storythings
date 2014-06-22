@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe "Item pages" do
 	subject { page }
-	let(:user) { FactoryGirl.create(:user) }
 
 	describe "before login" do
 		describe "item index page" do
@@ -18,6 +17,7 @@ describe "Item pages" do
 	end
 
 	describe "after login" do
+		let(:user) { FactoryGirl.create(:user) }
 		before { sign_in user }
 		describe "item index page" do
 			before { visit items_path }
