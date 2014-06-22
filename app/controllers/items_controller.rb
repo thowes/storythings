@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
 	before_action :signed_in_user
 
+	def boxes
+		@items = Item.paginate(page: params[:page])
+	end
+
 	def index
 		@items = Item.paginate(page: params[:page])
 	end
@@ -13,10 +17,15 @@ class ItemsController < ApplicationController
 		@item = Item.new
 	end
 
+	def newbox
+		@item = Item.new
+	end
+
 	def create
 		@item = current_user.items.build(item_params)
 		if @item.save
 			flash[:success] = "Item created!"
+			redirect_to @item
 		end
 	end
 

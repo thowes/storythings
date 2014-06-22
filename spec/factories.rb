@@ -20,9 +20,4 @@ FactoryGirl.define do
 		user
 	end
 
-	factory :box do
-		name "Foobox"
-		is_a_box true
-		user
-	end
 end

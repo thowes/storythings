@@ -6,7 +6,7 @@ describe "Badges" do
 	describe "before login" do
 		describe "badge index page" do
 			before { visit badges_path }
-			let(:page_title) { 'Badges' }
+			let(:page_title) { 'Badges List' }
 			it_should_behave_like "pages before login"
 		end
 		describe "new badge page" do
@@ -21,13 +21,13 @@ describe "Badges" do
 		before { sign_in user }
 		describe "badge index page" do
 			before { visit badges_path }
-			let(:page_title) { 'Badges' }
-			it_should_behave_like "all static pages"
+			let(:page_title) { 'Badges List' }
+			it_should_behave_like "pages after login"
 		end
 		describe "new badge page" do
 			before { visit new_badge_path }
 			let(:page_title) { 'New Badge' }
-			it_should_behave_like "all static pages"
+			it_should_behave_like "pages after login"
 		end
 	end
 
