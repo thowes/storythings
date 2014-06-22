@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 	before_action :signed_in_user
 
 	def index
+		@items = Item.paginate(page: params[:page])
 	end
 
 	def show

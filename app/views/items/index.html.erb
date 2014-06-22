@@ -1,4 +1,10 @@
 <% provide(:title, 'Items') %>
 <h1>Items</h1>
-<p>Items</p>
-<p>This is the Items list. Find me in app/views/items/index.html.erb</p>
+
+<%= will_paginate %>
+
+<ul class="items">
+  <%= render @items %>
+</ul>
+
+<%= will_paginate %>

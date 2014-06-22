@@ -1,6 +1,7 @@
 class BadgesController < ApplicationController
   before_action :set_badge, only: [:show, :edit, :update, :destroy]
-
+  before_action :signed_in_user
+  
   # GET /badges
   # GET /badges.json
   def index

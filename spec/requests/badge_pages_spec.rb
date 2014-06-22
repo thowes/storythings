@@ -1,11 +1,34 @@
 require 'spec_helper'
 
 describe "Badges" do
-  describe "GET /badges" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get badges_path
-      response.status.should be(200)
-    end
-  end
+	subject { page }
+
+	describe "before login" do
+		describe "badge index page" do
+			before { visit badges_path }
+			let(:page_title) { 'Badges' }
+			it_should_behave_like "pages before login"
+		end
+		describe "new badge page" do
+			before { visit new_badge_path }
+			let(:page_title) { 'New Badge' }
+			it_should_behave_like "pages before login"
+		end
+	end
+
+	describe "after login" do
+		let(:user) { FactoryGirl.create(:user) }
+		before { sign_in user }
+		describe "badge index page" do
+			before { visit badges_path }
+			let(:page_title) { 'Badges' }
+			it_should_behave_like "all static pages"
+		end
+		describe "new badge page" do
+			before { visit new_badge_path }
+			let(:page_title) { 'New Badge' }
+			it_should_behave_like "all static pages"
+		end
+	end
+
 end
