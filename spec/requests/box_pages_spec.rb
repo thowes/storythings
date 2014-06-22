@@ -12,7 +12,7 @@ describe "Boxes pages" do
 	
 	describe "new box page" do
 		before { visit box_path }
-		let(:page_title) { 'Create New Box' }
+		let(:page_title) { 'New Box' }
 		it_should_behave_like "all static pages"
 	end
 end

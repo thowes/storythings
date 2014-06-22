@@ -4,7 +4,6 @@
       <%= link_to "storythings", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
           <% if signed_in? %>
             <li><%= link_to "Add", add_path %></li>
             <li><%= link_to "Items", items_path %></li>
