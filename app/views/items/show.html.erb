@@ -1,2 +1,9 @@
 <% provide(:title, @item.name) %>
 <h1><%= @item.name %></h1>
+
+<table>
+ <tr><td>Name:</td><td><%= @item.name %></td></tr>
+ <tr><td>Box?</td><td><%= @item.is_a_box %></td></tr>
+ <tr><td>Created:</td><td><%= @item.created_at %></td></tr>
+ <tr><td>Updated:</td><td><%= @item.updated_at %></td></tr>
+</table>
