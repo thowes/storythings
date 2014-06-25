@@ -26,6 +26,16 @@ describe "Item pages" do
 			let(:page_title) { 'Add New Item' }
 			it_should_behave_like "pages before login"
 		end
+		describe "edit item i1 page" do
+			before { visit item_path(i1) }
+			let(:page_title) { 'Edit Item' }
+			it_should_behave_like "pages before login"
+		end
+		describe "edit item i2 page" do
+			before { visit item_path(i2) }
+			let(:page_title) { 'Edit Item' }
+			it_should_behave_like "pages before login"
+		end
 	end
 
 	describe "after login" do
