@@ -26,14 +26,14 @@ describe "Item pages" do
 			let(:page_title) { 'Add New Item' }
 			it_should_behave_like "pages before login"
 		end
-		describe "edit item i1 page" do
+		describe "show item i1 page" do
 			before { visit item_path(i1) }
-			let(:page_title) { 'Edit Item' }
+			let(:page_title) { i1.name }
 			it_should_behave_like "pages before login"
 		end
-		describe "edit item i2 page" do
+		describe "show item i2 page" do
 			before { visit item_path(i2) }
-			let(:page_title) { 'Edit Item' }
+			let(:page_title) { i2.name }
 			it_should_behave_like "pages before login"
 		end
 	end
@@ -45,7 +45,9 @@ describe "Item pages" do
 			let(:page_title) { 'Items List' }
 			it_should_behave_like "pages after login"
 			it { should have_content(i1.name) }
+			it { should have_link(i1.name, href: item_path(i1)) }
 			it { should have_content(i2.name) }
+			it { should have_link(i2.name, href: item_path(i2)) }
 		end
 		describe "boxes page" do
 			before { visit boxes_path }
@@ -58,6 +60,16 @@ describe "Item pages" do
 		describe "new item page" do
 			before { visit add_path }
 			let(:page_title) { 'Add New Item' }
+			it_should_behave_like "pages after login"
+		end
+		describe "show item i1 page" do
+			before { visit item_path(i1) }
+			let(:page_title) { i1.name }
+			it_should_behave_like "pages after login"
+		end
+		describe "show item i2 page" do
+			before { visit item_path(i2) }
+			let(:page_title) { i2.name }
 			it_should_behave_like "pages after login"
 		end
 	end
