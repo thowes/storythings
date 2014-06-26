@@ -38,8 +38,14 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 	end
 
-	#def update
-	#end
+	def update
+		if @item.save
+			flash[:success] = "Item updated"
+			redirect_to @item
+		else
+			render 'edit'
+		end
+	end
 
 	def destroy
 	end
