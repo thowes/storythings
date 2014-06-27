@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-	before_action :signed_in_user
+	before_action :signed_in_user, except: [:show]
 
 	def index
 		@items = current_user.items.paginate(page: params[:page])

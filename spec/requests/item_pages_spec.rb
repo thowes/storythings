@@ -29,13 +29,13 @@ describe "Item pages" do
 		describe "show item i1" do
 			before { visit item_path(i1) }
 			let(:page_title) { i1.name }
-			it_should_behave_like "pages before login"
+			it_should_behave_like "all static pages"
 			it { should_not have_link('Edit', href: edit_item_path(i1)) }
 		end
 		describe "show item i2" do
 			before { visit item_path(i2) }
 			let(:page_title) { i2.name }
-			it_should_behave_like "pages before login"
+			it_should_behave_like "all static pages"
 			it { should_not have_link('Edit', href: edit_item_path(i2)) }
 		end
 		describe "edit item i1" do
