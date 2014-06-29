@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Item pages" do
 	subject { page }
 	let(:user) { FactoryGirl.create(:user) }
-	let!(:i1) { FactoryGirl.create(:item, user: user, name: "Trashcan", is_a_box: true) }
+	let!(:i1) { FactoryGirl.create(:item, user: user, name: "Treasure Chest", is_a_box: true) }
 	let!(:i2) { FactoryGirl.create(:item, user: user, name: "Laptop") }
 
 	describe "before login" do
@@ -73,6 +73,21 @@ describe "Item pages" do
 			before { visit add_path }
 			let(:page_title) { 'Add New Item' }
 			it_should_behave_like "pages after login"
+			describe "with invalid information" do
+				it "should not create an item" do
+					expect { click_button "Add Item" }.not_to change(Item, :count)
+				end
+				describe "error messages" do
+					before { click_button "Add Item" }
+					it { should have_content('error') }
+				end
+			end
+			describe "with valid information" do
+				before { fill_in 'item_name', with: "Old Junk" }
+				it "should create an item" do
+					expect { click_button "Add Item" }.to change(Item, :count).by(1)
+				end
+			end
 		end
 		describe "show item i1 page" do
 			before { visit item_path(i1) }
@@ -95,25 +110,15 @@ describe "Item pages" do
 			before { visit edit_item_path(i2) }
 			let(:page_title) { 'Edit Item' }
 			it_should_behave_like "pages after login"
-		end
-	end
-
-	describe "item creation" do
-		before { sign_in user }
-		before { visit add_path }
-		describe "with invalid information" do
-			it "should not create an item" do
-				expect { click_button "Add Item" }.not_to change(Item, :count)
-			end
 			describe "error messages" do
-				before { click_button "Add Item" }
+				before { fill_in 'item_name', with: "" }
+				before { click_button "Save changes" }
 				it { should have_content('error') }
 			end
-		end
-		describe "with valid information" do
-			before { fill_in 'item_name', with: "Old Junk" }
-			it "should create an item" do
-				expect { click_button "Add Item" }.to change(Item, :count).by(1)
+			describe "with a valid name" do
+				before { fill_in 'item_name', with: "megabox" }
+				before { click_button "Save changes" }
+				it { should have_content('megabox') }
 			end
 		end
 	end
