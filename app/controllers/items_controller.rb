@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 	before_action :signed_in_user, except: [:show]
+	#before_action :correct_user,   except: [:index, :boxes, :list]
 
 	#GET /items
 	def index
@@ -9,6 +10,11 @@ class ItemsController < ApplicationController
 	#GET /boxes
 	def boxes
 		@items = current_user.items.where( is_a_box: true )
+	end
+
+	#GET /list
+	def list
+		@items = current_user.items.where( is_a_box: false )
 	end
 
 	#GET /items/:id
@@ -25,7 +31,19 @@ class ItemsController < ApplicationController
 	#GET /newbox
 	def newbox
 		@item = Item.new
-		#@item.is_a_box = true
+	end
+
+	#PATCH /items/:id/makebox
+	def makebox
+		@item = Item.find(params[:id])
+		if @item.is_a_box
+			flash[:error] = "Item is already a box!"
+			redirect_to @item
+		else
+			@item.is_a_box = true
+			flash[:success] = "Item changed into a box!"
+			redirect_to @item
+		end
 	end
 
 	#POST /items
@@ -61,6 +79,6 @@ class ItemsController < ApplicationController
 
 	private
 		def item_params
-			params.require(:item).permit(:name)
+			params.require(:item).permit(:name, :is_a_box)
 		end
 end

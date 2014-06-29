@@ -21,9 +21,21 @@ describe "Item pages" do
 			it { should_not have_content(i1.name) }
 			it { should_not have_content(i2.name) }
 		end
+		describe "item list page" do
+			before { visit list_path }
+			let(:page_title) { 'Item List' }
+			it_should_behave_like "pages before login"
+			it { should_not have_content(i1.name) }
+			it { should_not have_content(i2.name) }
+		end
 		describe "new item page" do
 			before { visit add_path }
 			let(:page_title) { 'Add New Item' }
+			it_should_behave_like "pages before login"
+		end
+		describe "new box page" do
+			before { visit newbox_path }
+			let(:page_title) { 'New Box' }
 			it_should_behave_like "pages before login"
 		end
 		describe "show item i1" do
@@ -69,6 +81,13 @@ describe "Item pages" do
 			it { should_not have_content(i2.name) }
 			it { should have_link('Create New Box', href: newbox_path) }
 		end
+		describe "item list page" do
+			before { visit list_path }
+			let(:page_title) { 'Item List' }
+			it_should_behave_like "pages after login"
+			it { should_not have_content(i1.name) }
+			it { should have_content(i2.name) }
+		end
 		describe "new item page" do
 			before { visit add_path }
 			let(:page_title) { 'Add New Item' }
@@ -86,6 +105,26 @@ describe "Item pages" do
 				before { fill_in 'item_name', with: "Old Junk" }
 				it "should create an item" do
 					expect { click_button "Add Item" }.to change(Item, :count).by(1)
+				end
+			end
+		end
+		describe "new box page" do
+			before { visit newbox_path }
+			let(:page_title) { 'New Box' }
+			it_should_behave_like "pages after login"
+			describe "with invalid information" do
+				it "should not create an item" do
+					expect { click_button "Create New Box" }.not_to change(Item, :count)
+				end
+				describe "error messages" do
+					before { click_button "Create New Box" }
+					it { should have_content('error') }
+				end
+			end
+			describe "with valid information" do
+				before { fill_in 'item_name', with: "My Intradimensional Box" }
+				it "should create a box" do
+					expect { click_button "Create New Box" }.to change(Item, :count).by(1)
 				end
 			end
 		end

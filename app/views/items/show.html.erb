@@ -1,15 +1,18 @@
 <% provide(:title, @item.name) %>
 <h1><%= @item.name %></h1>
 
+<% if signed_in? %>
+ <p>
+ 	<%= link_to 'Edit', edit_item_path(@item) %>
+ 	<%= link_to 'Make into a box', edit_item_path(@item) %>
+ </p>
+<% else %>
+ <p>.</p>
+<% end %>
+
 <table>
  <tr><td>Name:</td><td><%= @item.name %></td></tr>
  <tr><td>Box?</td><td><%= @item.is_a_box %></td></tr>
  <tr><td>Created:</td><td><%= @item.created_at %></td></tr>
  <tr><td>Updated:</td><td><%= @item.updated_at %></td></tr>
 </table>
-
-<% if signed_in? %>
- <p><%= link_to 'Edit', edit_item_path(@item) %></p>
-<% else %>
- <p>.</p>
-<% end %>

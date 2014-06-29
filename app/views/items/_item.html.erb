@@ -1,6 +1,6 @@
 <% if item.is_a_box %>
-<li>BOX <%= link_to item.name, item %></li>
+<li>BOX <b><%= link_to item.name, item %></b></li>
 <% else %>
-<li><%= link_to item.name, item %></li>
+<li>ITEM <b><%= link_to item.name, item %></b></li>
 <% end %>
 
