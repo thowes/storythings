@@ -9,6 +9,10 @@
       <%= i.label :name %>
       <%= i.text_field :name %>
 
+      <%= i.label :is_a_box %>
+  		<%= i.radio_button :is_a_box, "true" %>true
+			<%= i.radio_button :is_a_box, "false" %>false
+
       <%= i.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
 

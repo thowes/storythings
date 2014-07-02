@@ -25,7 +25,6 @@ class ItemsController < ApplicationController
 	#GET /add or /items/new
 	def new
 		@item = Item.new
-		#@item.is_a_box = false
 	end
 
 	#GET /newbox
