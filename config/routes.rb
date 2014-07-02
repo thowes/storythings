@@ -13,10 +13,6 @@ Storythings::Application.routes.draw do
 			get 'boxes'
 			get 'list'
 		end
-		member do
-			#post 'createbox'
-			put 'makebox'
-		end
 	end
   resources :badges
 	root  'static_pages#home'
@@ -26,7 +22,8 @@ Storythings::Application.routes.draw do
 	match '/contact', to: 'static_pages#contact', via: 'get'
 	match '/help',    to: 'static_pages#help',    via: 'get'
 	match '/list',    to: 'items#list',           via: 'get'
-	#match '/makebox', to: 'items#makebox',        via: 'put'
+	#match '/login',   to: 'sessions#new',         via: 'get'
+	#match '/logout',  to: 'sessions#destroy',     via: 'delete'
 	match '/newbox',  to: 'items#newbox',         via: 'get'
 	match '/signin',  to: 'sessions#new',         via: 'get'
 	match '/signout', to: 'sessions#destroy',     via: 'delete'
@@ -40,9 +37,6 @@ Storythings::Application.routes.draw do
 
 	# Example of named route that can be invoked with purchase_url(id: product.id)
 	#   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-	# Example resource route (maps HTTP verbs to controller actions automatically):
-	#   resources :products
 
 	# Example resource route with sub-resources:
 	#   resources :products do
