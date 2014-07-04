@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 	before_action :signed_in_user, except: [:show]
 	# testing needed for correct_user action
-	before_action :correct_user, only: [:destroy]
+	before_action :correct_user, only: [:destroy, :edit, :update]
 
 	#GET /items
 	def index
@@ -65,7 +65,14 @@ class ItemsController < ApplicationController
 	end
 
 	private
+
 		def item_params
 			params.require(:item).permit(:name, :is_a_box)
+		end
+
+		def correct_user
+			@items = current_user.items.find_by(id: params[:id])
+			redirect_to root_url if @items.nil?
+			#redirect_to root_url unless current_user?(@micropost.user)
 		end
 end
