@@ -3,8 +3,10 @@ require 'spec_helper'
 describe "Item pages" do
 	subject { page }
 	let(:user) { FactoryGirl.create(:user) }
+	let(:u2) { FactoryGirl.create(:user) }
 	let!(:i1) { FactoryGirl.create(:item, user: user, name: "Treasure Chest", is_a_box: true) }
 	let!(:i2) { FactoryGirl.create(:item, user: user, name: "Laptop") }
+	let!(:i3) { FactoryGirl.create(:item, user: u2, name: "Old Gadget") }
 
 	describe "before login" do
 		describe "item index page" do
@@ -50,6 +52,12 @@ describe "Item pages" do
 			it_should_behave_like "all static pages"
 			it { should have_content(i2.user.name) }
 		end
+		describe "show item i3" do
+			before { visit item_path(i3) }
+			let(:page_title) { i3.name }
+			it_should_behave_like "all static pages"
+			it { should have_content(i3.user.name) }
+		end
 		describe "edit item i1" do
 			before { visit edit_item_path(i1) }
 			let(:page_title) { 'Edit Item' }
@@ -57,6 +65,11 @@ describe "Item pages" do
 		end
 		describe "edit item i2" do
 			before { visit edit_item_path(i2) }
+			let(:page_title) { 'Edit Item' }
+			it_should_behave_like "pages before login"
+		end
+		describe "edit item i3" do
+			before { visit edit_item_path(i3) }
 			let(:page_title) { 'Edit Item' }
 			it_should_behave_like "pages before login"
 		end
@@ -79,6 +92,7 @@ describe "Item pages" do
 			it_should_behave_like "pages after login"
 			it { should have_content(i1.name) }
 			it { should_not have_content(i2.name) }
+			it { should_not have_content(i3.name) }
 			it { should have_link('Create New Box', href: newbox_path) }
 		end
 		describe "item list page" do
@@ -86,6 +100,7 @@ describe "Item pages" do
 			let(:page_title) { 'Item List' }
 			it_should_behave_like "pages after login"
 			it { should_not have_content(i1.name) }
+			it { should_not have_content(i3.name) }
 			it { should have_content(i2.name) }
 		end
 		describe "new item page" do
@@ -142,6 +157,12 @@ describe "Item pages" do
 			before { visit edit_item_path(i1) }
 			let(:page_title) { 'Edit Item' }
 			it_should_behave_like "pages after login"
+		end
+		describe "edit item i3" do
+			before { visit edit_item_path(i3) }
+			let(:page_title) { 'Edit Item' }
+			it_should_behave_like "pages for wrong user"
+			it { should_not have_content( i3.name ) }
 		end
 		describe "edit item i2" do
 			before { visit edit_item_path(i2) }

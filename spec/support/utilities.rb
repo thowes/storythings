@@ -32,7 +32,7 @@ shared_examples_for "pages before login" do
 	it_should_behave_like "all pages"
 end
 
-shared_examples_for "pages after login" do
+shared_examples_for "pages logged in" do
 	it { should have_link('Add', href: add_path) }
 	it { should have_link('Boxes', href: boxes_path) }
 	it { should have_link('Items', href: items_path) }
@@ -42,7 +42,17 @@ shared_examples_for "pages after login" do
 	it { should have_link('Settings') }
 	it { should have_link('Sign out') }
 	it { should_not have_link('Sign in') }
+end
+
+shared_examples_for "pages after login" do
+	it_should_behave_like "pages logged in"
 	it_should_behave_like "all static pages"
+end
+
+shared_examples_for "pages for wrong user" do
+	it_should_behave_like "pages logged in"
+	it { should_not have_title(full_title(page_title)) }
+	it { should_not have_selector('h1', text: page_title) }
 end
 
 def valid_signin(user)
