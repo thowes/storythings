@@ -23,6 +23,11 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 	end
 
+	#GET /things
+	def things
+		@items = current_user.items.where( is_a_box: false )
+	end
+
 	#GET /add or /items/new
 	def new
 		@item = Item.new

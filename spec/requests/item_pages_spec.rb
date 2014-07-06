@@ -3,32 +3,60 @@ require 'spec_helper'
 describe "Item pages" do
 	subject { page }
 	let(:user) { FactoryGirl.create(:user) }
-	let(:u2) { FactoryGirl.create(:user) }
-	let!(:i1) { FactoryGirl.create(:item, user: user, name: "Treasure Chest", is_a_box: true) }
-	let!(:i2) { FactoryGirl.create(:item, user: user, name: "Laptop") }
-	let!(:i3) { FactoryGirl.create(:item, user: u2, name: "Old Gadget") }
+	let(:wrong) { FactoryGirl.create(:user) }
+	let!(:box) { FactoryGirl.create(:item, user: user, name: "MyTestUser Box", is_a_box: true) }
+	let!(:thing) { FactoryGirl.create(:item, user: user, name: "MyTestUser Thing") }
+	let!(:w_item) { FactoryGirl.create(:item, user: wrong, name: "WrongUser Thing") }
 
 	describe "before login" do
 		describe "item index page" do
 			before { visit items_path }
 			let(:page_title) { 'Items List' }
 			it_should_behave_like "pages before login"
-			it { should_not have_content(i1.name) }
-			it { should_not have_content(i2.name) }
+			it { should_not have_content("MyTestUser") }
+			it { should_not have_content("WrongUser") }
 		end
 		describe "boxes page" do
 			before { visit boxes_path }
 			let(:page_title) { 'Boxes List' }
 			it_should_behave_like "pages before login"
-			it { should_not have_content(i1.name) }
-			it { should_not have_content(i2.name) }
+			it { should_not have_content("MyTestUser") }
+			it { should_not have_content("WrongUser") }
+		end
+		describe "coll items page" do
+			before { visit coll_path }
+			let(:page_title) { 'Coll List' }
+			it_should_behave_like "pages before login"
+			it { should_not have_content("MyTestUser") }
+			it { should_not have_content("WrongUser") }
+		end
+		describe "components page" do
+			before { visit components_path }
+			let(:page_title) { 'Components List' }
+			it_should_behave_like "pages before login"
+			it { should_not have_content("MyTestUser") }
+			it { should_not have_content("WrongUser") }
 		end
 		describe "item list page" do
 			before { visit list_path }
 			let(:page_title) { 'Item List' }
 			it_should_behave_like "pages before login"
-			it { should_not have_content(i1.name) }
-			it { should_not have_content(i2.name) }
+			it { should_not have_content("MyTestUser") }
+			it { should_not have_content("WrongUser") }
+		end
+		describe "root items page" do
+			before { visit roots_path }
+			let(:page_title) { 'Roots List' }
+			it_should_behave_like "pages before login"
+			it { should_not have_content("MyTestUser") }
+			it { should_not have_content("WrongUser") }
+		end
+		describe "things page" do
+			before { visit things_path }
+			let(:page_title) { 'Things List' }
+			it_should_behave_like "pages before login"
+			it { should_not have_content("MyTestUser") }
+			it { should_not have_content("WrongUser") }
 		end
 		describe "new item page" do
 			before { visit add_path }
@@ -40,36 +68,36 @@ describe "Item pages" do
 			let(:page_title) { 'New Box' }
 			it_should_behave_like "pages before login"
 		end
-		describe "show item i1" do
-			before { visit item_path(i1) }
-			let(:page_title) { i1.name }
+		describe "show box" do
+			before { visit item_path(box) }
+			let(:page_title) { box.name }
 			it_should_behave_like "all static pages"
-			it { should have_content(i1.user.name) }
+			it { should have_content(box.user.name) }
 		end
-		describe "show item i2" do
-			before { visit item_path(i2) }
-			let(:page_title) { i2.name }
+		describe "show thing" do
+			before { visit item_path(thing) }
+			let(:page_title) { thing.name }
 			it_should_behave_like "all static pages"
-			it { should have_content(i2.user.name) }
+			it { should have_content(thing.user.name) }
 		end
-		describe "show item i3" do
-			before { visit item_path(i3) }
-			let(:page_title) { i3.name }
+		describe "show wrong item" do
+			before { visit item_path(w_item) }
+			let(:page_title) { w_item.name }
 			it_should_behave_like "all static pages"
-			it { should have_content(i3.user.name) }
+			it { should have_content(w_item.user.name) }
 		end
-		describe "edit item i1" do
-			before { visit edit_item_path(i1) }
+		describe "edit box" do
+			before { visit edit_item_path(box) }
 			let(:page_title) { 'Edit Item' }
 			it_should_behave_like "pages before login"
 		end
-		describe "edit item i2" do
-			before { visit edit_item_path(i2) }
+		describe "edit thing" do
+			before { visit edit_item_path(thing) }
 			let(:page_title) { 'Edit Item' }
 			it_should_behave_like "pages before login"
 		end
-		describe "edit item i3" do
-			before { visit edit_item_path(i3) }
+		describe "edit wrong item" do
+			before { visit edit_item_path(w_item) }
 			let(:page_title) { 'Edit Item' }
 			it_should_behave_like "pages before login"
 		end
@@ -81,27 +109,35 @@ describe "Item pages" do
 			before { visit items_path }
 			let(:page_title) { 'Items List' }
 			it_should_behave_like "pages after login"
-			it { should have_content(i1.name) }
-			it { should have_link(i1.name, href: item_path(i1)) }
-			it { should have_content(i2.name) }
-			it { should have_link(i2.name, href: item_path(i2)) }
+			it { should have_content(box.name) }
+			it { should have_link(box.name, href: item_path(box)) }
+			it { should have_content(thing.name) }
+			it { should have_link(thing.name, href: item_path(thing)) }
 		end
 		describe "boxes page" do
 			before { visit boxes_path }
 			let(:page_title) { 'Boxes List' }
 			it_should_behave_like "pages after login"
-			it { should have_content(i1.name) }
-			it { should_not have_content(i2.name) }
-			it { should_not have_content(i3.name) }
+			it { should have_content(box.name) }
+			it { should_not have_content(thing.name) }
+			it { should_not have_content(w_item.name) }
 			it { should have_link('Create New Box', href: newbox_path) }
 		end
 		describe "item list page" do
 			before { visit list_path }
 			let(:page_title) { 'Item List' }
 			it_should_behave_like "pages after login"
-			it { should_not have_content(i1.name) }
-			it { should_not have_content(i3.name) }
-			it { should have_content(i2.name) }
+			it { should_not have_content(box.name) }
+			it { should_not have_content(w_item.name) }
+			it { should have_content(thing.name) }
+		end
+		describe "things page" do
+			before { visit things_path }
+			let(:page_title) { 'Things List' }
+			it_should_behave_like "pages after login"
+			it { should_not have_content(box.name) }
+			it { should_not have_content(w_item.name) }
+			it { should have_content(thing.name) }
 		end
 		describe "new item page" do
 			before { visit add_path }
@@ -143,29 +179,29 @@ describe "Item pages" do
 				end
 			end
 		end
-		describe "show item i1 page" do
-			before { visit item_path(i1) }
-			let(:page_title) { i1.name }
+		describe "show box" do
+			before { visit item_path(box) }
+			let(:page_title) { box.name }
 			it_should_behave_like "pages after login"
 		end
-		describe "show item i2 page" do
-			before { visit item_path(i2) }
-			let(:page_title) { i2.name }
+		describe "show thing" do
+			before { visit item_path(thing) }
+			let(:page_title) { thing.name }
 			it_should_behave_like "pages after login"
 		end
-		describe "edit item i1" do
-			before { visit edit_item_path(i1) }
+		describe "edit box" do
+			before { visit edit_item_path(box) }
 			let(:page_title) { 'Edit Item' }
 			it_should_behave_like "pages after login"
 		end
-		describe "edit item i3" do
-			before { visit edit_item_path(i3) }
+		describe "edit wrong item" do
+			before { visit edit_item_path(w_item) }
 			let(:page_title) { 'Edit Item' }
 			it_should_behave_like "pages for wrong user"
-			it { should_not have_content( i3.name ) }
+			it { should_not have_content( w_item.name ) }
 		end
-		describe "edit item i2" do
-			before { visit edit_item_path(i2) }
+		describe "edit thing" do
+			before { visit edit_item_path(thing) }
 			let(:page_title) { 'Edit Item' }
 			it_should_behave_like "pages after login"
 			describe "error messages" do
@@ -174,9 +210,9 @@ describe "Item pages" do
 				it { should have_content('error') }
 			end
 			describe "with a valid name" do
-				before { fill_in 'item_name', with: "megabox" }
+				before { fill_in 'item_name', with: "My Renamed Thing" }
 				before { click_button "Save changes" }
-				it { should have_content('megabox') }
+				it { should have_content('My Renamed Thing') }
 			end
 		end
 	end
