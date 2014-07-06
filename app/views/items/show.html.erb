@@ -3,12 +3,11 @@
 
 <table>
  <% if @item.is_a_box %>
- <tr><td>BOX?</td><td>YES, part of <%= link_to 'BOX', item_path(@item.box_id) %></td></tr>
+ <tr><td>TYPE:</td><td>BOX</td></tr>
  <% else %>
- <tr><td>BOX?</td><td>NO, part of <%= link_to 'BOX', item_path(@item.box_id) %></td></tr>
+ <tr><td>TYPE:</td><td>ITEM</td></tr>
  <% end %>
  <tr><td>NAME:</td><td><%= @item.name %></td></tr>
- <tr><td>Box?</td><td><%= @item.is_a_box %></td></tr>
  <tr><td>CREATED:</td><td><%= @item.created_at %></td></tr>
  <tr><td>UPDATE:</td><td><%= @item.updated_at %></td></tr>
  <tr><td>USER:</td><td><%= @item.user.name %></td></tr>

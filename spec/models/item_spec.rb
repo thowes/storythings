@@ -9,9 +9,9 @@ describe Item do
 	it { should respond_to(:is_a_box) }
 	it { should respond_to(:user_id) }
 	it { should respond_to(:user) }
-	it { should respond_to(:box_id) }
-	it { should respond_to(:box) }
-	it { should respond_to(:things) }
+	#it { should respond_to(:box_id) }
+	#it { should respond_to(:box) }
+	#it { should respond_to(:things) }
 	it { should be_valid }
 
 	describe "when user_id is not present" do
