@@ -2,16 +2,18 @@ require 'spec_helper'
 
 describe Item do
 	let(:user) { FactoryGirl.create(:user) }
-	before { @item = user.items.build(name: "Old Laptop", box_id: 1) }
+	before { @item = user.items.build(name: "Old Laptop") }
 
 	subject { @item }
 	it { should respond_to(:name) }
 	it { should respond_to(:is_a_box) }
 	it { should respond_to(:user_id) }
 	it { should respond_to(:user) }
-	#it { should respond_to(:box_id) }
-	#it { should respond_to(:box) }
-	#it { should respond_to(:things) }
+	it { should respond_to(:root_id) }
+	it { should respond_to(:root) }
+	it { should respond_to(:parent_id) }
+	it { should respond_to(:parent) }
+	it { should respond_to(:children) }
 	it { should be_valid }
 
 	describe "when user_id is not present" do
