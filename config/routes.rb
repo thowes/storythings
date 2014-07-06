@@ -10,8 +10,12 @@ Storythings::Application.routes.draw do
 	resources :items do
 		get 'newbox'
 		collection do
+			get 'coll'
+			get 'components'
 			get 'boxes'
 			get 'list'
+			get 'roots'
+			get 'things'
 		end
 	end
   resources :badges
@@ -19,15 +23,19 @@ Storythings::Application.routes.draw do
 	match '/about',   to: 'static_pages#about',   via: 'get'
 	match '/add',     to: 'items#new',            via: 'get'
 	match '/boxes',   to: 'items#boxes',          via: 'get'
+	match '/coll',    to: 'items#coll',           via: 'get'
+	match '/components', to: 'items#components',  via: 'get'
 	match '/contact', to: 'static_pages#contact', via: 'get'
 	match '/help',    to: 'static_pages#help',    via: 'get'
 	match '/list',    to: 'items#list',           via: 'get'
 	#match '/login',   to: 'sessions#new',         via: 'get'
 	#match '/logout',  to: 'sessions#destroy',     via: 'delete'
 	match '/newbox',  to: 'items#newbox',         via: 'get'
+	match '/roots',  to: 'items#roots',         via: 'get'
 	match '/signin',  to: 'sessions#new',         via: 'get'
 	match '/signout', to: 'sessions#destroy',     via: 'delete'
 	match '/signup',  to: 'users#new',            via: 'get'
+	match '/things',  to: 'items#things',         via: 'get'
 
 	# The priority is based upon order of creation: first created -> highest priority.
 	# See how all your routes lay out with "rake routes".
