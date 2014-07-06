@@ -2,9 +2,14 @@
 <h1><%= @item.name %></h1>
 
 <table>
- <tr><td>Name:</td><td><%= @item.name %></td></tr>
+ <% if @item.is_a_box %>
+ <tr><td>BOX?</td><td>YES, part of <%= link_to 'BOX', item_path(@item.box_id) %></td></tr>
+ <% else %>
+ <tr><td>BOX?</td><td>NO, part of <%= link_to 'BOX', item_path(@item.box_id) %></td></tr>
+ <% end %>
+ <tr><td>NAME:</td><td><%= @item.name %></td></tr>
  <tr><td>Box?</td><td><%= @item.is_a_box %></td></tr>
- <tr><td>Created:</td><td><%= @item.created_at %></td></tr>
- <tr><td>Updated:</td><td><%= @item.updated_at %></td></tr>
- <tr><td>User:</td><td><%= @item.user.name %></td></tr>
+ <tr><td>CREATED:</td><td><%= @item.created_at %></td></tr>
+ <tr><td>UPDATE:</td><td><%= @item.updated_at %></td></tr>
+ <tr><td>USER:</td><td><%= @item.user.name %></td></tr>
 </table>

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 	before_action :signed_in_user, except: [:show]
-	# testing needed for correct_user action
+	# testing needed for correct_user actions update and destroy
 	before_action :correct_user, only: [:destroy, :edit, :update]
 
 	#GET /items
@@ -65,7 +65,6 @@ class ItemsController < ApplicationController
 	end
 
 	private
-
 		def item_params
 			params.require(:item).permit(:name, :is_a_box)
 		end
