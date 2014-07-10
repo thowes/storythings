@@ -58,6 +58,13 @@ describe "Item pages" do
 			it { should_not have_content("MyTestUser") }
 			it { should_not have_content("WrongUser") }
 		end
+		describe "things page" do
+			before { visit things_path }
+			let(:page_title) { 'Things List' }
+			it_should_behave_like "pages before login"
+			it { should_not have_content("MyTestUser") }
+			it { should_not have_content("WrongUser") }
+		end
 		describe "new item page" do
 			before { visit add_path }
 			let(:page_title) { 'Add New Item' }
@@ -126,14 +133,6 @@ describe "Item pages" do
 		describe "item list page" do
 			before { visit list_path }
 			let(:page_title) { 'Item List' }
-			it_should_behave_like "pages after login"
-			it { should_not have_content(box.name) }
-			it { should_not have_content(w_item.name) }
-			it { should have_content(thing.name) }
-		end
-		describe "things page" do
-			before { visit things_path }
-			let(:page_title) { 'Things List' }
 			it_should_behave_like "pages after login"
 			it { should_not have_content(box.name) }
 			it { should_not have_content(w_item.name) }

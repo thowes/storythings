@@ -23,9 +23,28 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 	end
 
+	#GET /items/help
+	def help
+	end
+
+	#GET /roots
+	def roots
+		@items = current_user.items.where( parent: nil )
+	end
+
+	#GET /coll
+	def coll
+		@items = current_user.items.where( depth: 1 )
+	end
+
 	#GET /things
 	def things
-		@items = current_user.items.where( is_a_box: false )
+		@items = current_user.items.where( depth: 3 )
+	end
+
+	#GET /components
+	def components
+		@items = current_user.items.where( depth: 4 )
 	end
 
 	#GET /add or /items/new

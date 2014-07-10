@@ -8,6 +8,7 @@ Storythings::Application.routes.draw do
 	resources :microposts, only: [:create, :destroy]
 	resources :relationships, only: [:create, :destroy]
 	resources :items do
+		get 'help'
 		get 'newbox'
 		collection do
 			get 'coll'
@@ -27,6 +28,7 @@ Storythings::Application.routes.draw do
 	match '/components', to: 'items#components',  via: 'get'
 	match '/contact', to: 'static_pages#contact', via: 'get'
 	match '/help',    to: 'static_pages#help',    via: 'get'
+	match '/itemhelp', to: 'items#help',          via: 'get'
 	match '/list',    to: 'items#list',           via: 'get'
 	#match '/login',   to: 'sessions#new',         via: 'get'
 	#match '/logout',  to: 'sessions#destroy',     via: 'delete'

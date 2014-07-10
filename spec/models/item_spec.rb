@@ -11,6 +11,8 @@ describe Item do
 	it { should respond_to(:user) }
 	it { should respond_to(:root_id) }
 	it { should respond_to(:root) }
+	it { should respond_to(:root?) }
+	it { should respond_to(:is_root?) }
 	it { should respond_to(:parent_id) }
 	it { should respond_to(:parent) }
 	it { should respond_to(:children) }
