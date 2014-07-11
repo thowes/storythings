@@ -34,7 +34,6 @@ class ItemsController < ApplicationController
 
 	#GET /roots
 	def roots
-		@items = current_user.items.root?
 	end
 
 	#GET /coll

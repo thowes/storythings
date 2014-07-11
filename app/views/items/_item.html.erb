@@ -1,5 +1,5 @@
-<% if item.is_a_box %>
-<li>BOX <b><%= link_to item.name, item %></b>, <%= link_to 'Edit', edit_item_path(item) %></li>
+<% if item.root? %>
+<li>ROOT <b><%= link_to item.name, item %></b>, <%= link_to 'Edit', edit_item_path(item) %></li>
 <% else %>
-<li>ITEM <b><%= link_to item.name, item %></b>, <%= link_to 'Edit', edit_item_path(item) %></li>
+<li>NONROOT <b><%= link_to item.name, item %></b>, <%= link_to 'Edit', edit_item_path(item) %></li>
 <% end %>
