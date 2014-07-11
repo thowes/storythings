@@ -36,16 +36,6 @@ class ItemsController < ApplicationController
 	def roots
 	end
 
-	#GET /coll
-	def coll
-		@items = current_user.items.where( parent_id: 1 )
-	end
-
-	#GET /components
-	def components
-		@items = current_user.items.where( depth: 4 )
-	end
-
 	#GET /add or /items/new
 	def new
 		@item = Item.new
