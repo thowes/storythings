@@ -9,6 +9,7 @@
       <%= i.label :name %>
       <%= i.text_field :name %>
       <%= i.hidden_field :is_a_box, :value => true %>
+      <%= i.hidden_field :parent_id, :value => 1 %>
 
       <%= i.submit "Create New Box", class: "btn btn-large btn-primary" %>
     <% end %>

@@ -18,6 +18,11 @@ class ItemsController < ApplicationController
 		@items = current_user.items.where( is_a_box: false )
 	end
 
+	#GET /things
+	def things
+		@items = current_user.items.where( is_a_box: false )
+	end
+
 	#GET /items/:id
 	def show
 		@item = Item.find(params[:id])
@@ -29,17 +34,12 @@ class ItemsController < ApplicationController
 
 	#GET /roots
 	def roots
-		@items = current_user.items.where( parent: nil )
+		@items = current_user.items.root?
 	end
 
 	#GET /coll
 	def coll
-		@items = current_user.items.where( depth: 1 )
-	end
-
-	#GET /things
-	def things
-		@items = current_user.items.where( depth: 3 )
+		@items = current_user.items.where( parent_id: 1 )
 	end
 
 	#GET /components
@@ -90,7 +90,7 @@ class ItemsController < ApplicationController
 
 	private
 		def item_params
-			params.require(:item).permit(:name, :is_a_box)
+			params.require(:item).permit(:name, :is_a_box, :parent_id)
 		end
 
 		def correct_user

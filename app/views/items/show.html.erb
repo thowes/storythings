@@ -11,7 +11,7 @@
  <tr><td>USER:</td><td><%= @item.user.name %></td></tr>
  <% if signed_in? %>
  <tr><td>PARENT:</td><td><%= @item.parent %></td></tr>
- <tr><td>ROOT:</td><td><%= @item.root %></td></tr>
+ <tr><td>ROOT?</td><td><%= @item.root? %></td></tr>
  <tr><td>CHILDREN:</td><td><%= @item.children %></td></tr>
  <tr><td>CREATED:</td><td><%= @item.created_at %></td></tr>
  <tr><td>UPDATE:</td><td><%= @item.updated_at %></td></tr>

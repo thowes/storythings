@@ -1,9 +1,6 @@
 add:
 	git add .
 
-cim:
-	git_projekti_cim
-
 clone:
 	git clone https://github.com/thowes/storythings.git
 
@@ -27,6 +24,9 @@ repo:
 
 st:
 	@git status
+
+todo:
+	@todo.sh ls +sth
 
 upd:
 	git pull
