@@ -25,10 +25,8 @@ repo:
 st:
 	@git status
 
-todo:
+tls:
 	@todo.sh ls +sth
 
 upd:
 	git pull
-
-	

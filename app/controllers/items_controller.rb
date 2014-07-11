@@ -75,11 +75,6 @@ class ItemsController < ApplicationController
 	#PATCH/PUT /items/:id
 	def update
 		@item = Item.find(params[:id])
-		if @item.id == '1' 
-			flash[:success] = "Item already root!"
-		else
-			@item.parent_id = '1'
-		end
 		if @item.update_attributes(item_params)
 			flash[:success] = "Item name updated"
 			redirect_to @item
