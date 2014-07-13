@@ -6,4 +6,11 @@ module ItemsHelper
     qrcode_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
     image_tag(qrcode_url, alt: item.name, class: "qrcode")
   end
+
+  def nested_items(items)
+    items.map do |item, sub_item|
+      content_tag(:div, render(item), :class => "media")
+    end.join.html_safe
+  end
 end
+

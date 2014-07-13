@@ -17,6 +17,7 @@ Storythings::Application.routes.draw do
 			get 'list'
 			get 'roots'
 			get 'things'
+			get 'tree'
 		end
 	end
   resources :badges
@@ -31,20 +32,12 @@ Storythings::Application.routes.draw do
 	match '/itemhelp', to: 'items#help',          via: 'get'
 	match '/list',    to: 'items#list',           via: 'get'
 	match '/newbox',  to: 'items#newbox',         via: 'get'
-	match '/roots',  to: 'items#roots',         via: 'get'
+	match '/roots',   to: 'items#roots',          via: 'get'
 	match '/signin',  to: 'sessions#new',         via: 'get'
 	match '/signout', to: 'sessions#destroy',     via: 'delete'
 	match '/signup',  to: 'users#new',            via: 'get'
 	match '/things',  to: 'items#things',         via: 'get'
-
-	# The priority is based upon order of creation: first created -> highest priority.
-	# See how all your routes lay out with "rake routes".
-
-	# Example of regular route:
-	#   get 'products/:id' => 'catalog#view'
-
-	# Example of named route that can be invoked with purchase_url(id: product.id)
-	#   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+	match '/tree',    to: 'items#tree',           via: 'get'
 
 	# Example resource route with sub-resources:
 	#   resources :products do
