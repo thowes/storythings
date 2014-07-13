@@ -28,6 +28,11 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 	end
 
+	#GET /items/:id/throw_away
+	def throw_away
+		@item = Item.find(params[:id])
+	end
+
 	#GET /items/help
 	def help
 	end
