@@ -30,8 +30,6 @@ Storythings::Application.routes.draw do
 	match '/help',    to: 'static_pages#help',    via: 'get'
 	match '/itemhelp', to: 'items#help',          via: 'get'
 	match '/list',    to: 'items#list',           via: 'get'
-	#match '/login',   to: 'sessions#new',         via: 'get'
-	#match '/logout',  to: 'sessions#destroy',     via: 'delete'
 	match '/newbox',  to: 'items#newbox',         via: 'get'
 	match '/roots',  to: 'items#roots',         via: 'get'
 	match '/signin',  to: 'sessions#new',         via: 'get'

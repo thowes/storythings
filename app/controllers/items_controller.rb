@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 	before_action :signed_in_user, except: [:show]
 	# testing needed for correct_user actions update and destroy
-	before_action :correct_user, only: [:destroy, :edit, :update]
+	before_action :correct_user, only: [:destroy, :edit, :update, :throw_away]
 
 	#GET /items
 	def index
