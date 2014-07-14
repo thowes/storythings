@@ -171,7 +171,7 @@ describe User do
 			FactoryGirl.create(:item, user: @user, created_at: 1.hour.ago)
 		end
 		it "should have the right items in the right order" do
-			expect(@user.items.to_a).to eq [newer_item, older_item]
+			expect(@user.items.to_a).to eq [older_item, newer_item]
 		end
 		it "should destroy associated items" do
 			items = @user.items.to_a
