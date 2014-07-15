@@ -21,7 +21,7 @@ describe "Authentication" do
 			it { should_not have_link('Sign out') }
 			it { should have_selector('div.alert.alert-error') }
 			describe "after visiting another page" do
-				before { click_link "storythings" }
+				before { click_link site_title }
 				it { should_not have_selector('div.alert.alert-error') }
 			end
 		end

@@ -5,21 +5,15 @@ describe "Static pages" do
 
 	describe "Home page" do
 		before { visit root_path }
-		it { should have_content('Storythings') }
+		it { should have_content('Welcome to Storythings') }
 		it { should have_title(full_title('')) }
 		it { should_not have_title('| Home') }
 		it "should have the right links on the layout" do
 			visit root_path
 			click_link "Sign up now!"
 			expect(page).to have_title(full_title('Sign up'))
-			click_link "storythings"
+			click_link site_title
 			expect(page).to have_title(full_title(''))
-			click_link "About"
-			expect(page).to have_title(full_title('About Us'))
-			click_link "Contact"
-			expect(page).to have_title(full_title('Contact'))
-			click_link "Help"
-			expect(page).to have_title(full_title('Help'))
 		end
 		describe "for signed-in users" do
 			let(:user) { FactoryGirl.create(:user) }

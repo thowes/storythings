@@ -6,7 +6,7 @@ shared_examples_for "all pages" do
 	it { should have_link('Help', href: help_path) }
 	it { should have_link('Contact', href: contact_path) }
 	it { should have_link('News') }
-	it { should have_link('storythings', href: root_path) }
+	it { should have_link(site_title, href: root_path) }
 	it { should have_link('Storythin.gs App') }
 end
 
