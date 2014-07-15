@@ -1,3 +1,10 @@
 <% provide(:title, 'Items Help') %>
 <h1>Items Help</h1>
-<p><%= link_to "Items", items_path %> are under <%= link_to "root items", roots_path %>, <%= link_to "collection items", coll_path %>, <%= link_to "boxes", boxes_path %>, <%= link_to "things", things_path %> and <%= link_to "components", components_path %>.</p>
+<p><%= link_to "Items", items_path %> are divided into three types:</p>
+<ul>
+	<li><%= link_to "Collections", coll_path %></li>
+	<li><%= link_to "Boxes", boxes_path %></li>
+	<li><%= link_to "Collections", coll_path %></li>
+	<li><%= link_to "Things", things_path %></li>
+	<li><%= link_to "Components", components_path %></li>
+</ul>

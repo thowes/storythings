@@ -21,8 +21,6 @@ shared_examples_for "pages before login" do
 	it { should have_title('Sign in') }
 	it { should_not have_title(full_title(page_title)) }
 	it { should have_link('Sign in') }
-	it { should_not have_link('Add') }
-	it { should_not have_link('List') }
 	it { should_not have_link('Users') }
 	it { should_not have_link('Profile') }
 	it { should_not have_link('Settings') }
@@ -31,15 +29,12 @@ shared_examples_for "pages before login" do
 end
 
 shared_examples_for "pages logged in" do
-	it { should have_link('Add', href: add_path) }
-	it { should have_link('List', href: list_path) }
+	it { should have_link('Things', href: things_path) }
 	it { should have_link('Users', href: users_path) }
 	it { should have_link('Profile') }
 	it { should have_link('Settings') }
 	it { should have_link('Sign out') }
 	it { should_not have_link('Sign in') }
-	it { should_not have_link('Boxes') }
-	it { should_not have_link('Items') }
 end
 
 shared_examples_for "pages after login" do
