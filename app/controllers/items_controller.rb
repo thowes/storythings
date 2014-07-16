@@ -1,21 +1,21 @@
 class ItemsController < ApplicationController
 	before_action :signed_in_user, except: [:show]
 	# testing needed for correct_user actions update and destroy
-	before_action :correct_user, only: [:destroy, :edit, :update, :throw_away]
+	before_action :correct_user, only: [:destroy, :edit, :update, :throwaway]
 
 	#GET /items
 	def index
 		@items = current_user.items.paginate(page: params[:page])
 	end
 
-	#GET /boxes
-	def boxes
+	#GET /coll
+	def coll
 		@items = current_user.items.where( is_a_box: true )
 	end
 
-	#GET /list
-	def list
-		@items = current_user.items.where( is_a_box: false )
+	#GET /boxes
+	def boxes
+		@items = current_user.items.where( is_a_box: true )
 	end
 
 	#GET /things
@@ -29,16 +29,12 @@ class ItemsController < ApplicationController
 	end
 
 	#GET /items/:id/throw_away
-	def throw_away
+	def throwaway
 		@item = Item.find(params[:id])
 	end
 
 	#GET /items/help
 	def help
-	end
-
-	#GET /roots
-	def roots
 	end
 
 	#GET /add or /items/new
@@ -48,6 +44,11 @@ class ItemsController < ApplicationController
 
 	#GET /newbox
 	def newbox
+		@item = Item.new
+	end
+
+	#GET /items/:id/add
+	def add
 		@item = Item.new
 	end
 

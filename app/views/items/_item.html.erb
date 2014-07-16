@@ -1,5 +1,9 @@
-<% if item.is_a_box %>
-<li>BOX <b><%= link_to item.name, item %></b>, <%= link_to 'Edit', edit_item_path(item) %></li>
+<% if item.root? %>
+ <li>COLLECTION <b><%= link_to item.name, item %></b>, <%= link_to 'Edit', edit_item_path(item) %></li>
 <% else %>
-<li>ITEM <b><%= link_to item.name, item %></b>, <%= link_to 'Edit', edit_item_path(item) %></li>
+ <% if item.is_a_box %>
+  <li>BOX <b><%= link_to item.name, item %></b>, <%= link_to 'Edit', edit_item_path(item) %></li>
+ <% else %>
+  <li>ITEM <b><%= link_to item.name, item %></b>, <%= link_to 'Edit', edit_item_path(item) %>, <%= link_to 'Throw Away', item_throwaway_path(item) %></li>
+ <% end %>
 <% end %>

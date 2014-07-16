@@ -1,6 +1,7 @@
 <% provide(:title, 'Things') %>
 <h1>Things</h1>
-<%= link_to "Create New Item", add_path %> | <%= link_to "Boxes", boxes_path %>
+<p><%= link_to "Create New Item", new_item_path %> | <%= link_to "Boxes", boxes_path %> | 
+	<%= link_to "Items Help", help_items_path %></p>
 
 <ul class="users">
   <%= render @items %>

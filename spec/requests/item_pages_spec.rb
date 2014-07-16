@@ -25,7 +25,7 @@ describe "Item pages" do
 		end
 		describe "coll items page" do
 			before { visit coll_path }
-			let(:page_title) { 'Coll List' }
+			let(:page_title) { 'Collections' }
 			it_should_behave_like "pages before login"
 			it { should_not have_content("MyTestUser") }
 			it { should_not have_content("WrongUser") }
@@ -45,12 +45,12 @@ describe "Item pages" do
 			it { should_not have_content("WrongUser") }
 		end
 		describe "new item page" do
-			before { visit add_path }
+			before { visit new_item_path }
 			let(:page_title) { 'Add New Item' }
 			it_should_behave_like "pages before login"
 		end
 		describe "new box page" do
-			before { visit newbox_path }
+			before { visit newbox_items_path }
 			let(:page_title) { 'New Box' }
 			it_should_behave_like "pages before login"
 		end
@@ -107,7 +107,7 @@ describe "Item pages" do
 			it { should have_content(box.name) }
 			it { should_not have_content(thing.name) }
 			it { should_not have_content(w_item.name) }
-			it { should have_link('Create New Box', href: newbox_path) }
+			it { should have_link('Create New Box', href: newbox_items_path) }
 		end
 		describe "things page" do
 			before { visit things_path }
@@ -116,11 +116,12 @@ describe "Item pages" do
 			it { should_not have_content(box.name) }
 			it { should_not have_content(w_item.name) }
 			it { should have_content(thing.name) }
-			it { should have_link('Create New Item', href: add_path) }
+			it { should have_link('Create New Item', href: new_item_path) }
 			it { should have_link('Boxes', href: boxes_path) }
+			it { should have_link('Items Help', href: help_items_path) }
 		end
 		describe "new item page" do
-			before { visit add_path }
+			before { visit new_item_path }
 			let(:page_title) { 'Add New Item' }
 			it_should_behave_like "pages after login"
 			describe "with invalid information" do
@@ -140,7 +141,7 @@ describe "Item pages" do
 			end
 		end
 		describe "new box page" do
-			before { visit newbox_path }
+			before { visit newbox_items_path }
 			let(:page_title) { 'New Box' }
 			it_should_behave_like "pages after login"
 			describe "with invalid information" do
