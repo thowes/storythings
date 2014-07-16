@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
 
 	#GET /items/:id/add
 	def add
-		@item = Item.new
+		@item = Item.new(:parent_id => params[:parent_id])
 	end
 
 	#POST /items
