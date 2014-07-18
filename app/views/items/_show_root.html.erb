@@ -1,5 +1,5 @@
 <table>
- <tr><td>TYPE:</td><td>ROOT</td></tr>
+ <tr><td>TYPE:</td><td>COLLECTION</td></tr>
  <tr><td>NAME:</td><td><%= @item.name %></td></tr>
  <tr><td>USER:</td><td><%= @item.user.name %></td></tr>
  <% if signed_in? %>
@@ -9,8 +9,10 @@
  <tr><td>UPDATE:</td><td><%= @item.updated_at %></td></tr>
  <% end %>
 </table>
-<hr/>
 
-<% @item.children.each do |t| %>
- <li>ITEM <%= link_to t.name, t %></li>
+<% if signed_in? %>
+ <hr/>
+ <% @item.children.each do |t| %>
+  <li>ITEM <%= link_to t.name, t %></li>
+ <% end %>
 <% end %>

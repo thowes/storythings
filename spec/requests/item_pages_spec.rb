@@ -116,8 +116,9 @@ describe "Item pages" do
 			it { should_not have_content(box.name) }
 			it { should_not have_content(w_item.name) }
 			it { should have_content(thing.name) }
-			it { should have_link('Create New Item', href: new_item_path) }
+			it { should have_link('Add New Item', href: new_item_path) }
 			it { should have_link('Boxes', href: boxes_path) }
+			it { should have_link('Collections', href: coll_path) }
 			it { should have_link('Items Help', href: help_items_path) }
 		end
 		describe "new item page" do

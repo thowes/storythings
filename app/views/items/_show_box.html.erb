@@ -10,8 +10,10 @@
  <tr><td>UPDATE:</td><td><%= @item.updated_at %></td></tr>
  <% end %>
 </table>
-<hr/>
 
-<% @item.children.each do |t| %>
- <li>ITEM <%= t.name %></li>
+<% if signed_in? %>
+ <hr/>
+ <% @item.children.each do |t| %>
+  <li>ITEM <%= link_to t.name, t %></li>
+ <% end %>
 <% end %>
