@@ -2,5 +2,9 @@
 <h1>Collections</h1>
 
 <ul class="users">
-  <%= render @items %>
+<% @items.each do |r| %>
+ <% if r.root? %>
+ <li><%= link_to r.name, r %></li>
+ <% end %>
+<% end %>
 </ul>

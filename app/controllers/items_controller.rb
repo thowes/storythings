@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 	before_action :signed_in_user, except: [:show]
 	# testing needed for correct_user actions update and destroy
-	before_action :correct_user, only: [:destroy, :edit, :update, :throwaway]
+	before_action :correct_user, only: [:destroy, :edit, :update]
 
 	#GET /items
 	def index
@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
 
 	#GET /items/:id/throw_away
 	def throwaway
-		@item = Item.find(params[:id])
+		#@item = Item.find(params[:id])
 	end
 
 	#GET /items/help

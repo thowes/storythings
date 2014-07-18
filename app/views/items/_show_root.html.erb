@@ -10,6 +10,7 @@
  <% end %>
 </table>
 <hr/>
+
 <% @item.children.each do |t| %>
- <%= puts t %>
+ <li>ITEM <%= link_to t.name, t %></li>
 <% end %>
