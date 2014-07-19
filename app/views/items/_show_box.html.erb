@@ -11,6 +11,8 @@
  <% end %>
 </table>
 
+<%= qrcode_for @item %>
+
 <% if signed_in? %>
  <hr/>
  <% @item.children.each do |t| %>
