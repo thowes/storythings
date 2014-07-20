@@ -1,7 +1,7 @@
 <% provide(:title, 'Collections') %>
 <h1>Collections</h1>
 
-<ul class="users">
+<ul class="items">
 <% @items.each do |r| %>
  <% if r.root? %>
  <li><%= link_to r.name, r %></li>

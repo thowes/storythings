@@ -1,8 +1,8 @@
 <% provide(:title, 'Boxes') %>
 <h1>Boxes</h1>
 
-<p><%= link_to "Create New Box", newbox_items_path %></p>
+<p><%= link_to "Create New Box", newbox_items_path %> | <%= link_to "Things", things_path %></p>
 
-<ul class="users">
+<ul class="items">
   <%= render @items %>
 </ul>
