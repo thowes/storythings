@@ -39,6 +39,7 @@ class ItemsController < ApplicationController
 
 	#GET /add or /items/new
 	def new
+		#@items = current_user.items.where( is_a_box: true )
 		@item = Item.new
 	end
 
@@ -85,7 +86,7 @@ class ItemsController < ApplicationController
 
 	private
 		def item_params
-			params.require(:item).permit(:name, :is_a_box, :parent_id)
+			params.require(:item).permit(:name, :is_a_box, :collection_id)
 		end
 
 		def correct_user
