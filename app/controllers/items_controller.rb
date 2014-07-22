@@ -18,6 +18,11 @@ class ItemsController < ApplicationController
 		@items = current_user.items.where( is_a_box: true )
 	end
 
+	#GET /list
+	def list
+		@items = current_user.items.paginate(page: params[:page])
+	end
+
 	#GET /things
 	def things
 		@items = current_user.items.where( is_a_box: false )
@@ -45,7 +50,7 @@ class ItemsController < ApplicationController
 
 	#GET /newbox
 	def newbox
-		@item = Item.new
+		@item = Item.new(:parent_id => params[:parent_id])
 	end
 
 	#GET /items/:id/add
@@ -72,6 +77,7 @@ class ItemsController < ApplicationController
 	#PATCH/PUT /items/:id
 	def update
 		@item = Item.find(params[:id])
+		#@item.parent_id = nil
 		if @item.update_attributes(item_params)
 			flash[:success] = "Item name updated"
 			redirect_to @item
@@ -86,7 +92,7 @@ class ItemsController < ApplicationController
 
 	private
 		def item_params
-			params.require(:item).permit(:name, :is_a_box, :collection_id)
+			params.require(:item).permit(:name, :is_a_box, :parent_id)
 		end
 
 		def correct_user

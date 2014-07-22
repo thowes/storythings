@@ -2,20 +2,20 @@
 <h1>Edit Item</h1>
 
 <div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@item) do |i| %>
-      <%= render 'shared/error_messages', object: i.object %>
+ <div class="span6 offset3">
+  <%= form_for(@item) do |i| %>
+   <%= render 'shared/error_messages', object: i.object %>
 
-      <%= i.label :name %>
-      <%= i.text_field :name %>
+   <%= i.label :name %>
+   <%= i.text_field :name %>
 
-      <%= i.label :is_a_box %>
-  		<%= i.radio_button :is_a_box, "true" %>yes
-			<%= i.radio_button :is_a_box, "false" %>no
-			<br/><br/>
+   <%= i.label :is_a_box %>
+   <%= i.radio_button :is_a_box, "true" %>yes
+   <%= i.radio_button :is_a_box, "false" %>no
+   <br/><br/>
 
-      <%= i.submit "Save changes", class: "btn btn-large btn-primary" %>
-    <% end %>
+   <%= i.submit "Save changes", class: "btn btn-large btn-primary" %>
+  <% end %>
 
-  </div>
+ </div>
 </div>

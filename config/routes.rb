@@ -15,6 +15,7 @@ Storythings::Application.routes.draw do
 			get 'components'
 			get 'boxes'
 			get 'help'
+			#get 'list'
 			get 'newbox'
 			get 'things'
 		end
@@ -27,7 +28,7 @@ Storythings::Application.routes.draw do
 	match '/components', to: 'items#components',  via: 'get'
 	match '/contact', to: 'static_pages#contact', via: 'get'
 	match '/help',    to: 'static_pages#help',    via: 'get'
-	#match '/newbox',  to: 'items#newbox',         via: 'get'
+	#match '/list',    to: 'items#list',           via: 'get'
 	match '/signin',  to: 'sessions#new',         via: 'get'
 	match '/signout', to: 'sessions#destroy',     via: 'delete'
 	match '/signup',  to: 'users#new',            via: 'get'

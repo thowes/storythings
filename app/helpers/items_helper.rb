@@ -13,4 +13,3 @@ module ItemsHelper
     end.join.html_safe
   end
 end
-
