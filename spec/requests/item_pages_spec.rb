@@ -11,7 +11,7 @@ describe "Item pages" do
 	describe "before login" do
 		describe "item index page" do
 			before { visit items_path }
-			let(:page_title) { 'Items List' }
+			let(:page_title) { 'Items' }
 			it_should_behave_like "pages before login"
 			it { should_not have_content("MyTestUser") }
 			it { should_not have_content("WrongUser") }
@@ -93,7 +93,7 @@ describe "Item pages" do
 		before { sign_in user }
 		describe "item index page" do
 			before { visit items_path }
-			let(:page_title) { 'Items List' }
+			let(:page_title) { 'Items' }
 			it_should_behave_like "pages after login"
 			it { should have_content(box.name) }
 			it { should have_link(box.name, href: item_path(box)) }

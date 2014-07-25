@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe License do
-  pending "add some examples to (or delete) #{__FILE__}"
+	subject { @license }
+	before { @license = License.new(name: "Test License", price: "1.00") }
+
+	it { should respond_to(:name) }
+	it { should respond_to(:price) }
 end

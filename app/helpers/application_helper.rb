@@ -14,4 +14,9 @@ module ApplicationHelper
 			"#{base_title} | #{page_title}"
 		end
 	end
+
+	# Returns the page title on a per-page basis.
+	def view_title(page_title)
+		page_title
+	end
 end
