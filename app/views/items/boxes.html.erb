@@ -1,6 +1,9 @@
 <% provide(:title, 'Boxes') %>
 
-<p><%= link_to "Create New Box", newbox_items_path %> | <%= link_to "Things", things_path %></p>
+<ul class="button-group">
+  <li><%= link_to "Create New Box", newbox_items_path, class: "button" %></li>
+  <li><%= link_to "Things", things_path, class: "button" %></li>
+</ul>
 
 <ul class="items">
   <%= render @items %>
