@@ -1,9 +1,13 @@
 <% provide(:title, 'Collections') %>
 
-<ul class="items">
-<% @items.each do |r| %>
- <% if r.root? %>
- <li><b><%= link_to r.name, r %></b>, <%= link_to 'Edit', edit_item_path(r) %></li>
- <% end %>
-<% end %>
-</ul>
+   <div class="row">
+    <div class="small-10 large-centered columns">
+     <ul class="items">
+      <% @items.each do |r| %>
+       <% if r.root? %>
+        <li><b><%= link_to r.name, r %></b>, <%= link_to 'Edit', edit_item_path(r) %></li>
+       <% end %>
+      <% end %>
+     </ul>
+    </div>
+   </div>

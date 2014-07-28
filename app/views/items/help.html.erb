@@ -1,10 +1,13 @@
 <% provide(:title, 'Items Help') %>
 
-<p><%= link_to "Items", items_path %> are divided into three types:</p>
-<ul>
-	<li><%= link_to "Collections", coll_path %></li>
-	<li><%= link_to "Boxes", boxes_path %></li>
-	<li><%= link_to "Things", things_path %></li>
-</ul>
-
-<p>To create new item, go to <%= link_to "Add New Item", new_item_path %>.</p>
+   <div class="row">
+    <div class="small-10 large-centered columns">
+     <p><%= link_to "Items", items_path %> are divided into three types:</p>
+     <ul>
+	    <li><%= link_to "Collections", coll_path %></li>
+	    <li><%= link_to "Boxes", boxes_path %></li>
+      <li><%= link_to "Things", things_path %></li>
+     </ul>
+     <p>To create new item, go to <%= link_to "Add New Item", new_item_path %>.</p>
+    </div>
+   </div>

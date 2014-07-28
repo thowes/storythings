@@ -1,8 +1,8 @@
 <% provide(:title, 'Add New Item') %>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@item) do |i| %>
+   <div class="row">
+    <div class="small-10 large-centered columns">
+     <%= form_for(@item) do |i| %>
     	<%= render 'shared/error_messages', object: i.object %>
 
       <%= i.label :name %>
@@ -11,5 +11,5 @@
       
       <%= i.submit "Add Item", class: "btn btn-large btn-primary" %>
     <% end %>
+   </div>
   </div>
-</div>

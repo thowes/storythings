@@ -1,9 +1,23 @@
 <% provide(:title, 'Items') %>
 
-<%= will_paginate %>
- 
-  <ul class="items">
-    <%= render @items %>
-  </ul>
-
-<%= will_paginate %>
+   <div class="row">
+    <div class="small-10 large-centered columns">
+     <ul class="items">
+      <%= will_paginate %>
+     </ul>
+    </div>
+   </div>
+   <div class="row">
+    <div class="small-10 large-centered columns">
+     <ul class="items">
+      <%= render @items %>
+     </ul>
+    </div>
+   </div>
+   <div class="row">
+    <div class="small-10 large-centered columns">
+     <ul class="items">
+      <%= will_paginate %>
+     </ul>
+    </div>
+   </div>

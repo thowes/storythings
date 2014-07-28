@@ -1,15 +1,15 @@
 <% provide(:title, 'Add New Item') %>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@item) do |i| %>
-    	<%= render 'shared/error_messages', object: i.object %>
+   <div class="row">
+    <div class="small-10 large-centered columns">
+     <%= form_for(@item) do |i| %>
+      <%= render 'shared/error_messages', object: i.object %>
 
       <%= i.label :name %>
       <%= i.text_field :name %>
       <%= i.hidden_field :is_a_box, :value => false %>
 
       <%= i.submit "Add Item", class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>
-</div>
+     <% end %>
+    </div>
+   </div>

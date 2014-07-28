@@ -1,12 +1,20 @@
 <% provide(:title, 'Things') %>
 
-<ul class="button-group">
-  <li><%= link_to "Add New Item", new_item_path, class: "button" %></li>
-  <li><%= link_to "Boxes", boxes_path, class: "button" %></li>
-  <li><%= link_to "Collections", coll_path, class: "button" %></li>
-  <li><%= link_to "Items Help", help_items_path, class: "button" %></li>
-</ul>
+   <div class="row">
+    <div class="small-10 large-centered columns">
+     <ul class="button-group">
+      <li><%= link_to "Add New Item", new_item_path, class: "button tiny" %></li>
+      <li><%= link_to "Boxes", boxes_path, class: "button tiny" %></li>
+      <li><%= link_to "Collections", coll_path, class: "button tiny" %></li>
+      <li><%= link_to "Items Help", help_items_path, class: "button tiny" %></li>
+     </ul>
+    </div>
+   </div>
 
-<ul class="items">
-  <%= render @items %>
-</ul>
+   <div class="row">
+    <div class="small-10 large-centered columns">
+     <ul class="items">
+      <%= render @items %>
+     </ul>
+    </div>
+   </div>
