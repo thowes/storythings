@@ -1,7 +1,0 @@
-<% provide(:title, 'Item List') %>
-
-<%= nested_items @items.arrange(:order => :created_at) %>
-
-<ul class="items">
-  <%= render @items %>
-</ul>
