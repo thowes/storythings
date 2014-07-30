@@ -2,8 +2,8 @@
  <tr><td>TYPE:</td><td>BOX</td></tr>
  <tr><td>NAME:</td><td><%= @item.name %></td></tr>
  <tr><td>USER:</td><td><%= @item.user.name %></td></tr>
- <% if signed_in? %>
  <tr><td>PARENT:</td><td><%= @item.parent.name %></td></tr>
+ <% if signed_in? %>
  <tr><td>ROOT?</td><td><%= @item.root? %></td></tr>
  <tr><td>CHILDREN?</td><td><%= @item.has_children? %></td></tr>
  <tr><td>CREATED:</td><td><%= @item.created_at %></td></tr>
