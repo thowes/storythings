@@ -58,19 +58,19 @@ describe "Item pages" do
 			before { visit item_path(box) }
 			let(:page_title) { box.name }
 			it_should_behave_like "all static pages"
-			it { should have_content(box.user.name) }
+			it { should_not have_content(box.user.name) }
 		end
 		describe "show thing" do
 			before { visit item_path(thing) }
 			let(:page_title) { thing.name }
 			it_should_behave_like "all static pages"
-			it { should have_content(thing.user.name) }
+			it { should_not have_content(thing.user.name) }
 		end
 		describe "show wrong item" do
 			before { visit item_path(w_item) }
 			let(:page_title) { w_item.name }
 			it_should_behave_like "all static pages"
-			it { should have_content(w_item.user.name) }
+			it { should_not have_content(w_item.user.name) }
 		end
 		describe "edit box" do
 			before { visit edit_item_path(box) }

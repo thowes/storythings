@@ -1,17 +1,28 @@
 
-<table>
- <tr><td>TYPE:</td><td>COLLECTION</td></tr>
- <tr><td>NAME:</td><td><%= @item.name %></td></tr>
- <tr><td>USER:</td><td><%= @item.user.name %></td></tr>
- <% if signed_in? %>
- <tr><td>ROOT?</td><td><%= @item.root? %></td></tr>
- <tr><td>CHILDREN?</td><td><%= @item.has_children? %></td></tr>
- <tr><td>CREATED:</td><td><%= @item.created_at %></td></tr>
- <tr><td>UPDATE:</td><td><%= @item.updated_at %></td></tr>
- <% end %>
-</table>
+   <div class="row">
+    <div class="small-10 large-centered columns">
+     <ul class="button-group">
+      <li><%= link_to 'Edit', edit_item_path(@item), class: "button tiny" %></li>
+      <li><%= link_to 'Add to Coll', item_add_path(@item), class: "button tiny" %></li>
+     </ul>
+    </div>
+   </div>
 
-<%= qrcode_for @item %>
+   <div class="row">
+    <div class="small-5 columns">
+    <%= qrcode_for @item %>
+    </div>
+    <div class="small-5 columns">
+      <ul>
+       <li>TYPE: COLLECTION</li>
+       <% if signed_in? %>
+       <li>USER: <%= @item.user.name %></li>
+       <li>CREATED:</td><td><%= @item.created_at %></li>
+       <li>UPDATE:</td><td><%= @item.updated_at %></li>
+       <% end %>
+      </ul>
+     </div>
+   </div>
 
 <% if signed_in? %>
  <hr/>
