@@ -1,18 +1,7 @@
-<nav class="top-bar">
-  <section class="top-bar-section">
-    <ul class="right">
-       <li class="divider"></li>
-       <li><a href="http://storythin.gs/">Storythin.gs App</a></li>
-       <li class="divider"></li>
-       <li><a href="http://thw.kapsi.fi/">by ThW</a></li>
-       <li class="divider"></li>
-       <li><%= link_to "About", about_path %></li>
-       <li class="divider"></li>
-       <li><%= link_to "Contact", contact_path %></li>
-       <li class="divider"></li>
-       <li><%= link_to "Help", help_path %></li>
-       <li class="divider"></li>
-       <li><a href="http://blog.storythin.gs/">News</a></li>
-    </ul>
-  </section>
-</nav>
+
+     <ul class="button-group">
+      <li><%= link_to 'About', about_path, class: "button tiny secondary" %></li>
+      <li><%= link_to 'Contact', contact_path, class: "button tiny secondary" %></li>
+      <li><%= link_to 'Help', help_path, class: "button tiny secondary" %></li>
+      <li><%= link_to 'Blog', 'http://blog.storythin.gs/', class: "button tiny secondary" %></li>
+     </ul>

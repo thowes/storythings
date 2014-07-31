@@ -34,11 +34,11 @@
    <%= yield %>
    <div class="row">
     <div class="small-10 large-centered columns">
+      <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
     </div>
    </div>
     
-   <%= render 'layouts/footer' %>
    <%= javascript_include_tag "application" %>
   </body>
 </html>
