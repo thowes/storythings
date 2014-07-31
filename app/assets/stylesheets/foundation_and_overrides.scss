@@ -148,8 +148,7 @@ $default-float: left;
 
 
 // Grid Variables
-
-// $row-width: em-calc(1000);
+$row-width: em-calc(1000);
 $column-gutter: em-calc(60);
 // $total-columns: 12;
 
@@ -377,13 +376,11 @@ $column-gutter: em-calc(60);
 // $button-font-align: center;
 
 // We use these to control various hover effects.
-
 // $button-function-factor: 10%;
 
 // We use these to control button border styles.
-
 // $button-border-width: 1px;
-// $button-border-style: solid;
+// button-border-style: solid;
 
 // We use this to set the default radius used throughout the core.
 
@@ -399,12 +396,10 @@ $column-gutter: em-calc(60);
 //
 
 // Sets the margin for the right side by default, and the left margin if right-to-left direction is used
+$button-bar-margin-opposite: em-calc(10);
 
-// $button-bar-margin-opposite: em-calc(10);
 
-//
 // Dropdown Button Variables
-//
 
 // We use these to set the color of the pip in dropdown buttons
 

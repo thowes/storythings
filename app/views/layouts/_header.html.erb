@@ -1,26 +1,32 @@
-<nav class="top-bar">
+ <nav class="top-bar" data-topbar> 
   <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to site_title, root_path, id: "logo" %></h1>
-    </li>
+   <li class="name"><h1><%= link_to site_title, root_path, id: "logo" %></h1></li>
+   <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
+
   <section class="top-bar-section">
+   <% if signed_in? %>
+    <!-- Right Nav Section -->
     <ul class="right">
-      <% if signed_in? %>
-       <li class="divider"></li>
-       <li><%= link_to "Things", things_path %></li>
-       <li class="divider"></li>
-       <li><%= link_to "Users", users_path %></li>
-       <li class="divider"></li>
-       <li><%= link_to "Profile", current_user %></li>
-       <li class="divider"></li>
-       <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-       <li class="divider"></li>
+     <li class="has-dropdown">
+      <a href="#">Settings</a>
+      <ul class="dropdown">
+       <li><%= link_to "Other Users", users_path %></li>
+       <li><%= link_to "My Profile", current_user %></li>
+       <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
        <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
-      <% else %>
-       <li class="divider"></li>
-       <li><%= link_to "Sign in", signin_path %></li>
-      <% end %>
+      </ul>
     </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+     <li><%= link_to "Things", things_path %></li>
+    </ul>
+   <% else %>
+    <!-- Right Nav Section -->
+    <ul class="right">
+     <li class="active"><%= link_to "Sign in", signin_path %></li>
+    </ul>
+   <% end %>
   </section>
-</nav>
+ </nav>

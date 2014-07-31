@@ -19,18 +19,13 @@ shared_examples_for "pages before login" do
 	it { should have_title('Sign in') }
 	it { should_not have_title(full_title(page_title)) }
 	it { should have_link('Sign in') }
-	it { should_not have_link('Users') }
-	it { should_not have_link('Profile') }
-	it { should_not have_link('Settings') }
 	it { should_not have_link('Sign out') }
 	it_should_behave_like "all pages"
 end
 
 shared_examples_for "pages logged in" do
 	it { should have_link('Things', href: things_path) }
-	it { should have_link('Users', href: users_path) }
-	it { should have_link('Profile') }
-	it { should have_link('Settings') }
+	it { should have_link('Other Users', href: users_path) }
 	it { should have_link('Sign out') }
 	it { should_not have_link('Sign in') }
 end
