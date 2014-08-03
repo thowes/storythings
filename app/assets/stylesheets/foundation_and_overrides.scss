@@ -1,5 +1,5 @@
 //
-// Foundation Variables
+// FOUNDATIOn VARIABLES
 //
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
@@ -123,7 +123,8 @@ $default-float: left;
 // $include-html-magellan-classes: $include-html-classes;
 // $include-html-tooltip-classes: $include-html-classes;
 
-// Media Queries
+
+// MEDIA QUERIES
 
 // $small-screen: 768px;
 // $medium-screen: 1280px;
@@ -137,7 +138,7 @@ $default-float: left;
 // $portrait: "only screen and (orientation: portrait)";
 
 
-//// Cursors
+//// CURSORS
 
 //Custom use example -> $cursor-default-value: url(http://cursors-site.net/path/to/custom/cursor/default.cur),progress;
 
@@ -153,7 +154,7 @@ $column-gutter: em-calc(60);
 // $total-columns: 12;
 
 
-// Block Grid Variables
+// BLOCK GRID VARIABLES
 
 // We use this to control the maximum number of block grid elements per row
 
@@ -165,7 +166,7 @@ $column-gutter: em-calc(60);
 // $block-grid-media-queries: true;
 
 
-// Typography Variables
+// TYPOGRAPHY VARIABLES
 
 // Control header font styles
 
@@ -281,9 +282,8 @@ $column-gutter: em-calc(60);
 // $microformat-abbr-font-weight: bold;
 // $microformat-abbr-font-decoration: none;
 
-//
-// Form Variables
-//
+
+// FORM VARIABLES
 
 // We use this to set the base for lots of form spacing and positioning styles
 
@@ -347,9 +347,8 @@ $column-gutter: em-calc(60);
 // $glowing-effect-fade-time: 0.45s;
 // $glowing-effect-color: $input-focus-border-color;
 
-//
-// Button Variables
-//
+
+// BUTTON VARIABLES
 
 // We use these to build padding for buttons.
 
@@ -376,9 +375,11 @@ $column-gutter: em-calc(60);
 // $button-font-align: center;
 
 // We use these to control various hover effects.
+
 // $button-function-factor: 10%;
 
 // We use these to control button border styles.
+
 // $button-border-width: 1px;
 // button-border-style: solid;
 
@@ -391,15 +392,15 @@ $column-gutter: em-calc(60);
 
 // $button-disabled-opacity: 0.6;
 
-//
-// Button Groups
-//
+
+// BUTTON GROUPS
 
 // Sets the margin for the right side by default, and the left margin if right-to-left direction is used
+
 $button-bar-margin-opposite: em-calc(10);
 
 
-// Dropdown Button Variables
+// DROPDOWN BUTTON VARIABLES
 
 // We use these to set the color of the pip in dropdown buttons
 
@@ -434,9 +435,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $dropdown-button-pip-opposite-lrg: $button-lrg + em-calc(12);
 // $dropdown-button-pip-top-lrg: -$button-lrg / 2 + em-calc(3);
 
-//
-// Split Button Variables
-//
+
+// SPLIT BUTTON VARIABLES
 
 // We use these to control different shared styles for Split Buttons
 
@@ -477,9 +477,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $split-button-pip-top-lrg: $button-lrg + em-calc(5);
 // $split-button-pip-default-float-lrg: em-calc(-9);
 
-//
-// Alert Box Variables
-//
+
+// ALERT BOX VARIABLES
 
 // We use this to control alert padding.
 
@@ -520,9 +519,7 @@ $button-bar-margin-opposite: em-calc(10);
 // $alert-radius: $global-radius;
 
 
-//
-// Breadcrumb Variables
-//
+// BREADCRUMB VARIABLES
 
 // We use this to set the background color for the breadcrumb container.
 
@@ -555,9 +552,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $crumb-slash-color: #aaa;
 // $crumb-slash: "/";
 
-//
-// Clearing Variables
-//
+
+// CLEARING VARIABLES
 
 // We use these to set the background colors for parts of Clearing.
 
@@ -588,9 +584,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $clearing-carousel-thumb-width: 175px;
 // $clearing-carousel-thumb-active-border: 4px solid rgb(255,255,255);
 
-//
-// Custom Form Variables
-//
+
+// CUSTOM FORM VARIABLES
 
 // We use these to control the basic form styles input styles
 
@@ -637,9 +632,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $custom-dropdown-width-medium: 254px;
 // $custom-dropdown-width-large: 434px;
 
-//
-// Dropdown Variables
-//
+
+// DROPDOWN VARIABLES
 
 // We use these to controls height and width styles.
 
@@ -678,9 +672,8 @@ $button-bar-margin-opposite: em-calc(10);
 
 // $f-dropdown-content-padding: em-calc(20);
 
-//
-// Flex Video Variables
-//
+
+// FLEX VIDEO VARIABLES
 
 // We use these to control video container padding and margins
 
@@ -692,9 +685,8 @@ $button-bar-margin-opposite: em-calc(10);
 
 // $flex-video-widescreen-padding-bottom: 57.25%;
 
-//
-// Inline List Variables
-//
+
+// INLINE LIST VARIABLES
 
 // We use this to control the margins and padding of the inline list.
 
@@ -717,9 +709,8 @@ $button-bar-margin-opposite: em-calc(10);
 
 // $inline-list-children-display: block;
 
-//
-// Joyride Variables
-//
+
+// JOYRIDE VARIABLES
 
 // Controlling default Joyride styles
 
@@ -756,9 +747,8 @@ $button-bar-margin-opposite: em-calc(10);
 
 // $joyride-screenfill: rgba(0,0,0,0.5);
 
-//
-// Keystroke Variables
-//
+
+// KEYSTROKE VARIABLES
 
 // We use these to control text styles.
 
@@ -780,9 +770,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $keystroke-border-color: darken($keystroke-bg, $keystroke-function-factor);
 // $keystroke-radius: $global-radius;
 
-//
-// Label Variables
-//
+
+// LABEL VARIABLES
 
 // We use these to style the labels
 
@@ -796,16 +785,14 @@ $button-bar-margin-opposite: em-calc(10);
 // $label-font-color: #333;
 // $label-font-color-alt: #fff;
 
-//
-// Magellan Variables
-//
+
+// MAGELLAN VARIABLES
 
 // $magellan-bg: #fff;
 // $magellan-padding: 10px;
 
-//
-// Orbit Settings
-//
+
+// ORBIT SETTINGS
 
 // We use these to control the caption styles
 
@@ -846,9 +833,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $wrapper-class: "slideshow-wrapper";
 // $preloader-class: "preloader";
 
-//
-// Pagination Variables
-//
+
+// PAGINATION VARIABLES
 
 // We use these to control the pagination container
 
@@ -883,9 +869,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $pagination-link-current-cursor: default;
 // $pagination-link-current-active-bg: $primary-color;
 
-//
-// Panel Variables
-//
+
+// PANEL VARIABLES
 
 // We use these to control the background and border styles
 
@@ -910,9 +895,8 @@ $button-bar-margin-opposite: em-calc(10);
 
 // $panel-header-adjust: true;
 
-//
-// Pricing Table Variables
-//
+
+// PRICING TABLE VARIABLES
 
 // We use this to control the border color
 
@@ -966,9 +950,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $price-cta-align: center;
 // $price-cta-padding: em-calc(20 20 0);
 
-//
-// Progress Bar Variables
-//
+
+// PROGRESS VAR VARIABLES
 
 // We use this to se the prog bar height
 
@@ -994,9 +977,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $progress-meter-success-color: $success-color;
 // $progress-meter-alert-color: $alert-color;
 
-//
-// Reveal Variables
-//
+
+// REVEAL VARIABLES
 
 // We use these to control the style of the reveal overlay.
 
@@ -1028,9 +1010,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $reveal-modal-class: "reveal-modal";
 // $close-reveal-modal-class: "close-reveal-modal";
 
-//
-// Section Variables
-//
+
+// SECTION VARIABLES
 
 // We use these to set padding and hover factor
 
@@ -1068,9 +1049,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $content-selector: ".content";
 // $active-region-selector: ".active";
 
-//
-// Side Nav Variables
-//
+
+// SIDE NAV VARIABLES
 
 // We use this to control padding.
 
@@ -1095,9 +1075,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $side-nav-divider-style: solid;
 // $side-nav-divider-color: darken(#fff, 10%);
 
-//
-// Sub Nav Variables
-//
+
+// SUB NAV VARIABLES
 
 // We use these to control margin and padding
 
@@ -1123,9 +1102,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $sub-nav-item-divider: "" !default;
 // $sub-nav-item-divider-margin: emCalc(12) !default;
 
-//
-// Switch Variables
-//
+
+// SWITCH VARIABLES
 
 // Controlling border styles and background colors for the switch container
 
@@ -1166,9 +1144,8 @@ $button-bar-margin-opposite: em-calc(10);
 
 // $switch-label-outline: 1px dotted #888;
 
-//
-// Table Variables
-//
+
+// TABLE VARIABLES
 
 // These control the background color for the table and even rows
 
@@ -1201,9 +1178,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $table-display: table-cell;
 // $table-margin-bottom: em-calc(20);
 
-//
-// Image Thumbnail Variables
-//
+
+// IMAGE THUMBNAIL VARIABLES
 
 // We use these to control border styles
 
@@ -1218,9 +1194,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $thumb-radius: $global-radius;
 // $thumb-transition-speed: 200ms;
 
-//
-// Tooltip Variables
-//
+
+// TOOLTOP VARIABLES
 
 // $has-tip-border-bottom: dotted 1px #ccc;
 // $has-tip-font-weight: bold;
@@ -1242,9 +1217,8 @@ $button-bar-margin-opposite: em-calc(10);
 // $tooltip-radius: $global-radius;
 // $tooltip-pip-size: 5px;
 
-//
-// Top Bar Variables
-//
+
+// TOP BAR VARIABLES
 
 // Background color for the top bar
 $topbar-bg-color: #212D48;
@@ -1309,7 +1283,7 @@ $topbar-bg: $topbar-bg-color;
 // Divider Styles
 
 // $topbar-divider-border-bottom: solid 1px lighten($topbar-bg-color, 10%);
-//  $topbar-divider-border-top: solid 1px darken($topbar-bg-color, 10%);
+// $topbar-divider-border-top: solid 1px darken($topbar-bg-color, 10%);
 
 // Sticky Class
 
