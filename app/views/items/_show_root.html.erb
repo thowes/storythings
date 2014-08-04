@@ -1,18 +1,18 @@
 
    <div class="row">
-    <div class="small-10 large-centered columns">
-     <ul class="button-group">
-      <li><%= link_to 'Edit', edit_item_path(@item), class: "button tiny" %></li>
-      <li><%= link_to 'Add to Coll', item_add_path(@item), class: "button tiny" %></li>
+    <div class="small-12 small-centered columns">
+     <ul class="button-group radius">
+      <li><%= link_to 'Edit', edit_item_path(@item), class: "tiny button" %></li>
+      <li><%= link_to 'Add to Coll', item_add_path(@item), class: "tiny button" %></li>
      </ul>
     </div>
    </div>
 
    <div class="row">
-    <div class="small-5 columns">
-    <%= qrcode_for @item %>
+    <div class="small-3 columns">
+     <%= qrcode_for @item %>
     </div>
-    <div class="small-5 columns">
+    <div class="small-9 columns">
       <ul>
        <li>TYPE: COLLECTION</li>
        <% if signed_in? %>
@@ -24,9 +24,15 @@
      </div>
    </div>
 
-<% if signed_in? %>
- <hr/>
- <% @item.children.each do |t| %>
-  <li>ITEM <%= link_to t.name, t %></li>
- <% end %>
-<% end %>
+   <% if signed_in? %>
+    <hr/>
+    <div class="row">
+     <div class="small-12 small-centered columns">
+      <ul>
+       <% @item.children.each do |t| %>
+        <li>ITEM <%= link_to t.name, t %></li>
+       <% end %>
+      </ul>
+     </div>
+    </div>
+   <% end %>

@@ -1,13 +1,13 @@
 <% if signed_in? %>
 
    <div class="row">
-    <div class="large-6 columns">
+    <div class="large-3 columns">
      <%= render 'shared/user_info' %>
      <%= render 'shared/stats' %>
      <%= render 'shared/micropost_form' %>
     </div>
-    <div class="large-6 columns">
-     <h3>Micropost Feed</h3>
+    <div class="large-9 columns">
+     <h3>Activity</h3>
      <%= render 'shared/feed' %>
     </div>
    </div>

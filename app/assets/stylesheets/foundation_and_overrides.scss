@@ -1200,7 +1200,7 @@ $sub-nav-active-cursor: default;
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
-// $topbar-title-weight: $font-weight-normal;
+//$topbar-title-weight: $font-weight-bold;
 // $topbar-title-font-size: rem-calc(17);
 
 // Style the top bar dropdown elements
@@ -1250,7 +1250,7 @@ $sub-nav-active-cursor: default;
 // Transitions and breakpoint styles
 // $topbar-transition-speed: 300ms;
 // Using rem-calc for the below breakpoint causes issues with top bar
-// $topbar-breakpoint: #{lower-bound($medium-range)}; // Change to 9999px for always mobile layout
+$topbar-breakpoint: 9999px; // Change to 9999px for always mobile layout
 // $topbar-media-query: $medium-up;
 
 // Divider Styles

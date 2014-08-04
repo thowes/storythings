@@ -1,25 +1,19 @@
  <nav class="top-bar" data-topbar> 
   <ul class="title-area">
    <li class="name"><h1><%= link_to site_title, root_path, id: "logo" %></h1></li>
+   <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+   <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
 
   <section class="top-bar-section">
    <% if signed_in? %>
     <!-- Right Nav Section -->
     <ul class="right">
-     <li class="has-dropdown">
-      <a href="#">Settings</a>
-      <ul class="dropdown">
-       <li><%= link_to "Other Users", users_path %></li>
-       <li><%= link_to "My Profile", current_user %></li>
-       <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
-       <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
-      </ul>
-    </ul>
-
-    <!-- Left Nav Section -->
-    <ul class="left">
      <li><%= link_to "Things", things_path %></li>
+     <li><%= link_to "Other Users", users_path %></li>
+     <li><%= link_to "My Profile", current_user %></li>
+     <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+     <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
     </ul>
    <% else %>
     <!-- Right Nav Section -->
