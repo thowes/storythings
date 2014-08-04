@@ -10,7 +10,7 @@ gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 #gem 'bootstrap-will_paginate', '0.0.9'
 gem 'ancestry', '2.1.0'
-gem 'zurb-foundation', '4.2.2'
+gem 'foundation-rails'
 
 group :development, :test do
 	gem 'sqlite3', '1.3.8'
