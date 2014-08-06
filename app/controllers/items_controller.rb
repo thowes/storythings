@@ -55,7 +55,9 @@ class ItemsController < ApplicationController
 
 	#GET /items/:id/add
 	def add
-		@item = Item.new(:parent_id => params[:parent_id])
+		@parent = Item.find(params[:item_id])
+		#@item = Item.find(params[:id])
+		@new_item = Item.new(:parent_id => params[:item_id])
 	end
 
 	#POST /items
