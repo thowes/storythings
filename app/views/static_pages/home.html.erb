@@ -1,12 +1,12 @@
 <% if signed_in? %>
 
    <div class="row">
-    <div class="large-3 columns">
+    <div class="large-4 columns">
      <%= render 'shared/user_info' %>
      <%= render 'shared/stats' %>
      <%= render 'shared/micropost_form' %>
     </div>
-    <div class="large-9 columns">
+    <div class="large-8 columns">
      <h3>Activity</h3>
      <%= render 'shared/feed' %>
     </div>
