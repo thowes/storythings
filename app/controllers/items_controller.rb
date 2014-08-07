@@ -73,13 +73,14 @@ class ItemsController < ApplicationController
 
   #GET /items/:id/edit
 	def edit
+		@parents = current_user.items.where( is_a_box: true )
 		@item = Item.find(params[:id])
 	end
 
 	#PATCH/PUT /items/:id
 	def update
 		@item = Item.find(params[:id])
-		#@item.parent_id = nil
+		@item.parent_id = params[:parent_id]
 		if @item.update_attributes(item_params)
 			flash[:success] = "Item name updated"
 			redirect_to @item

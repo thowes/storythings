@@ -18,8 +18,8 @@
       <ul>
        <li>TYPE: COMPONENT</li>
        <% if signed_in? %>
-       <li>USER: <%= @item.user.name %></li>
-       <li>BOX/COLL: <%= @item.parent.name %></li>
+       <li>USER: <%= link_to @item.user.name, user_path(@item.user) %></li>
+       <li>BOX/COLL: <%= link_to @item.parent.name, item_path(@item.parent) %><%=  %></li>
        <li>CREATED: <%= @item.created_at %></li>
        <li>UPDATE: <%= @item.updated_at %></li>
        <% end %>

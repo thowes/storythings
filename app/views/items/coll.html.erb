@@ -5,7 +5,7 @@
      <ul class="items">
       <% @items.each do |r| %>
        <% if r.root? %>
-        <li><b><%= link_to r.name, r %></b>, <%= link_to 'Edit', edit_item_path(r) %></li>
+        <li><b><%= link_to r.name, r %></b></li>
        <% end %>
       <% end %>
      </ul>
