@@ -1,7 +1,7 @@
-
+   <% if signed_in? %>
    <div class="row">
     <div class="small-12 small-centered columns">
-     <ul class="button-group">
+     <ul class="button-group radius">
       <li><%= link_to 'Edit', edit_item_path(@item), class: "button tiny" %></li>
       <li><%= link_to 'Add to Coll', item_add_path(@item), class: "button tiny" %></li>
       <li><%= link_to 'Add to Box', item_add_path(@item.id), class: "button tiny" %></li>
@@ -9,7 +9,8 @@
      </ul>
     </div>
    </div>
-
+   <% end %>
+   
    <div class="row">
     <div class="small-3 columns">
      <%= qrcode_for @item %>

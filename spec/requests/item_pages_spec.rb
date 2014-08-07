@@ -192,6 +192,7 @@ describe "Item pages" do
 			end
 			describe "with a valid name" do
 				before { fill_in 'item_name', with: "My Renamed Thing" }
+				#before { fill_in 'parent_id', with: box }
 				before { click_button "Save changes" }
 				it { should have_content('My Renamed Thing') }
 			end

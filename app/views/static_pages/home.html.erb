@@ -7,6 +7,12 @@
      <%= render 'shared/micropost_form' %>
     </div>
     <div class="large-8 columns">
+     <h3>Item Collections</h3>
+     <% @items.each do |r| %>
+      <% if r.root? %>
+       <%= link_to r.name, r %>,
+      <% end %>
+     <% end %>
      <h3>Activity</h3>
      <%= render 'shared/feed' %>
     </div>
