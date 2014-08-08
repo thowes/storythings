@@ -24,8 +24,6 @@ shared_examples_for "pages before login" do
 end
 
 shared_examples_for "pages logged in" do
-	it { should have_link('Things', href: things_path) }
-	it { should have_link('Other Users', href: users_path) }
 	it { should have_link('Sign out') }
 	it { should_not have_link('Sign in') }
 end
