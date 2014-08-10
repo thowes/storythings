@@ -10,15 +10,6 @@
       <%= i.radio_button :is_a_box, "true" %>yes
       <%= i.radio_button :is_a_box, "false" %>no
       <br/><br/>
-      <select name="parent_id" id="parent_id">
-       <% @parents.each do |t| %>
-        <% if t.id === @item.parent_id %> 
-         <option value="<%= t.id %>" selected><%= t.name %></option>
-        <% else %>
-         <option value="<%= t.id %>"><%= t.name %></option>
-        <% end %>
-       <% end %>
-      </select>
       <%= i.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
    </div>

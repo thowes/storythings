@@ -41,7 +41,6 @@ class ItemsController < ApplicationController
 	#GET /items/help
 	def help
 	end
-
 	#GET /add or /items/new
 	def new
 		#@items = current_user.items.where( is_a_box: true )
@@ -77,12 +76,18 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 	end
 
+	#GET /items/:id/move
+	def move
+		@item = Item.find(params[:item_id])
+		@parents = current_user.items.where( is_a_box: true )
+	end
+
 	#PATCH/PUT /items/:id
 	def update
 		@item = Item.find(params[:id])
 		@item.parent_id = params[:parent_id]
 		if @item.update_attributes(item_params)
-			flash[:success] = "Item name updated"
+			flash[:success] = "Item updated"
 			redirect_to @item
 		else
 			render 'edit'
