@@ -19,11 +19,11 @@
 
  <body>
   <%= render 'layouts/header' %>
-  <% flash.each do |key, value| %>
-   <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-  <% end %>
   <div class="row">
    <div class="small-12 small-centered columns">
+    <% flash.each do |key, value| %>
+     <%= content_tag(:div, value, class: "alert-box #{key} radius") %>
+    <% end %>
     <h1><%= view_title(yield(:title)) %></h1>
    </div>
   </div>

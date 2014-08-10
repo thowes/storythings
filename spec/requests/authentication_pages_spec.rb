@@ -19,10 +19,10 @@ describe "Authentication" do
 			it { should_not have_link('Profile') }
 			it { should_not have_link('Settings') }
 			it { should_not have_link('Sign out') }
-			it { should have_selector('div.alert.alert-error') }
+			it { should have_selector('div.alert') }
 			describe "after visiting another page" do
 				before { click_link site_title }
-				it { should_not have_selector('div.alert.alert-error') }
+				it { should_not have_selector('div.alert') }
 			end
 		end
 

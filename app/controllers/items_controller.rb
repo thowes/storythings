@@ -85,7 +85,7 @@ class ItemsController < ApplicationController
 	#PATCH/PUT /items/:id
 	def update
 		@item = Item.find(params[:id])
-		@item.parent_id = params[:parent_id]
+		#@item.parent_id = params[:parent_id]
 		if @item.update_attributes(item_params)
 			flash[:success] = "Item updated"
 			redirect_to @item

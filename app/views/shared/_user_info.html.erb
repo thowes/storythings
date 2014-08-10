@@ -1,11 +1,11 @@
 <% @user ||= current_user %>
-<div class="row">
- <div class="small-3 columns">
- 	<%= link_to gravatar_for(@user, size: 50), @user %>
- </div>
- <div class="small-9 columns">
- 	<h5><%= @user.name %></h5>
- 	<p>Nomad, level 1</p>
- 	<%= link_to "view profile", @user %>
- </div>
-</div>
+    <div class="row">
+     <div class="small-3 columns">
+      <%= link_to gravatar_for(@user, size: 50), @user %>
+     </div>
+     <div class="small-9 columns">
+      <h5><%= @user.name %></h5>
+      <p>Nomad, level 1</p>
+      <%= link_to "view profile", @user %>
+     </div>
+    </div>

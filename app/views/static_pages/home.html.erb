@@ -1,26 +1,25 @@
 <% if signed_in? %>
-
-   <div class="row">
-    <div class="large-4 columns">
-     <%= render 'shared/user_info' %>
-      <hr/>
-      <%= render 'shared/stats' %>
-      <hr/>
-      <%= render 'shared/micropost_form' %>
-     </div>
-    </div>
-    <div class="large-8 columns">
-     <h3>Item Collections</h3>
-     <% @items.each do |r| %>
-      <% if r.root? %>
-       <%= link_to r.name, r, class: "tiny button" %>
-      <% end %>
-     <% end %>
-     <h3>Activity</h3>
-     <%= render 'shared/feed' %>
-    </div>
+<div class="row">
+   <div class="small-12 large-4 columns">
+<%= render 'shared/user_info' %>
+    <hr/>
+<%= render 'shared/stats' %>
+    <hr/>
+<%= render 'shared/micropost_form' %>
    </div>
-
+   <div class="small-12 large-8 columns">
+    <h3>Item Collections</h3>
+    <ul class="button-group">
+    <% @items.each do |r| %>
+     <% if r.root? %>
+      <li><%= link_to r.name, r, class: "tiny button" %></li>
+     <% end %>
+    <% end %>
+    </ul>
+    <h3>Activity</h3>
+    <%= render 'shared/feed' %>
+   </div>
+  </div>
 <% else %>
    <%= render 'static_pages/welcome' %>
 <% end %>

@@ -9,7 +9,9 @@ class MicropostsController < ApplicationController
 			redirect_to root_url
 		else
 			@feed_items = []
-			render 'static_pages/home'
+			flash[:warning] = "Micropost must be more than zero lenght!"
+			#render 'static_pages/home'
+			redirect_to root_url
 		end
 	end
 
