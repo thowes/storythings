@@ -87,6 +87,11 @@ describe "Item pages" do
 			let(:page_title) { 'Edit Item' }
 			it_should_behave_like "pages before login"
 		end
+		describe "move thing" do
+			before { visit item_move_path(thing) }
+			let(:page_title) { 'Move Item' }
+			it_should_behave_like "pages before login"
+		end
 	end
 
 	describe "after login" do
@@ -168,6 +173,11 @@ describe "Item pages" do
 		describe "show thing" do
 			before { visit item_path(thing) }
 			let(:page_title) { thing.name }
+			it_should_behave_like "pages after login"
+		end
+		describe "move thing" do
+			before { visit item_move_path(thing) }
+			let(:page_title) { "Move Item" }
 			it_should_behave_like "pages after login"
 		end
 		describe "edit box" do
