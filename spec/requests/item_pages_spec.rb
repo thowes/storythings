@@ -180,6 +180,12 @@ describe "Item pages" do
 			let(:page_title) { "Move Item" }
 			it_should_behave_like "pages after login"
 		end
+		describe "move wrong item" do
+			before { visit item_move_path(w_item) }
+			let(:page_title) { "Move Item" }
+			it_should_behave_like "pages for wrong user"
+			it { should_not have_content( w_item.name ) }
+		end
 		describe "edit box" do
 			before { visit edit_item_path(box) }
 			let(:page_title) { 'Edit Item' }
