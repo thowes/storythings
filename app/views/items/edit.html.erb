@@ -6,9 +6,25 @@
       <%= render 'shared/error_messages', object: i.object %>
       <%= i.label :name %>
       <%= i.text_field :name %>
-      <%= i.label :is_a_box %>
-      <%= i.radio_button :is_a_box, "true" %>yes
-      <%= i.radio_button :is_a_box, "false" %>no
+      <% if @item.root? %>
+       <%= i.hidden_field :is_a_box, :value => true %>
+       <%= i.hidden_field :parent_id, :value => @item.parent_id %>
+      <% else %>
+       <%= i.label :is_a_box %>
+       <%= i.radio_button :is_a_box, "true" %>yes
+       <%= i.radio_button :is_a_box, "false" %>no
+       <br/><br/>
+       <label>BOX/COLL</label>
+       <select name="parent_id" id="parent_id">
+        <% @parents.each do |t| %>
+         <% if t.id === @item.parent_id %> 
+          <option value="<%= t.id %>" selected><%= t.name %></option>
+         <% else %>
+          <option value="<%= t.id %>"><%= t.name %></option>
+         <% end %>
+        <% end %>
+       </select>
+      <% end %>
       <br/><br/>
       <%= i.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>

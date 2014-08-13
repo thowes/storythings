@@ -13,7 +13,7 @@ Storythings::Application.routes.draw do
 
 	resources :items do
 		get 'add'
-		get 'move'
+		#get 'move'
 		get 'throwaway'
 		collection do
 			get 'coll'
