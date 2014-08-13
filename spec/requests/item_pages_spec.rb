@@ -49,22 +49,16 @@ describe "Item pages" do
 			let(:page_title) { 'Add New Item' }
 			it_should_behave_like "pages before login"
 		end
-		describe "new box page" do
-			before { visit newbox_items_path }
-			let(:page_title) { 'New Box' }
-			it_should_behave_like "pages before login"
-		end
+		#describe "new box page" do
+		#	before { visit newbox_items_path }
+		#	let(:page_title) { 'New Box' }
+		#	it_should_behave_like "pages before login"
+		#end
 		describe "show box" do
 			before { visit item_path(box) }
 			let(:page_title) { box.name }
 			it_should_behave_like "all static pages"
 			it { should_not have_content(box.user.name) }
-		end
-		describe "show thing" do
-			before { visit item_path(thing) }
-			let(:page_title) { thing.name }
-			it_should_behave_like "all static pages"
-			it { should_not have_content(thing.user.name) }
 		end
 		describe "show wrong item" do
 			before { visit item_path(w_item) }
@@ -77,18 +71,13 @@ describe "Item pages" do
 			let(:page_title) { 'Edit Item' }
 			it_should_behave_like "pages before login"
 		end
-		describe "edit thing" do
-			before { visit edit_item_path(thing) }
-			let(:page_title) { 'Edit Item' }
-			it_should_behave_like "pages before login"
-		end
 		describe "edit wrong item" do
 			before { visit edit_item_path(w_item) }
 			let(:page_title) { 'Edit Item' }
 			it_should_behave_like "pages before login"
 		end
-		describe "move thing" do
-			before { visit item_move_path(thing) }
+		describe "move box" do
+			before { visit item_move_path(box) }
 			let(:page_title) { 'Move Item' }
 			it_should_behave_like "pages before login"
 		end
@@ -112,7 +101,7 @@ describe "Item pages" do
 			it { should have_content(box.name) }
 			it { should_not have_content(thing.name) }
 			it { should_not have_content(w_item.name) }
-			it { should have_link('Create New Box', href: newbox_items_path) }
+			#it { should have_link('Create New Box', href: newbox_items_path) }
 		end
 		describe "things page" do
 			before { visit things_path }
@@ -139,40 +128,15 @@ describe "Item pages" do
 				end
 			end
 			describe "with valid information" do
-				before { fill_in 'item_name', with: "Old Junk" }
+				before { fill_in 'item_name', with: "Intradimensional Box" }
 				it "should create an item" do
 					expect { click_button "Add Item" }.to change(Item, :count).by(1)
-				end
-			end
-		end
-		describe "new box page" do
-			before { visit newbox_items_path }
-			let(:page_title) { 'New Box' }
-			it_should_behave_like "pages after login"
-			describe "with invalid information" do
-				it "should not create an item" do
-					expect { click_button "Create New Box" }.not_to change(Item, :count)
-				end
-				describe "error messages" do
-					before { click_button "Create New Box" }
-					it { should have_content('error') }
-				end
-			end
-			describe "with valid information" do
-				before { fill_in 'item_name', with: "My Intradimensional Box" }
-				it "should create a box" do
-					expect { click_button "Create New Box" }.to change(Item, :count).by(1)
 				end
 			end
 		end
 		describe "show box" do
 			before { visit item_path(box) }
 			let(:page_title) { box.name }
-			it_should_behave_like "pages after login"
-		end
-		describe "show thing" do
-			before { visit item_path(thing) }
-			let(:page_title) { thing.name }
 			it_should_behave_like "pages after login"
 		end
 		describe "move thing" do
