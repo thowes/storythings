@@ -3,7 +3,6 @@
     <div class="small-12 small-centered columns">
      <ul class="button-group radius">
       <li><%= link_to 'Edit', edit_item_path(@item), class: "tiny button" %></li>
-      <li><%= link_to 'Move', item_move_path(@item), class: "tiny button" %></li>
       <li><%= link_to 'Add to Box', item_add_path(@item.id), class: "button tiny" %></li>
       <li><%= link_to 'Throw Away', item_throwaway_path(@item), class: "button tiny" %></li>
      </ul>
@@ -19,6 +18,7 @@
       <ul>
        <li>TYPE: BOX</li>
        <% if signed_in? %>
+       <li>COUNT: <%= @item.descendant_ids.count %></li>
        <li>USER: <%= link_to @item.user.name, user_path(@item.user) %></li>
        <li>BOX/COLL: <%= link_to @item.parent.name, item_path(@item.parent) %><%=  %></li>
        <li>CREATED: <%= @item.created_at %></li>

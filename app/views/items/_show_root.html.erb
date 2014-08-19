@@ -17,6 +17,7 @@
       <ul>
        <li>TYPE: COLLECTION</li>
        <% if signed_in? %>
+       <li>COUNT: <%= @item.descendant_ids.count %></li>
        <li>USER: <%= link_to @item.user.name, user_path(@item.user) %></li>
        <li>CREATED:</td><td><%= @item.created_at %></li>
        <li>UPDATE:</td><td><%= @item.updated_at %></li>

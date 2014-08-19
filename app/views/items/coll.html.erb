@@ -5,7 +5,7 @@
      <ul class="items">
       <% @items.each do |r| %>
        <% if r.root? %>
-        <li><b><%= link_to r.name, r %></b></li>
+        <li><b><%= link_to r.name, r %></b> (<%= r.descendant_ids.count %>)</li>
        <% end %>
       <% end %>
      </ul>
