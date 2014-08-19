@@ -13,14 +13,12 @@ Storythings::Application.routes.draw do
 
 	resources :items do
 		get 'add'
-		#get 'move'
 		get 'throwaway'
 		collection do
 			get 'coll'
 			get 'components'
 			get 'boxes'
 			get 'help'
-			get 'newbox'
 			get 'things'
 		end
 	end

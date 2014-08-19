@@ -18,11 +18,6 @@ class ItemsController < ApplicationController
 		@items = current_user.items.where( is_a_box: true )
 	end
 
-	#GET /list
-	def list
-		@items = current_user.items.paginate(page: params[:page])
-	end
-
 	#GET /things
 	def things
 		@items = current_user.items.where( is_a_box: false )
@@ -44,19 +39,12 @@ class ItemsController < ApplicationController
 
 	#GET /add or /items/new
 	def new
-		#@items = current_user.items.where( is_a_box: true )
 		@item = Item.new
-	end
-
-	#GET /newbox
-	def newbox
-		@item = Item.new(:parent_id => params[:parent_id])
 	end
 
 	#GET /items/:id/add
 	def add
 		@parent = Item.find(params[:item_id])
-		#@item = Item.find(params[:id])
 		@new_item = Item.new(:parent_id => params[:item_id])
 	end
 
