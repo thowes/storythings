@@ -1,4 +1,4 @@
-   <% if signed_in? %>
+   <% if @item.user === current_user %>
    <div class="row">
     <div class="small-12 small-centered columns">
      <ul class="button-group radius">
@@ -27,7 +27,7 @@
      </div>
    </div>
 
-   <% if signed_in? %>
+   <% if @item.user === current_user %>
     <hr/>
     <div class="row">
      <div class="small-12 small-centered columns">
