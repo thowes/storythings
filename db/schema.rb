@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(version: 20140819154815) do
     t.string   "remember_token"
     t.boolean  "admin",           default: false
     t.integer  "max_items",       default: 10
+    t.string   "player_type",     default: "Nomad"
+    t.integer  "player_level",    default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
