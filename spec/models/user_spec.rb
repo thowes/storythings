@@ -25,6 +25,9 @@ describe User do
 	it { should respond_to(:following?) }
 	it { should respond_to(:follow!) }
 	it { should respond_to(:unfollow!) }
+	it { should respond_to(:max_items) }
+	it { should respond_to(:player_type) }
+	it { should respond_to(:player_level) }
 	it { should be_valid }
 	it { should_not be_admin }
 

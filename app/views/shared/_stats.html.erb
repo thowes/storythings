@@ -10,6 +10,6 @@
      </div>
      <div class="small-4 columns">
       <a href="<%= items_path %>">
-       <strong id="items" class="stat"><%= @user.items.count %></strong> items</a>
+       <strong id="items" class="stat"><%= @user.items.count %>/<%= @user.max_items %></strong> items</a>
      </div>
     </div>
