@@ -49,11 +49,6 @@ describe "Item pages" do
 			let(:page_title) { 'Add New Item' }
 			it_should_behave_like "pages before login"
 		end
-		#describe "new box page" do
-		#	before { visit newbox_items_path }
-		#	let(:page_title) { 'New Box' }
-		#	it_should_behave_like "pages before login"
-		#end
 		describe "show box" do
 			before { visit item_path(box) }
 			let(:page_title) { box.name }
@@ -92,6 +87,14 @@ describe "Item pages" do
 		describe "boxes page" do
 			before { visit boxes_path }
 			let(:page_title) { 'Boxes' }
+			it_should_behave_like "pages after login"
+			it { should have_content(box.name) }
+			it { should_not have_content(thing.name) }
+			it { should_not have_content(w_item.name) }
+		end
+		describe "coll page" do
+			before { visit coll_path }
+			let(:page_title) { 'Collections' }
 			it_should_behave_like "pages after login"
 			it { should have_content(box.name) }
 			it { should_not have_content(thing.name) }
