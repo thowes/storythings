@@ -21,6 +21,10 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			sign_in @user
+			@my_item_coll = @user.items.build(name: "My Items", is_a_box: true)
+			@my_item_coll.save
+			@household = @user.items.build(name: "My Household Items", is_a_box: true)
+			@household.save
 			flash[:success] = "Welcome to the Storythings!"
 			redirect_to @user
 		else
