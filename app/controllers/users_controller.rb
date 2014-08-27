@@ -66,6 +66,12 @@ class UsersController < ApplicationController
 		@users = @user.followers.paginate(page: params[:page])
 		render 'show_follow'
 	end
+
+	def leveling
+		#if levelup(@user.level)
+			#sho 
+		#end
+	end
 	
 	private
 		def user_params

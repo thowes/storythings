@@ -44,6 +44,9 @@ class ItemsController < ApplicationController
 
 	#GET /items/:id/add
 	def add
+		#if current_user.items.count >= current_user.max_items
+		#	flash[:warning] = "You already have maximum number of items!"
+		#end
 		@parent = Item.find(params[:item_id])
 		@new_item = Item.new(:parent_id => params[:item_id])
 	end
