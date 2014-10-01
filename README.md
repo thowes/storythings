@@ -5,6 +5,7 @@ This README for Storythings web app. Very early version available in storythings
 Things you may want to cover:
 
 * Ruby version 1.9.3 (started with that, going to try 1.9.2 and 2.0.0 later on).
+
 * Rails version 4.0.2 (started with 4.0.1 and going to try 4.05 at some point).
 
 * System dependencies: just check the Gemfile and do "bundle install".

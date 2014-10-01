@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819154815) do
+ActiveRecord::Schema.define(version: 20141001163409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20140819154815) do
     t.integer  "max_items",       default: 10
     t.string   "player_type",     default: "Nomad"
     t.integer  "player_level",    default: 0
+    t.integer  "privacy",         default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
