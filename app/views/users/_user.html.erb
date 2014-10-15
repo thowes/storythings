@@ -1,4 +1,4 @@
-<li><%= user.privacy %> 
+<li>
   <% if user.privacy != 0 %>
     <%= gravatar_for user, size: 52 %>
     <b><%= link_to user.name, user %></b>, level <%= user.player_level %> <%= user.player_type %>

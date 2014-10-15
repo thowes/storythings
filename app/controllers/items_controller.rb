@@ -23,6 +23,11 @@ class ItemsController < ApplicationController
 		@items = current_user.items.where( is_a_box: false )
 	end
 
+	#GET /export
+	def export
+		@items = current_user.items
+	end
+
 	#GET /items/:id
 	def show
 		@item = Item.find(params[:id])

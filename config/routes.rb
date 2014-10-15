@@ -18,6 +18,7 @@ Storythings::Application.routes.draw do
 			get 'coll'
 			get 'components'
 			get 'boxes'
+			get 'export'
 			get 'help'
 			get 'things'
 		end

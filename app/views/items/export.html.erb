@@ -1,5 +1,20 @@
 <% provide(:title, 'Export Items') %>
 
-<ul class="users">
-  <%= render @items %>
-</ul>
+  <div class="row">
+   <div class="small-12 small-centered columns">
+    <table border="1">
+       <tr><th>ID</th><th>TYPE</th><th>NAME</th><th>PARENT</th><th>DESC</th></tr>
+     <% @items.each do |r| %>
+      <% if r.root? %>
+       <tr><td><%= r.id %></td><td>COLL</td><td><%= link_to r.name, r %></td><td><%= r.parent_id %></td><td><%= r.descendant_ids.count %></td></tr>
+      <% else %>
+       <% if r.is_a_box %>
+       <tr><td><%= r.id %></td><td>BOX</td><td><%= link_to r.name, r %></td><td><%= r.parent_id %></td><td><%= r.descendant_ids.count %></td></tr>
+       <% else %>
+       <tr><td><%= r.id %></td><td>ITEM</td><td><%= link_to r.name, r %></td><td><%= r.parent_id %></td><td><%= r.descendant_ids.count %></td></tr>
+       <% end %>
+      <% end %>
+     <% end %>
+    </table>
+   </div>
+  </div>
