@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
 		@items = current_user.items.where( is_a_box: false )
 	end
 
-	#GET /export
+	#GET /items/export
 	def export
 		@items = current_user.items
 	end
@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
 	def help
 	end
 
-	#GET /add or /items/new
+	#GET /items/new
 	def new
 		@item = Item.new
 	end
