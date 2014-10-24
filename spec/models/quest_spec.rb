@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Quest do
 	before do
-		@quest = Quest.new(name: "Example Quest")
+		@quest = Quest.new(name: "Example Quest", type: "QA")
 	end
 	subject { @quest }
 

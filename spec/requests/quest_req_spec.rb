@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe "Quests" do
+	before do
+		@quest = Quest.new(name: "Example Quest", type: "QA")
+	end
+	subject { @quest }
+
   describe "GET /quests" do
     it "works! (now write some real specs)" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
