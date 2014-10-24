@@ -1,6 +1,6 @@
 class QuestsController < ApplicationController
   before_action :set_quest, only: [:show, :edit, :update, :destroy]
-  #before_action :admin_user, only: [:edit, :update, :destroy]
+  #before_action :admin_user, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /quests
   # GET /quests.json
