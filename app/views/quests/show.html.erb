@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @quest.type %>
+  <strong>Quest Type:</strong>
+  <%= @quest.qtype %>
 </p>
 
 <p>
@@ -16,13 +16,13 @@
 </p>
 
 <p>
-  <strong>Next:</strong>
-  <%= @quest.next %>
+  <strong>Next Quest:</strong>
+  <%= @quest.next_quest %>
 </p>
 
 <p>
-  <strong>Prev:</strong>
-  <%= @quest.prev %>
+  <strong>Prev Quest:</strong>
+  <%= @quest.prev_quest %>
 </p>
 
 <%= link_to 'Edit', edit_quest_path(@quest) %> |

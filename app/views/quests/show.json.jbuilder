@@ -1,1 +1,1 @@
-json.extract! @quest, :name, :type, :mother, :next, :prev, :created_at, :updated_at
+json.extract! @quest, :name, :qtype, :mother, :next_quest, :prev_quest, :created_at, :updated_at

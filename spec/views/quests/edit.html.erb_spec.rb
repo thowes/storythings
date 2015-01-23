@@ -4,10 +4,10 @@ describe "quests/edit" do
   before(:each) do
     @quest = assign(:quest, stub_model(Quest,
       :name => "MyString",
-      :type => "",
+      :qtype => "",
       :mother => 1,
-      :next => 1,
-      :prev => 1
+      :next_quest => 1,
+      :prev_quest => 1
     ))
   end
 
@@ -17,10 +17,10 @@ describe "quests/edit" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", quest_path(@quest), "post" do
       assert_select "input#quest_name[name=?]", "quest[name]"
-      assert_select "input#quest_type[name=?]", "quest[type]"
+      assert_select "input#quest_qtype[name=?]", "quest[qtype]"
       assert_select "input#quest_mother[name=?]", "quest[mother]"
-      assert_select "input#quest_next[name=?]", "quest[next]"
-      assert_select "input#quest_prev[name=?]", "quest[prev]"
+      assert_select "input#quest_next_quest[name=?]", "quest[next_quest]"
+      assert_select "input#quest_prev_quest[name=?]", "quest[prev_quest]"
     end
   end
 end

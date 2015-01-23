@@ -70,6 +70,6 @@ class QuestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quest_params
-      params.require(:quest).permit(:name, :type, :mother, :next, :prev)
+      params.require(:quest).permit(:name, :qtype, :mother, :next_quest, :prev_quest)
     end
 end

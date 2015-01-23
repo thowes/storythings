@@ -4,10 +4,10 @@ describe "quests/show" do
   before(:each) do
     @quest = assign(:quest, stub_model(Quest,
       :name => "Name",
-      :type => "Type",
+      :qtype => "Type",
       :mother => 1,
-      :next => 2,
-      :prev => 3
+      :next_quest => 2,
+      :prev_quest => 3
     ))
   end
 
