@@ -26,7 +26,7 @@ describe Item do
 		it { should_not be_valid }
 	end
 
-	describe "with blank content" do
+	describe "with name blank" do
 		before { @item.name = " " }
 		it { should_not be_valid }
 	end

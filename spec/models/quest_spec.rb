@@ -11,4 +11,14 @@ describe Quest do
 	it { should respond_to(:mother) }
 	it { should respond_to(:next_quest) }
 	it { should respond_to(:prev_quest) }
+
+	describe "with name blank" do
+		before { @quest.name = " " }
+		it { should_not be_valid }
+	end
+
+	describe "with name that is too long" do
+		before { @quest.name = "a" * 81 }
+		it { should_not be_valid }
+	end
 end
