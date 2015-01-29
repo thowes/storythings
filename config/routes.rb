@@ -36,6 +36,7 @@ Storythings::Application.routes.draw do
 	match '/signin',  to: 'sessions#new',         via: 'get'
 	match '/signout', to: 'sessions#destroy',     via: 'delete'
 	match '/signup',  to: 'users#new',            via: 'get'
+	match '/testing', to: 'static_pages#testing', via: 'get'
 	match '/things',  to: 'items#things',         via: 'get'
 
 	# Example resource route with sub-resources:
