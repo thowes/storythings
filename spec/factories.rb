@@ -21,8 +21,8 @@ FactoryGirl.define do
 		user
 	end
 
-	#factory :quest do
-	#	name "Quest"
-	#end
-
+	factory :quest do
+		name "Quest"
+		qtype "QA"
+	end
 end

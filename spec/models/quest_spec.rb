@@ -16,9 +16,17 @@ describe Quest do
 		before { @quest.name = " " }
 		it { should_not be_valid }
 	end
-
 	describe "with name that is too long" do
 		before { @quest.name = "a" * 81 }
+		it { should_not be_valid }
+	end
+
+	describe "with blank type" do
+		before { @quest.qtype = " " }
+		it { should_not be_valid }
+	end
+	describe "with type too long" do
+		before { @quest.qtype = "a" * 81 }
 		it { should_not be_valid }
 	end
 end

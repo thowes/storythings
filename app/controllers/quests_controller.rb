@@ -1,4 +1,5 @@
 class QuestsController < ApplicationController
+  #before_action :signed_in_user, except: [:show]
   before_action :set_quest, only: [:show, :edit, :update, :destroy]
   #before_action :admin_user, only: [:new, :edit, :create, :update, :destroy]
 
