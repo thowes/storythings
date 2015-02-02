@@ -5,7 +5,7 @@
      </div>
      <div class="small-9 columns">
       <h5><%= @user.name %></h5>
-      <p><%= @user.player_type %>, level <%= @user.player_level %></p>
+      <p><%= @user.player_type %>, level <%= link_to @user.player_level, quest_path(@user.player_level) %></p>
       <%= link_to "view profile", @user %>
      </div>
     </div>

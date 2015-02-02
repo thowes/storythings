@@ -1,7 +1,7 @@
 <li>
   <% if user.privacy != 0 %>
     <%= gravatar_for user, size: 52 %>
-    <b><%= link_to user.name, user %></b>, level <%= user.player_level %> <%= user.player_type %>
+    <b><%= link_to user.name, user %></b>, level <%= link_to user.player_level, quest_path(user.player_level) %> <%= user.player_type %>
   <% else %>
    [ user profile not public ]
   <% end %>
