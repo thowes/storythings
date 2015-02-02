@@ -17,12 +17,12 @@
 
 <p>
   <strong>Next Quest:</strong>
-  <%= @quest.next_quest %>
+  <%= link_to @quest.next_quest, quest_path(@quest.next_quest) %>
 </p>
 
 <p>
   <strong>Prev Quest:</strong>
-  <%= @quest.prev_quest %>
+  <%= link_to @quest.prev_quest, quest_path(@quest.prev_quest) %>
 </p>
 
 <%= link_to 'Edit', edit_quest_path(@quest) %> |

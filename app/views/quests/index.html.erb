@@ -8,9 +8,7 @@
       <th>Mother</th>
       <th>Next</th>
       <th>Prev</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -20,11 +18,9 @@
         <td><%= quest.name %></td>
         <td><%= quest.qtype %></td>
         <td><%= quest.mother %></td>
-        <td><%= quest.next_quest %></td>
-        <td><%= quest.prev_quest %></td>
-        <td><%= link_to 'Show', quest %></td>
-        <td><%= link_to 'Edit', edit_quest_path(quest) %></td>
-        <td><%= link_to 'Destroy', quest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to quest.next_quest, quest_path(quest.next_quest) %></td>
+        <td><%= link_to quest.prev_quest, quest_path(quest.prev_quest) %></td>
+        <td><%= link_to 'Show', quest %>, <%= link_to 'Edit', edit_quest_path(quest) %>, <%= link_to 'Destroy', quest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
