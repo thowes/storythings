@@ -4,6 +4,7 @@ class CreateExperiences < ActiveRecord::Migration
 			t.string :title
 			t.string :description
 			t.integer :user_id
+			t.integer :quest_id
 
       t.timestamps
     end
