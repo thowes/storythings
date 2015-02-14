@@ -1,14 +1,13 @@
 class ExperiencesController < ApplicationController
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
 
-  # GET /experiences
-  # GET /experiences.json
+  # GET /experiences (.json)
   def index
-    @experiences = Experience.all
+    #@experiences = current_user.experiences.paginate(page: params[:page])
+    @experiences = Experiences.all
   end
 
-  # GET /experiences/1
-  # GET /experiences/1.json
+  # GET /experiences/1 (.json)
   def show
   end
 
@@ -21,8 +20,7 @@ class ExperiencesController < ApplicationController
   def edit
   end
 
-  # POST /experiences
-  # POST /experiences.json
+  # POST /experiences (.json)
   def create
     @experience = Experience.new(experience_params)
 
@@ -37,8 +35,7 @@ class ExperiencesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /experiences/1
-  # PATCH/PUT /experiences/1.json
+  # PATCH/PUT /experiences/1 (.json)
   def update
     respond_to do |format|
       if @experience.update(experience_params)
@@ -51,8 +48,7 @@ class ExperiencesController < ApplicationController
     end
   end
 
-  # DELETE /experiences/1
-  # DELETE /experiences/1.json
+  # DELETE /experiences/1 (.json)
   def destroy
     @experience.destroy
     respond_to do |format|

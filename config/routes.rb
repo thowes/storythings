@@ -1,8 +1,6 @@
 Storythings::Application.routes.draw do
   resources :experiences
-
   resources :quests
-
 	resources :users do
 		member do
 			get :following, :followers

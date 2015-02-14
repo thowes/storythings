@@ -6,8 +6,8 @@ describe Experience do
 		@quest = Quest.new(name: "Example Quest", qtype: "QA")
 		@experience = Experience.new(title: "Test Experience 1", description: "This is testing the experience class model,", user_id: @user, quest_id: @quest)
 	end
-	subject { @experience }
 
+	subject { @experience }
 	it { should respond_to(:title) }
 	it { should respond_to(:description) }
 	it { should respond_to(:user_id) }
