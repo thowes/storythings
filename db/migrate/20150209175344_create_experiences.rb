@@ -1,7 +1,7 @@
 class CreateExperiences < ActiveRecord::Migration
   def change
     create_table :experiences do |t|
-			t.string :title
+			t.string :name
 			t.string :description
 			t.integer :user_id
 			t.integer :quest_id

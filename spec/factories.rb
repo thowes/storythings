@@ -22,7 +22,13 @@ FactoryGirl.define do
 	end
 
 	factory :quest do
-		name "Quest"
+		name "The Quest"
 		qtype "QA"
+	end
+
+	factory :experience do
+		name "Experience"
+		user
+		quest
 	end
 end

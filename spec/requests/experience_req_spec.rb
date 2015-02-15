@@ -1,20 +1,34 @@
 require 'spec_helper'
 
 describe "Experience pages" do
-	before do
-		@user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar")
-		@quest = Quest.new(name: "Example Quest", qtype: "QA")
-		@experience = Experience.new(title: "Test Experience 1", description: "This is testing the experience class model,", user_id: @user, quest_id: @quest)
-	end
-  subject { @experience }
+  subject { page }
+  let(:user) { FactoryGirl.create(:user) }
+  let(:wrong) { FactoryGirl.create(:user, name: "Mr. Wrong") }
+  let!(:quest) { FactoryGirl.create(:quest, name: "The Testing Quest") }
+  let!(:other_quest) { FactoryGirl.create(:quest, name: "The Other Quest") }
+  let!(:u_xp) { FactoryGirl.create(:experience, name: "The Correct Experience", user: user, quest: quest) }
+  let!(:w_xp) { FactoryGirl.create(:experience, name: "The Wrong Experience", user: wrong, quest: quest) }
 
   describe "before login" do
     describe "Experiences index page" do
-      #before { visit experiences_path }
-      #let(:page_title) { 'Experiences' }
-      #it_should_behave_like "pages before login"
-      #it { should have_content("Test Experience 1") }
+      before { visit experiences_path }
+      let(:page_title) { 'Experiences' }
+      it_should_behave_like "pages before login"
+      it { should_not have_content(u_xp.name) }
+      it { should_not have_content(w_xp.name) }
     end
-	end
+  end
+
+  describe "after login" do
+    before { sign_in user }
+    describe "Experiences index page" do
+      before { visit experiences_path }
+      let(:page_title) { 'Experiences' }
+      it_should_behave_like "pages after login"
+      it { should have_content(u_xp.name) }
+      it { should have_link(u_xp.name, href: experience_path(u_xp)) }
+      it { should_not have_content(w_xp.name) }
+    end
+  end
 
 end

@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150209175344) do
   end
 
   create_table "experiences", force: true do |t|
-    t.string   "title"
+    t.string   "name"
     t.string   "description"
     t.integer  "user_id"
     t.integer  "quest_id"

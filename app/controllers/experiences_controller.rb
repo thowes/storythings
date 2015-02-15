@@ -1,10 +1,15 @@
 class ExperiencesController < ApplicationController
+  before_action :signed_in_user, except: [:show]
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
 
   # GET /experiences (.json)
   def index
-    #@experiences = current_user.experiences.paginate(page: params[:page])
-    @experiences = Experiences.all
+    @experiences = current_user.experiences
+  end
+
+  # GET /experiences/export
+  def index
+    @experiences = current_user.experiences
   end
 
   # GET /experiences/1 (.json)
