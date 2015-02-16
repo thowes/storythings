@@ -1,16 +1,14 @@
 class QuestsController < ApplicationController
-  #before_action :signed_in_user, except: [:show]
+  before_action :signed_in_user
   before_action :set_quest, only: [:show, :edit, :update, :destroy]
   #before_action :admin_user, only: [:new, :edit, :create, :update, :destroy]
 
-  # GET /quests
-  # GET /quests.json
+  # GET /quests (.json)
   def index
     @quests = Quest.all
   end
 
-  # GET /quests/1
-  # GET /quests/1.json
+  # GET /quests/1 (.json)
   def show
   end
 
@@ -23,8 +21,7 @@ class QuestsController < ApplicationController
   def edit
   end
 
-  # POST /quests
-  # POST /quests.json
+  # POST /quests (.json)
   def create
     @quest = Quest.new(quest_params)
 
@@ -39,8 +36,7 @@ class QuestsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /quests/1
-  # PATCH/PUT /quests/1.json
+  # PATCH/PUT /quests/1 (.json)
   def update
     respond_to do |format|
       if @quest.update(quest_params)
@@ -53,8 +49,7 @@ class QuestsController < ApplicationController
     end
   end
 
-  # DELETE /quests/1
-  # DELETE /quests/1.json
+  # DELETE /quests/1 (.json)
   def destroy
     @quest.destroy
     respond_to do |format|
