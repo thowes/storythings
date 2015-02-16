@@ -22,4 +22,9 @@ describe Experience do
 		it { should_not be_valid }
 	end
 
+	describe "when user_id is not present" do
+		before { @experience.user_id = nil }
+		it { should_not be_valid }
+	end
+
 end

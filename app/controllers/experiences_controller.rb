@@ -1,5 +1,5 @@
 class ExperiencesController < ApplicationController
-  before_action :signed_in_user, except: [:show]
+  before_action :signed_in_user
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
 
   # GET /experiences (.json)

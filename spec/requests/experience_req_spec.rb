@@ -9,25 +9,37 @@ describe "Experience pages" do
   let!(:u_xp) { FactoryGirl.create(:experience, name: "The Correct Experience", user: user, quest: quest) }
   let!(:w_xp) { FactoryGirl.create(:experience, name: "The Wrong Experience", user: wrong, quest: quest) }
 
-  describe "before login" do
-    describe "Experiences index page" do
+  describe "Experiences before login" do
+    describe "index page" do
       before { visit experiences_path }
       let(:page_title) { 'Experiences' }
       it_should_behave_like "pages before login"
       it { should_not have_content(u_xp.name) }
       it { should_not have_content(w_xp.name) }
     end
+    describe "show page" do
+      before { visit experience_path(u_xp) }
+      let(:page_title) { u_xp.name }
+      it_should_behave_like "pages before login"
+      it { should_not have_content(u_xp.name) }
+    end
   end
 
-  describe "after login" do
+  describe "Experiences after login" do
     before { sign_in user }
-    describe "Experiences index page" do
+    describe "index page" do
       before { visit experiences_path }
       let(:page_title) { 'Experiences' }
       it_should_behave_like "pages after login"
       it { should have_content(u_xp.name) }
       it { should have_link(u_xp.name, href: experience_path(u_xp)) }
       it { should_not have_content(w_xp.name) }
+    end
+    describe "show page" do
+      before { visit experience_path(u_xp) }
+      let(:page_title) { u_xp.name }
+      it_should_behave_like "pages after login"
+      it { should have_content(u_xp.name) }
     end
   end
 
