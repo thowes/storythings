@@ -21,6 +21,17 @@ describe "Quests" do
       it_should_behave_like "pages before login"
       it { should_not have_content(quest.name) }
     end
+    describe "new page" do
+      before { visit new_quest_path }
+      let(:page_title) { 'New Quest' }
+      it_should_behave_like "pages before login"
+    end
+    describe "edit page" do
+      before { visit edit_quest_path(quest) }
+      let(:page_title) { 'Edit Quest' }
+      it_should_behave_like "pages before login"
+      it { should_not have_content(quest.name) }
+    end
   end
 
   describe "Quests after login" do
@@ -39,6 +50,17 @@ describe "Quests" do
       it { should have_content(quest.name) }
       #it { should have_content(u_xp.name) }
       #it { should_not have_content(w_xp.name) }
+    end
+    describe "new page" do
+      before { visit new_quest_path }
+      let(:page_title) { 'New Quest' }
+      it_should_behave_like "pages after login"
+    end
+    describe "edit page" do
+      before { visit edit_quest_path(quest) }
+      let(:page_title) { 'Edit Quest' }
+      it_should_behave_like "pages after login"
+      #it { should have_content(quest.name) }
     end
   end
 
