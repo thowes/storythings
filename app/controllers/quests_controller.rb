@@ -15,6 +15,7 @@ class QuestsController < ApplicationController
 
   # GET /quests/1 (.json)
   def show
+    @experiences = current_user.experiences.where( quest_id: @quest.id )
   end
 
   # GET /quests/new
