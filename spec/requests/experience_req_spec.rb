@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Experience pages" do
   subject { page }
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user, name: "Mr. Admin") }
   let(:wrong) { FactoryGirl.create(:user, name: "Mr. Wrong") }
   let!(:quest) { FactoryGirl.create(:quest, name: "The Testing Quest") }
   let!(:other_quest) { FactoryGirl.create(:quest, name: "The Other Quest") }
@@ -19,6 +19,17 @@ describe "Experience pages" do
     end
     describe "show page" do
       before { visit experience_path(u_xp) }
+      let(:page_title) { u_xp.name }
+      it_should_behave_like "pages before login"
+      it { should_not have_content(u_xp.name) }
+    end
+    describe "new page" do
+      before { visit new_experience_path }
+      let(:page_title) { 'New Experience' }
+      it_should_behave_like "pages before login"
+    end
+    describe "edit page" do
+      before { visit edit_experience_path(u_xp) }
       let(:page_title) { u_xp.name }
       it_should_behave_like "pages before login"
       it { should_not have_content(u_xp.name) }
@@ -40,6 +51,17 @@ describe "Experience pages" do
       let(:page_title) { u_xp.name }
       it_should_behave_like "pages after login"
       it { should have_content(u_xp.name) }
+    end
+    describe "new page" do
+      before { visit new_experience_path }
+      let(:page_title) { 'New Experience' }
+      it_should_behave_like "pages after login"
+    end
+    describe "edit page" do
+      before { visit edit_experience_path(u_xp) }
+      let(:page_title) { 'Edit Experience' }
+      it_should_behave_like "pages after login"
+      #it { should have_content(u_xp.name) }
     end
   end
 

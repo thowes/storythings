@@ -8,7 +8,7 @@ class ExperiencesController < ApplicationController
   end
 
   # GET /experiences/export
-  def index
+  def export
     @experiences = current_user.experiences
   end
 
@@ -28,7 +28,6 @@ class ExperiencesController < ApplicationController
   # POST /experiences (.json)
   def create
     @experience = Experience.new(experience_params)
-
     respond_to do |format|
       if @experience.save
         format.html { redirect_to @experience, notice: 'Experience was successfully created.' }
