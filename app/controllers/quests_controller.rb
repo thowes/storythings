@@ -8,6 +8,11 @@ class QuestsController < ApplicationController
     @quests = Quest.all
   end
 
+  # GET /quests/export
+  def export
+    @quests = Quest.all
+  end
+
   # GET /quests/1 (.json)
   def show
   end

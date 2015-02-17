@@ -41,7 +41,7 @@ describe "Quests" do
       let(:page_title) { 'Quests' }
       it_should_behave_like "pages after login"
       it { should have_content(quest.name) }
-      #it { should have_link(quest.name, href: quest_path(quest)) }
+      it { should have_link(quest.name, href: quest_path(quest)) }
     end
     describe "show page" do
       before { visit quest_path(quest) }
