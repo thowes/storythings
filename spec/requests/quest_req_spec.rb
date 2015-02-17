@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Quests" do
   subject { page }
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user, name: "Mr. Admin") }
   let(:wrong) { FactoryGirl.create(:user, name: "Mr. Wrong") }
   let!(:quest) { FactoryGirl.create(:quest, name: "The Testing Quest") }
   let!(:other_quest) { FactoryGirl.create(:quest, name: "The Other Quest") }
@@ -64,6 +64,20 @@ describe "Quests" do
       let(:page_title) { 'Edit Quest' }
       it_should_behave_like "pages after login"
       #it { should have_content(quest.name) }
+    end
+  end
+
+  describe "Quests not admin" do
+    before { sign_in wrong }
+    describe "new page" do
+      before { visit new_quest_path }
+      let(:page_title) { 'New Quest' }
+      #it_should_behave_like "pages before login"
+    end
+    describe "edit page" do
+      before { visit edit_quest_path(quest) }
+      let(:page_title) { 'Edit Quest' }
+      #it_should_behave_like "pages before login"
     end
   end
 
