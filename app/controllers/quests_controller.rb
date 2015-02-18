@@ -1,7 +1,7 @@
 class QuestsController < ApplicationController
   before_action :signed_in_user
   before_action :set_quest, only: [:show, :edit, :update, :destroy]
-  #before_action :admin_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :admin_user, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /quests (.json)
   def index
@@ -72,5 +72,9 @@ class QuestsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def quest_params
       params.require(:quest).permit(:name, :qtype, :mother, :next_quest, :prev_quest)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end
