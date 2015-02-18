@@ -1,6 +1,7 @@
 class ExperiencesController < ApplicationController
   before_action :signed_in_user
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:show, :destroy, :edit, :update]
 
   # GET /experiences (.json)
   def index
@@ -14,6 +15,7 @@ class ExperiencesController < ApplicationController
 
   # GET /experiences/1 (.json)
   def show
+    #@quest = @experience.quest_id 
   end
 
   # GET /experiences/new
@@ -70,5 +72,11 @@ class ExperiencesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def experience_params
       params[:experience]
+    end
+
+    def correct_user
+      @experiences = current_user.experiences.find_by(id: params[:id])
+      redirect_to root_url if @experiences.nil?
+      #redirect_to root_url unless current_user?(@micropost.user)
     end
 end

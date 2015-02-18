@@ -1,5 +1,7 @@
 <% provide(:title, @experience.name) %>
 <p id="notice"><%= notice %></p>
 
+<p><%= link_to 'Quest', quest_path(@experience.quest_id) %></p>
+
 <%= link_to 'Edit', edit_experience_path(@experience) %> |
 <%= link_to 'Back', experiences_path %>
