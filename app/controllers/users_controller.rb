@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 			@my_lib.save
 			@my_digi = @user.items.build(name: "My Digital Library", is_a_box: true)
 			@my_digi.save
+			@user.digicoll = @my_digi
 			flash[:success] = "Welcome to the Storythings!"
 			redirect_to @user
 		else
