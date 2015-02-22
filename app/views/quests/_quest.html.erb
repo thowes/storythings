@@ -1,2 +1,5 @@
- <li><%= quest.qtype %> <b><%= link_to quest.name, quest %></b>
- 	(<%= link_to 'Edit', edit_quest_path(quest) %>, <%= link_to 'Destroy', quest, method: :delete, data: { confirm: 'Are you sure?' } %></li>  
+<% if current_user.admin? %>
+ <li><%= quest.qtype %> <b><%= link_to quest.name, quest %></b> (<%= link_to 'Edit', edit_quest_path(quest) %>, <%= link_to 'Destroy', quest, method: :delete, data: { confirm: 'Are you sure?' } %>)</li>
+<% else %>
+ <li><%= quest.qtype %> <b><%= link_to quest.name, quest %></b></li>
+<% end %>
