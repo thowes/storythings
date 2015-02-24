@@ -26,12 +26,12 @@
   <%= link_to @quest.prev_quest, quest_path(@quest.prev_quest) %>
 </p>
 
-<%= link_to 'Edit', edit_quest_path(@quest) %> |
-<%= link_to 'Back', quests_path %>
-
    <div class="row">
     <div class="small-12 small-centered columns">
-     <ul class="items">FOO</ul>
+    <% if current_user.admin? %>
+      <%= link_to 'Edit', edit_quest_path(@quest) %> |
+    <% end %>
+      <%= link_to 'Back', quests_path %>
     </div>
    </div>
    <div class="row">
@@ -39,10 +39,5 @@
      <ul class="items">
       <%= render @experiences %>
      </ul>
-    </div>
-   </div>
-   <div class="row">
-    <div class="small-12 small-centered columns">
-     <ul class="items">BAR</ul>
     </div>
    </div>

@@ -5,7 +5,7 @@ class QuestsController < ApplicationController
 
   # GET /quests (.json)
   def index
-    @quests = Quest.all
+    @quests = Quest.all.paginate(page: params[:page])
   end
 
   # GET /quests/export

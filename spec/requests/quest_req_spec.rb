@@ -53,6 +53,7 @@ describe "Quests" do
       it { should have_content(u_xp.name) }
       it { should_not have_content(o_xp.name) }
       it { should_not have_content(w_xp.name) }
+      it { should have_link('Edit', href: edit_quest_path(quest)) }
     end
     describe "new page" do
       before { visit new_quest_path }
@@ -68,6 +69,19 @@ describe "Quests" do
 
   describe "Quests not admin" do
     before { sign_in wrong }
+    describe "index page" do
+      before { visit quests_path }
+      let(:page_title) { 'Quests' }
+      it { should have_content(quest.name) }
+      it { should have_link(quest.name, href: quest_path(quest)) }
+      it { should_not have_link('Edit', href: edit_quest_path(quest)) }
+    end
+    describe "show page" do
+      before { visit quest_path(quest) }
+      let(:page_title) { quest.name }
+      it { should have_content(quest.name) }
+      it { should_not have_link('Edit', href: edit_quest_path(quest)) }
+    end
     describe "new page" do
       before { visit new_quest_path }
       let(:page_title) { 'New Quest' }
