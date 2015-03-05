@@ -94,12 +94,13 @@ ActiveRecord::Schema.define(version: 20150222215843) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           default: false
-    t.integer  "max_items",       default: 10
-    t.string   "player_type",     default: "Nomad"
-    t.integer  "player_level",    default: 0
-    t.integer  "privacy",         default: 0
-    t.integer  "digicoll",        default: 0
+    t.boolean  "admin",              default: false
+    t.integer  "max_items",          default: 10
+    t.string   "player_type",        default: "Nomad"
+    t.integer  "player_level",       default: 0
+    t.integer  "privacy",            default: 0
+    t.boolean  "components_allowed", default: false
+    t.integer  "digicoll",           default: 0
   end
 
   add_index "users", ["digicoll"], name: "index_users_on_digicoll", using: :btree

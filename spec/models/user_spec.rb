@@ -28,6 +28,8 @@ describe User do
 	it { should respond_to(:max_items) }
 	it { should respond_to(:player_type) }
 	it { should respond_to(:player_level) }
+	it { should respond_to(:digicoll) }
+	it { should respond_to(:components_allowed) }
 	it { should be_valid }
 	it { should_not be_admin }
 
