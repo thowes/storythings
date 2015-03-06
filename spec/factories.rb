@@ -9,6 +9,10 @@ FactoryGirl.define do
 		factory :admin do
 			admin true
 		end
+
+		factory :components do
+			components_allowed true
+		end
 	end
 
 	factory :micropost do
