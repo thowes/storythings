@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Item pages" do
 	subject { page }
-	let(:user) { FactoryGirl.create(:user) }
+	let(:user) { FactoryGirl.create(:user, admin: true) }
 	let(:wrong) { FactoryGirl.create(:user) }
 	let!(:box) { FactoryGirl.create(:item, user: user, name: "MyTestUser Box", is_a_box: true) }
 	let!(:thing) { FactoryGirl.create(:item, user: user, name: "MyTestUser Thing") }
