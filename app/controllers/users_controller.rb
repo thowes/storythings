@@ -2,12 +2,14 @@ class UsersController < ApplicationController
 	before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
 	#before_action :signed_in_user, except: [:show, :create]
 	before_action :correct_user,   only: [:edit, :update]
-	before_action :admin_user,     only: :destroy
+	before_action :admin_user,     only: [:destroy, :admin]
 
+	#GET /users/
 	def index
 		@users = User.paginate(page: params[:page])
 	end
 
+	#GET /users/:id/
 	def show
 		@user = User.find(params[:id])
 		@microposts = @user.microposts.paginate(page: params[:page])
@@ -37,7 +39,13 @@ class UsersController < ApplicationController
 		end
 	end
 
+	#GET /users/:id/edit
 	def edit
+		#@user = User.find(params[:id])
+	end
+
+	#GET /users/:id/admin
+	def admin
 		#@user = User.find(params[:id])
 	end
 

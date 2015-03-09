@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+	before_action :admin_user, only: [:testing, :admin]
 	
 	def home
 		if signed_in?
@@ -17,6 +18,14 @@ class StaticPagesController < ApplicationController
 	def about
 	end
 
+	def admin
+	end
+
 	def testing
 	end
+
+	private
+		def admin_user
+			redirect_to(root_url) unless current_user.admin?
+		end
 end

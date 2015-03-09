@@ -164,4 +164,12 @@ describe "Item pages" do
 		end
 	end
 
+	describe "non-admin user" do
+		before { sign_in wrong }
+		describe "item admin page" do
+			before { visit item_admin_path(thing) }
+			let(:page_title) { 'Item Admin View' }
+			it_should_behave_like "pages for wrong user"
+		end
+	end
 end

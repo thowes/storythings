@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 	before_action :signed_in_user, except: [:show]
 	# testing needed for correct_user actions update and destroy
 	before_action :correct_user, only: [:destroy, :edit, :update]
+	before_action :admin_user, only: [:admin]
 
 	#GET /items
 	def index
@@ -73,6 +74,11 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 	end
 
+  #GET /items/:id/admin
+	def admin
+		#@item = Item.find(params[:id])
+	end
+
 	#GET /items/:id/move
 	def move
 		@item = Item.find(params[:item_id])
@@ -104,5 +110,9 @@ class ItemsController < ApplicationController
 			@items = current_user.items.find_by(id: params[:id])
 			redirect_to root_url if @items.nil?
 			#redirect_to root_url unless current_user?(@micropost.user)
+		end
+
+		def admin_user
+			redirect_to(root_url) unless current_user.admin?
 		end
 end

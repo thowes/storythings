@@ -43,7 +43,8 @@ describe "User pages" do
 	end
 
 	describe "profile page" do
-		let(:user) { FactoryGirl.create(:user) }
+		let(:user) { FactoryGirl.create(:user, admin: true) }
+		let(:wrong) { FactoryGirl.create(:user) }
 		let!(:m1) { FactoryGirl.create(:micropost, user: user, content: "Foo") }
 		let!(:m2) { FactoryGirl.create(:micropost, user: user, content: "Bar") }
 		let!(:i1) { FactoryGirl.create(:item, user: user, name: "Junk A") }
@@ -229,4 +230,14 @@ describe "User pages" do
 		end
 	end
 
+	describe "non-admin user" do
+		let(:user) { FactoryGirl.create(:user, admin: true) }
+		let(:wrong) { FactoryGirl.create(:user) }
+		before { sign_in wrong }
+		describe "user admin page" do
+			before { visit user_admin_path(user) }
+			let(:page_title) { 'User Admin View' }
+			it_should_behave_like "pages for wrong user"
+		end
+	end
 end

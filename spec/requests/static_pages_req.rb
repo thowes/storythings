@@ -57,4 +57,13 @@ describe "Static pages" do
 		let(:page_title) { 'Contact' }
 		it_should_behave_like "all static pages"
 	end
+
+	describe "non-admin user" do
+		before { sign_in wrong }
+		describe "admin page" do
+			before { visit admin_path }
+			let(:page_title) { 'Admin Page' }
+			it_should_behave_like "pages for wrong user"
+		end
+	end
 end
