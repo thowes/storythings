@@ -8,8 +8,6 @@
    <% if signed_in? %>
     <!-- Right Nav Section -->
     <ul class="right">
-     <li><%= link_to "My Profile", current_user %></li>
-     <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
      <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
     </ul>
    <% else %>
