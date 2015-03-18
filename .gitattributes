@@ -1,0 +1,7 @@
+app/assets/javascripts/* linguist-vendored
+app/assets/stylesheets/* linguist-vendored
+public/assets/* linguist-vendored
+application.scss linguist-vendored=false
+foundation_and_overrides.scss linguist-vendored=false
+layout.css.scss linguist-vendored=false
+scaffolds.css.scss linguist-vendored=false

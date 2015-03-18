@@ -7,14 +7,15 @@ clone:
 commit:
 	git commit
 
+deploy:
+	bundle exec rake asset:precompile
+	git push heroku
+
 info:
 	@git remote show origin
 
 orig:
 	@git remote show origin
-
-pull:
-	git pull
 
 push:
 	git push
@@ -29,4 +30,4 @@ tls:
 	@todo.sh ls +sth
 
 upd:
-	git pull
+	@git pull
