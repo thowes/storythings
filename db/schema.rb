@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222215843) do
+ActiveRecord::Schema.define(version: 20150325153657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,10 +41,12 @@ ActiveRecord::Schema.define(version: 20150222215843) do
     t.datetime "updated_at"
     t.boolean  "is_a_box",   default: false
     t.string   "ancestry"
+    t.string   "qrlink"
   end
 
   add_index "items", ["ancestry"], name: "index_items_on_ancestry", using: :btree
   add_index "items", ["is_a_box"], name: "index_items_on_is_a_box", using: :btree
+  add_index "items", ["qrlink"], name: "index_items_on_qrlink", using: :btree
   add_index "items", ["user_id", "created_at"], name: "index_items_on_user_id_and_created_at", using: :btree
 
   create_table "licenses", force: true do |t|

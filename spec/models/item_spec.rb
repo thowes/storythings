@@ -19,6 +19,7 @@ describe Item do
 	it { should respond_to(:path_ids) }
 	it { should respond_to(:path) }
 	it { should respond_to(:depth) }
+	it { should respond_to(:qrlink) }
 	it { should be_valid }
 
 	describe "when user_id is not present" do
