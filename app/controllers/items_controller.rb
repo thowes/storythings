@@ -76,7 +76,8 @@ class ItemsController < ApplicationController
 
   #GET /items/:id/admin
 	def admin
-		#@item = Item.find(params[:id])
+		@item = Item.find(params[:item_id])
+		#@parents = current_user.items.where( is_a_box: true )
 	end
 
 	#GET /items/:id/move

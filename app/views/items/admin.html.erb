@@ -2,9 +2,22 @@
 
    <div class="row">
     <div class="small-12 small-centered columns">
-     <ul class="button-group radius">
-      <li><%= link_to "Change Owner of Item", items_path, class: "tiny button" %></li>
-      <li><%= link_to "Change into a Root Item", coll_path, class: "tiny button" %></li>
-     </ul>
-    </div>
+      <ul class="button-group radius">
+      <% if @item.root? %>
+       <li><%= link_to "Change Owner of Item", items_path, class: "tiny button" %></li>
+       <li><%= link_to "Change Parent into Digicoll", coll_path, class: "tiny button" %></li>
+      <% else %>
+       <li><%= link_to "Change into a Root Item", coll_path, class: "tiny button" %></li>
+      <% end %>
+      </ul>
+
+     <%= form_for(@item) do |i| %>
+      <%= render 'shared/error_messages', object: i.object %>
+      <%= i.label "URL for QR Link" %>
+      <%= i.text_field :qrlink %>
+
+      <br/><br/>
+      <%= i.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
    </div>
+  </div>
