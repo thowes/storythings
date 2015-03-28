@@ -4,9 +4,9 @@ describe "Item pages" do
 	subject { page }
 	let(:user) { FactoryGirl.create(:user, admin: true) }
 	let(:wrong) { FactoryGirl.create(:user) }
-	let!(:box) { FactoryGirl.create(:item, user: user, name: "MyTestUser Box", is_a_box: true) }
-	let!(:thing) { FactoryGirl.create(:item, user: user, name: "MyTestUser Thing") }
-	let!(:w_item) { FactoryGirl.create(:item, user: wrong, name: "WrongUser Thing") }
+	let!(:box) { FactoryGirl.create(:item, user: user, name: "MyTestUser Box", is_a_box: true, qrlink: "http://storythin.gs/box") }
+	let!(:thing) { FactoryGirl.create(:item, user: user, name: "MyTestUser Thing", qrlink: "http://storythin.gs/thing") }
+	let!(:w_item) { FactoryGirl.create(:item, user: wrong, name: "WrongUser Thing", qrlink: "http://storythin.gs/wrong") }
 
 	describe "before login" do
 		describe "item index page" do
@@ -63,12 +63,12 @@ describe "Item pages" do
 		end
 		describe "edit box" do
 			before { visit edit_item_path(box) }
-			let(:page_title) { 'Edit Item' }
+			let(:page_title) { 'Edit: '+box.name }
 			it_should_behave_like "pages before login"
 		end
 		describe "edit wrong item" do
 			before { visit edit_item_path(w_item) }
-			let(:page_title) { 'Edit Item' }
+			let(:page_title) { 'Edit: '+w_item.name }
 			it_should_behave_like "pages before login"
 		end
 	end
@@ -143,19 +143,21 @@ describe "Item pages" do
 		end
 		describe "edit box" do
 			before { visit edit_item_path(box) }
-			let(:page_title) { 'Edit Item' }
+			let(:page_title) { 'Edit: '+box.name }
 			it_should_behave_like "pages after login"
+			#it { should have_content( box.qrlink ) }
 		end
 		describe "edit wrong item" do
 			before { visit edit_item_path(w_item) }
-			let(:page_title) { 'Edit Item' }
+			let(:page_title) { 'Edit: '+w_item.name }
 			it_should_behave_like "pages for wrong user"
 			it { should_not have_content( w_item.name ) }
 		end
 		describe "edit thing" do
 			before { visit edit_item_path(thing) }
-			let(:page_title) { 'Edit Item' }
+			let(:page_title) { 'Edit: '+thing.name }
 			it_should_behave_like "pages after login"
+			#it { should have_content( thing.qrlink ) }
 			describe "error messages" do
 				before { fill_in 'item_name', with: "" }
 				before { click_button "Save changes" }
@@ -175,6 +177,12 @@ describe "Item pages" do
 			before { visit item_admin_path(thing) }
 			let(:page_title) { 'Item Admin View' }
 			it_should_behave_like "pages for wrong user"
+		end
+		describe "edit w_item" do
+			before { visit edit_item_path(w_item) }
+			let(:page_title) { 'Edit: '+w_item.name }
+			it_should_behave_like "pages after login"
+			it { should_not have_content( w_item.qrlink ) }
 		end
 	end
 end

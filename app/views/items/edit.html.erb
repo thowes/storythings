@@ -1,18 +1,18 @@
-<% provide(:title, "Edit Item") %>
+<% provide(:title, "Edit: "+@item.name) %>
 
    <div class="row">
     <div class="small-12 small-centered columns">
      <%= form_for(@item) do |i| %>
       <%= render 'shared/error_messages', object: i.object %>
-      <%= i.label :name %>
+      <%= i.label :name, "Name: " %>
       <%= i.text_field :name %>
       <% if @item.root? %>
        <%= i.hidden_field :is_a_box, :value => true %>
        <%= i.hidden_field :parent_id, :value => @item.parent_id %>
       <% else %>
        <%= i.label :is_a_box %>
-       <%= i.radio_button :is_a_box, "true" %>yes
-       <%= i.radio_button :is_a_box, "false" %>no
+       <%= i.radio_button :is_a_box, "true" %> yes
+       <%= i.radio_button :is_a_box, "false" %> no
        <br/><br/>
        <label>BOX/COLL</label>
        <select name="parent_id" id="parent_id">
@@ -25,6 +25,12 @@
         <% end %>
        </select>
       <% end %>
+
+      <% if current_user.admin? %>
+       <%= i.label :qrlink, "URL for QR link:" %>
+       <%= i.url_field :qrlink %>
+      <% end %>
+
       <br/><br/>
       <%= i.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>

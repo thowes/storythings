@@ -66,21 +66,18 @@ class ItemsController < ApplicationController
 		else
 			render 'new'
 		end
-  end
+	end
 
-  #GET /items/:id/edit
+	#GET /items/:id/edit
 	def edit
 		@parents = current_user.items.where( is_a_box: true )
 		@item = Item.find(params[:id])
 	end
 
-  #GET /items/:id/admin
+	#GET /items/:id/admin
 	def admin
 		@item = Item.find(params[:item_id])
-		@item_digicoll = 0
-		if @item.user_id == current_user.id
-			@item_digicoll = current_user.digicoll
-		end
+
 	end
 
 	#GET /items/:id/move

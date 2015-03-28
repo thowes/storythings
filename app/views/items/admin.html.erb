@@ -2,31 +2,26 @@
 
    <div class="row">
     <div class="small-12 small-centered columns">
-      <ul class="button-group radius">
-      <% if @item.root? %>
-       <li><%= link_to "Change Owner of Item", items_path, class: "tiny button" %></li>
-       <li><%= link_to "Change Parent into Digicoll", coll_path, class: "tiny button" %></li>
-      <% else %>
-       <li><%= link_to "Change into a Root Item", coll_path, class: "tiny button" %></li>
-      <% end %>
-      </ul>
-
-     <%= form_for(@item) do |i| %>
-      <%= render 'shared/error_messages', object: i.object %>
-
-      <%= i.label :qrlink, "foo" %>
-      <%= i.url_field :qrlink %>
-
-      <br/><br/>
-      <%= i.label :parent_id %>
-      <%= i.radio_button :parent_id, :value => @item.parent_id %> current: <%= @item.parent_id%>
-      <% if @item_digicoll > 0 %>
-       <%= i.radio_button :parent_id, :value => @item_digicoll %> digicoll: <%= @item_digicoll %>
-      <% end %>
-      <%= i.radio_button :parent_id, :value => 0 %> none
-
-      <br/><br/>
-      <%= i.submit "Save changes", class: "btn btn-large btn-primary" %>
-    <% end %>
+     <ul class="button-group radius">
+     <% if @item.root? %>
+      <li><%= link_to "Change Owner of Item", items_path, class: "tiny button" %></li>
+      <li><%= link_to "Change Parent into Digicoll", coll_path, class: "tiny button" %></li>
+     <% else %>
+      <li><%= link_to "Change into a Root Item", coll_path, class: "tiny button" %></li>
+     <% end %>
+     </ul>
+    </div>
    </div>
-  </div>
+
+   <div class="row">
+    <div class="small-3 columns">
+    </div>
+     <div class="small-9 columns">
+      <ul>
+       <li>COUNT: <%= @item.descendant_ids.count %></li>
+       <li>USER: <%= link_to @item.user.name, user_path(@item.user) %></li>
+       <li>CREATED: <%= @item.created_at %></li>
+       <li>UPDATE: <%= @item.updated_at %></li>
+      </ul>
+     </div>
+   </div>
