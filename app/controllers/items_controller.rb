@@ -77,7 +77,10 @@ class ItemsController < ApplicationController
   #GET /items/:id/admin
 	def admin
 		@item = Item.find(params[:item_id])
-		#@parents = current_user.items.where( is_a_box: true )
+		@item_digicoll = 0
+		if @item.user_id == current_user.id
+			@item_digicoll = current_user.digicoll
+		end
 	end
 
 	#GET /items/:id/move
@@ -104,7 +107,7 @@ class ItemsController < ApplicationController
 
 	private
 		def item_params
-			params.require(:item).permit(:name, :is_a_box, :parent_id)
+			params.require(:item).permit(:name, :is_a_box, :parent_id, :qrlink)
 		end
 
 		def correct_user

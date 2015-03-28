@@ -1,4 +1,4 @@
-<% provide(:title, "Item Admin View") %>
+<% provide(:title, "Admin: "+@item.name) %>
 
    <div class="row">
     <div class="small-12 small-centered columns">
@@ -13,8 +13,17 @@
 
      <%= form_for(@item) do |i| %>
       <%= render 'shared/error_messages', object: i.object %>
-      <%= i.label "URL for QR Link" %>
-      <%= i.text_field :qrlink %>
+
+      <%= i.label :qrlink, "foo" %>
+      <%= i.url_field :qrlink %>
+
+      <br/><br/>
+      <%= i.label :parent_id %>
+      <%= i.radio_button :parent_id, :value => @item.parent_id %> current: <%= @item.parent_id%>
+      <% if @item_digicoll > 0 %>
+       <%= i.radio_button :parent_id, :value => @item_digicoll %> digicoll: <%= @item_digicoll %>
+      <% end %>
+      <%= i.radio_button :parent_id, :value => 0 %> none
 
       <br/><br/>
       <%= i.submit "Save changes", class: "btn btn-large btn-primary" %>

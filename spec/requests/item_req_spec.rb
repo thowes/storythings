@@ -133,7 +133,7 @@ describe "Item pages" do
 		end
 		describe "admin item" do
 			before { visit item_admin_path(thing) }
-			let(:page_title) { 'Item Admin View' }
+			let(:page_title) { "Admin: " +thing.name }
 			it_should_behave_like "pages after login"
 		end
 		describe "show box" do
