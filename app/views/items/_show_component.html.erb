@@ -3,8 +3,10 @@
     <div class="small-12 small-centered columns">
      <ul class="button-group radius">
       <li><%= link_to 'Edit', edit_item_path(@item), class: "tiny button" %></li>
+     <% if current_user.admin? %>
       <li><%= link_to 'Throw Away', item_throwaway_path(@item), class: "button tiny" %></li>
-      <li><%= link_to 'Admin Item', item_admin_path(@item), class: "tiny button" %></li>
+      <li><%= link_to 'Admin View', item_admin_path(@item), class: "tiny button" %></li>
+     <% end %>
      </ul>
     </div>
    </div>
@@ -20,8 +22,6 @@
        <% if signed_in? %>
        <li>USER: <%= link_to @item.user.name, user_path(@item.user) %></li>
        <li>BOX/COLL: <%= link_to @item.parent.name, item_path(@item.parent) %><%=  %></li>
-       <li>CREATED: <%= @item.created_at %></li>
-       <li>UPDATE: <%= @item.updated_at %></li>
        <% end %>
       </ul>
      </div>

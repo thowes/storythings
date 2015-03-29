@@ -20,6 +20,7 @@
       <ul>
        <li>COUNT: <%= @item.descendant_ids.count %></li>
        <li>USER: <%= link_to @item.user.name, user_path(@item.user) %></li>
+       <li>QRLINK: <%= link_to @item.qrlink, @item.qrlink %></li>
        <li>CREATED: <%= @item.created_at %></li>
        <li>UPDATE: <%= @item.updated_at %></li>
       </ul>
