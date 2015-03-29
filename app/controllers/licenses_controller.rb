@@ -1,14 +1,14 @@
 class LicensesController < ApplicationController
   before_action :set_license, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user
+  before_action :admin_user
 
-  # GET /licenses
-  # GET /licenses.json
+  # GET /licenses(.format)
   def index
     @licenses = License.all
   end
 
-  # GET /licenses/1
-  # GET /licenses/1.json
+  # GET /licenses/1(.format)
   def show
   end
 
@@ -21,8 +21,7 @@ class LicensesController < ApplicationController
   def edit
   end
 
-  # POST /licenses
-  # POST /licenses.json
+  # POST /licenses(.format)
   def create
     @license = License.new(license_params)
 
@@ -37,8 +36,7 @@ class LicensesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /licenses/1
-  # PATCH/PUT /licenses/1.json
+  # PATCH/PUT /licenses/1(.format)
   def update
     respond_to do |format|
       if @license.update(license_params)
@@ -51,8 +49,7 @@ class LicensesController < ApplicationController
     end
   end
 
-  # DELETE /licenses/1
-  # DELETE /licenses/1.json
+  # DELETE /licenses/1(.format)
   def destroy
     @license.destroy
     respond_to do |format|
@@ -70,5 +67,9 @@ class LicensesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def license_params
       params.require(:license).permit(:name, :price)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end

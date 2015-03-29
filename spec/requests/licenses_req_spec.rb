@@ -1,11 +1,34 @@
 require 'spec_helper'
 
 describe "Licenses" do
-  describe "GET /licenses" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get licenses_path
-      response.status.should be(200)
-    end
-  end
+	subject { page }
+
+	describe "before login" do
+		describe "license index page" do
+			before { visit licenses_path }
+			let(:page_title) { 'Licenses List' }
+			it_should_behave_like "pages before login"
+		end
+		describe "new license page" do
+			before { visit new_license_path }
+			let(:page_title) { 'New License' }
+			it_should_behave_like "pages before login"
+		end
+	end
+
+	describe "after login" do
+		let(:user) { FactoryGirl.create(:user, admin: true) }
+		before { sign_in user }
+		describe "license index page" do
+			before { visit licenses_path }
+			let(:page_title) { 'Licenses List' }
+			it_should_behave_like "pages after login"
+		end
+		describe "new license page" do
+			before { visit new_license_path }
+			let(:page_title) { 'New License' }
+			it_should_behave_like "pages after login"
+		end
+	end
+
 end

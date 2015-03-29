@@ -17,7 +17,7 @@ describe "Badges" do
 	end
 
 	describe "after login" do
-		let(:user) { FactoryGirl.create(:user) }
+		let(:user) { FactoryGirl.create(:user, admin: true) }
 		before { sign_in user }
 		describe "badge index page" do
 			before { visit badges_path }

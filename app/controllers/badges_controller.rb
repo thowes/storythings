@@ -1,6 +1,7 @@
 class BadgesController < ApplicationController
   before_action :set_badge, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user
+  before_action :admin_user
   
   def index
     @badges = Badge.all
@@ -59,5 +60,9 @@ class BadgesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def badge_params
       params.require(:badge).permit(:name, :picture)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end

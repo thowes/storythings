@@ -3,7 +3,7 @@ class ExperiencesController < ApplicationController
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:show, :destroy, :edit, :update]
 
-  # GET /experiences (.json)
+  # GET /experiences(.format)
   def index
     @experiences = current_user.experiences
   end
@@ -13,7 +13,7 @@ class ExperiencesController < ApplicationController
     @experiences = current_user.experiences
   end
 
-  # GET /experiences/1 (.json)
+  # GET /experiences/1(.format)
   def show
     #@quest = @experience.quest_id 
   end
@@ -27,7 +27,7 @@ class ExperiencesController < ApplicationController
   def edit
   end
 
-  # POST /experiences (.json)
+  # POST /experiences(.format)
   def create
     @experience = Experience.new(experience_params)
     respond_to do |format|
@@ -41,7 +41,7 @@ class ExperiencesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /experiences/1 (.json)
+  # PATCH/PUT /experiences/1(.format)
   def update
     respond_to do |format|
       if @experience.update(experience_params)
@@ -54,7 +54,7 @@ class ExperiencesController < ApplicationController
     end
   end
 
-  # DELETE /experiences/1 (.json)
+  # DELETE /experiences/1(.format)
   def destroy
     @experience.destroy
     respond_to do |format|
@@ -78,5 +78,9 @@ class ExperiencesController < ApplicationController
       @experiences = current_user.experiences.find_by(id: params[:id])
       redirect_to root_url if @experiences.nil?
       #redirect_to root_url unless current_user?(@micropost.user)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end
