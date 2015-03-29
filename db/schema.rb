@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20150325153657) do
     t.datetime "updated_at"
     t.boolean  "is_a_box",   default: false
     t.string   "ancestry"
-    t.string   "qrlink"
+    t.string   "qrlink",     default: "http://storythin.gs/def"
   end
 
   add_index "items", ["ancestry"], name: "index_items_on_ancestry", using: :btree
