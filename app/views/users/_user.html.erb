@@ -1,12 +1,21 @@
-<li>
-  <% if user.privacy != 0 %>
-    <%= gravatar_for user, size: 52 %>
-    <b><%= link_to user.name, user %></b>, level <%= link_to user.player_level, quest_path(user.player_level) %> <%= user.player_type %>
-  <% else %>
-   [ user profile not public ]
-  <% end %>
-  <% if current_user.admin? && !current_user?(user) %>
-     | <%= link_to "delete", user, method: :delete,
-                                  data: { confirm: "You sure?" } %>   
-  <% end %>
-</li>
+   <div class="row">
+    <div class="small-10 large-centered columns">
+     <ul class="items">
+      <% if current_user.admin? %>
+       <%= gravatar_for user, size: 52 %>
+       <b><%= link_to user.name, user %></b>
+       level <%= link_to user.player_level, quest_path(user.player_level) %> <%= user.player_type %>
+       <% if !current_user?(user) %>
+        | <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
+       <% end %>
+      <% else %>
+       <% if user.privacy != 0 %>
+        <%= gravatar_for user, size: 52 %>
+        <b><%= link_to user.name, user %></b>, level <%= link_to user.player_level, quest_path(user.player_level) %> <%= user.player_type %>
+       <% else %>
+        [ user profile not public ]
+       <% end %>
+      <% end %>
+     </ul>
+    </div>
+   </div>
