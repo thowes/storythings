@@ -6,6 +6,10 @@
      <div class="small-9 columns">
       <h5><%= @user.name %></h5>
       <p><%= @user.player_type %>, level <%= link_to @user.player_level, quest_path(@user.player_level) %></p>
-      <%= link_to "view profile", @user %>
+      <p><%= link_to "view profile", @user %>
+       <% if current_user?(@user) %>
+        | <%= link_to "edit profile", edit_user_path(@user) %>
+       <% end %>
+      </p>
      </div>
     </div>
