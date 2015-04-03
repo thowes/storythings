@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-	before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
-	#before_action :signed_in_user, except: [:show, :create]
+	before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :show, :admin, :following, :followers]
+	#before_action :signed_in_user, except: [:create]
 	before_action :correct_user,   only: [:edit, :update]
 	before_action :admin_user,     only: [:destroy, :admin]
 
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
 	#GET /users/:id/admin
 	def admin
-		#@user = User.find(params[:id])
+		@user = User.find(params[:user_id])
 	end
 
 	def update

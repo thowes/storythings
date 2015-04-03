@@ -57,14 +57,13 @@ describe "User pages" do
 		let!(:i8) { FactoryGirl.create(:item, user: user, name: "The One Ring") }
 		let!(:i9) { FactoryGirl.create(:item, user: user, name: "Pandoras Box") }
 		before { visit user_path(user) }
-		it { should have_content(user.name) }
-		it { should have_title(user.name) }
-		describe "microposts" do
+		describe "content" do
+			before { sign_in user }
+			it { should have_content(user.name) }
+			it { should have_title(user.name) }
 			it { should have_content(m1.content) }
 			it { should have_content(m2.content) }
 			it { should have_content(user.microposts.count) }
-		end
-		describe "items" do
 			it { should have_content(user.items.count) }
 		end
     describe "follow/unfollow buttons" do
