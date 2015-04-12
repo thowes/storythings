@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325153657) do
+ActiveRecord::Schema.define(version: 20150412085130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20150325153657) do
     t.integer  "privacy",            default: 0
     t.boolean  "components_allowed", default: false
     t.integer  "digicoll",           default: 0
+    t.boolean  "tester",             default: false
   end
 
   add_index "users", ["digicoll"], name: "index_users_on_digicoll", using: :btree

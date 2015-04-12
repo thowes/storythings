@@ -10,6 +10,10 @@ FactoryGirl.define do
 			admin true
 		end
 
+		factory :tester do
+			tester true
+		end
+
 		factory :components do
 			components_allowed true
 		end

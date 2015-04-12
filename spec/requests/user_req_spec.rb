@@ -229,6 +229,17 @@ describe "User pages" do
 		end
 	end
 
+	describe "admin user" do
+		let(:user) { FactoryGirl.create(:user, admin: true) }
+		let(:wrong) { FactoryGirl.create(:user) }
+		before { sign_in user }
+		describe "user admin page" do
+			before { visit user_admin_path(wrong) }
+			let(:page_title) { 'User Admin View' }
+			it_should_behave_like "pages after login"
+		end
+	end
+
 	describe "non-admin user" do
 		let(:user) { FactoryGirl.create(:user, admin: true) }
 		let(:wrong) { FactoryGirl.create(:user) }
@@ -238,5 +249,10 @@ describe "User pages" do
 			let(:page_title) { 'User Admin View' }
 			it_should_behave_like "pages for wrong user"
 		end
+	end
+
+	describe "tester user" do
+		let(:user) { FactoryGirl.create(:user, tester: true) }
+		before { sign_in user }
 	end
 end
