@@ -14,7 +14,9 @@
    
    <div class="row">
     <div class="small-3 columns">
+    <% if current_user.tester? %>
      <%= qrcode_for @item %>
+    <% end %>
     </div>
      <div class="small-9 columns">
       <ul>

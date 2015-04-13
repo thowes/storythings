@@ -1,5 +1,6 @@
 <% @user ||= current_user %>
     <div class="row">
+    <% if current_user.tester? %>
      <div class="small-4 columns">
       <a href="<%= following_user_path(@user) %>">
        <strong id="following" class="stat"><%= @user.followed_users.count %></strong> following</a>
@@ -8,6 +9,7 @@
       <a href="<%= followers_user_path(@user) %>">
        <strong id="followers" class="stat"><%= @user.followers.count %></strong> followers</a>
      </div>
+    <% end %>
      <div class="small-4 columns">
       <a href="<%= items_path %>">
        <strong id="items" class="stat"><%= @user.items.count %>/<%= @user.max_items %></strong> items</a>
