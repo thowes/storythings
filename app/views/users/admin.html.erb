@@ -1,23 +1,15 @@
 <% provide(:title, "User Admin View") %>
 
-   <div class="row">
-    <div class="small-12 small-centered columns">
-     <ul class="button-group radius">
-      <li><%= link_to "Make into Admin", users_path, class: "tiny button" %></li>
-      <li><%= link_to "Set level", users_path, class: "tiny button" %></li>
-      <li><%= link_to "Set player class", users_path, class: "tiny button" %></li>
-     </ul>
-    </div>
-   </div>
-
    <div class="row"><div class="small-12 small-centered columns">Name: <%= @user.name %></div></div>
    <div class="row"><div class="small-12 small-centered columns">Email: <%= @user.email %></div></div>
-   <div class="row"><div class="small-12 small-centered columns">Class: <%= @user.player_type %></div></div>
-   <div class="row"><div class="small-12 small-centered columns">Level: <%= @user.player_level %></div></div>
-   <div class="row"><div class="small-12 small-centered columns">Items: <%= @user.max_items %></div></div>
-   <div class="row"><div class="small-12 small-centered columns">Admin: <%= @user.admin %></div></div>
+   <div class="row"><div class="small-12 small-centered columns">Class: <%= @user.player_type %> (<%= link_to "Change", users_path %>)</div></div>
+   <div class="row"><div class="small-12 small-centered columns">Level: <%= @user.player_level %> (<%= link_to "Change", users_path %>)</div></div>
+   <div class="row"><div class="small-12 small-centered columns">Items: <%= @user.max_items %> (<%= link_to "Change", users_path %>)</div></div>
    <div class="row"><div class="small-12 small-centered columns">Privacy: <%= @user.privacy %></div></div>
-   <div class="row"><div class="small-12 small-centered columns">Components: <%= @user.components_allowed %></div></div>
    <div class="row"><div class="small-12 small-centered columns">Digicoll: <%= @user.digicoll %></div></div>
    <div class="row"><div class="small-12 small-centered columns">Created: <%= @user.created_at %></div></div>
    <div class="row"><div class="small-12 small-centered columns">Updated: <%= @user.updated_at %></div></div>
+   <div class="row"><div class="small-12 small-centered columns"><h3>FLAGS:</h3></div></div>
+   <div class="row"><div class="small-12 small-centered columns">Admin: <%= @user.admin %> (<%= link_to "Change", users_path %>)</div></div>
+   <div class="row"><div class="small-12 small-centered columns">Tester: <%= @user.tester %> (<%= link_to "Change", users_path %>)</div></div>
+   <div class="row"><div class="small-12 small-centered columns">Components: <%= @user.components_allowed %> (<%= link_to "Change", users_path %>)</div></div>

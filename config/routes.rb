@@ -30,11 +30,12 @@ Storythings::Application.routes.draw do
   
 	root  'static_pages#home'
 	match '/about',   to: 'static_pages#about',   via: 'get'
-	match '/admin',   to: 'static_pages#admin',   via: 'get'
+	#match '/admin',   to: 'static_pages#admin',   via: 'get'
 	match '/boxes',   to: 'items#boxes',          via: 'get'
 	match '/coll',    to: 'items#coll',           via: 'get'
 	match '/components', to: 'items#components',  via: 'get'
 	match '/contact', to: 'static_pages#contact', via: 'get'
+	#match '/export',   to: 'static_pages#export',   via: 'get'
 	match '/help',    to: 'static_pages#help',    via: 'get'
 	match '/signin',  to: 'sessions#new',         via: 'get'
 	match '/signout', to: 'sessions#destroy',     via: 'delete'
