@@ -11,6 +11,16 @@ describe Quest do
 	it { should respond_to(:mother) }
 	it { should respond_to(:next_quest) }
 	it { should respond_to(:prev_quest) }
+	it { should respond_to(:root_id) }
+	it { should respond_to(:root) }
+	it { should respond_to(:root?) }
+	it { should respond_to(:is_root?) }
+	it { should respond_to(:parent_id) }
+	it { should respond_to(:parent) }
+	it { should respond_to(:children) }
+	it { should respond_to(:path_ids) }
+	it { should respond_to(:path) }
+	it { should respond_to(:depth) }
 
 	describe "with name blank" do
 		before { @quest.name = " " }
