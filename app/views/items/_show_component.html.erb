@@ -25,7 +25,7 @@
        <li>TYPE: COMPONENT</li>
        <% if signed_in? %>
        <li>USER: <%= link_to @item.user.name, user_path(@item.user) %></li>
-       <li>BOX/COLL: <%= link_to @item.parent.name, item_path(@item.parent) %><%=  %></li>
+       <li>PART OF: <%= link_to @item.parent.name, item_path(@item.parent) %><%=  %></li>
        <% end %>
       </ul>
      </div>

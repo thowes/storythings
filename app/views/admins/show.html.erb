@@ -14,7 +14,7 @@
    <div class="row"><div class="small-12 small-centered columns">Email: <%= @admin.email %></div></div>
    <div class="row"><div class="small-12 small-centered columns">Class: <%= @admin.player_type %> (<%= link_to "Change", users_path %>)</div></div>
    <div class="row"><div class="small-12 small-centered columns">Level: <%= @admin.player_level %> (<%= link_to "Change", users_path %>)</div></div>
-   <div class="row"><div class="small-12 small-centered columns">Items: <%= @admin.max_items %> (<%= link_to "Change", users_path %>)</div></div>
+   <div class="row"><div class="small-12 small-centered columns">Items: /<%= @admin.max_items %> (<%= link_to "Change", users_path %>)</div></div>
    <div class="row"><div class="small-12 small-centered columns">Privacy: <%= @admin.privacy %></div></div>
    <div class="row"><div class="small-12 small-centered columns">Digicoll: <%= @admin.digicoll %></div></div>
    <div class="row"><div class="small-12 small-centered columns">Created: <%= @admin.created_at %></div></div>

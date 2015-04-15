@@ -15,10 +15,12 @@ class UsersController < ApplicationController
 		@microposts = @user.microposts.paginate(page: params[:page])
 	end
 
+	#GET /users/new/
 	def new
 		@user = User.new
 	end
 
+	#POST /users/new/
 	def create
 		@user = User.new(user_params)
 		if @user.save
@@ -31,7 +33,7 @@ class UsersController < ApplicationController
 			@my_lib.save
 			@my_digi = @user.items.build(name: "My Digital Library", is_a_box: true)
 			@my_digi.save
-			@user.digicoll = @my_digi.id
+			@user.digicoll = @my_digi.id #doesn't work
 			flash[:success] = "Welcome to the Storythings!"
 			redirect_to @user
 		else

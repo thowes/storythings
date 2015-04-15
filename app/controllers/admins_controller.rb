@@ -10,6 +10,7 @@ class AdminsController < ApplicationController
 	#GET /admins/:id/
 	def show
 		@admin = User.find(params[:id])
+		#number_of_items = ???
 	end
 
 	#GET /admins/:id/edit
@@ -17,6 +18,7 @@ class AdminsController < ApplicationController
 		@admin = User.find(params[:id])
 	end
 
+	# doesn't work (or even get executed)
 	#PATCH /admins/:id/
 	def update
 		@admin = User.find(params[:id])
