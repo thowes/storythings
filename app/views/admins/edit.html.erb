@@ -1,0 +1,24 @@
+<% provide(:title, "Admin Edit") %>
+
+   <div class="row">
+    <div class="small-12 small-centered columns">
+     <ul class="button-group radius">
+      <li><%= link_to 'List', admins_path, class: "tiny button" %></li>
+      <li><%= link_to 'Admin View', admin_path(@admin), class: "tiny button" %></li>
+      <li><%= link_to 'User View', user_path(@admin), class: "tiny button" %></li>
+     </ul>
+    </div>
+   </div>
+
+   <div class="row">
+    <div class="small-10 large-centered columns">
+     <%= form_for(@admin) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :max_items %>
+      <%= f.text_field :max_items %>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+     <% end %>
+    </div>
+   </div>

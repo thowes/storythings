@@ -1,4 +1,5 @@
 Storythings::Application.routes.draw do
+	resources :admins
   resources :experiences
   resources :quests
 	resources :users do

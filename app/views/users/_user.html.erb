@@ -6,7 +6,7 @@
        <b><%= link_to user.name, user %></b>
        level <%= link_to user.player_level, quest_path(user.player_level) %> <%= user.player_type %>
        <% if !current_user?(user) %>
-        | <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
+        | <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>, <%= link_to "admin", admin_path(user) %>
        <% end %>
       <% else %>
        <% if user.privacy != 0 %>
