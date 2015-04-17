@@ -1,11 +1,15 @@
 <% provide(:title, @item.name) %>
 
 <% if @item.root? %>
-  <%= render 'items/show_root' %>
+ <%= render 'items/show_root' %>
 <% else %>
-  <% if @item.is_a_box %>
-    <%= render 'items/show_box' %>
-  <% else %>
-    <%= render 'items/show_item' %>
+ <% if @item.is_a_box %>
+  <%= render 'items/show_box' %>
+ <% else %>
+  <% if @item.is_component %>
+   <%= render 'items/show_component' %>
+  <% else %> 
+   <%= render 'items/show_item' %>
   <% end %>
+ <% end %>
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150412085130) do
+ActiveRecord::Schema.define(version: 20150417200902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,13 +39,15 @@ ActiveRecord::Schema.define(version: 20150412085130) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_a_box",   default: false
+    t.boolean  "is_a_box",     default: false
     t.string   "ancestry"
-    t.string   "qrlink",     default: "http://storythin.gs/def"
+    t.string   "qrlink",       default: "http://storythin.gs/def"
+    t.boolean  "is_component", default: false
   end
 
   add_index "items", ["ancestry"], name: "index_items_on_ancestry", using: :btree
   add_index "items", ["is_a_box"], name: "index_items_on_is_a_box", using: :btree
+  add_index "items", ["is_component"], name: "index_items_on_is_component", using: :btree
   add_index "items", ["qrlink"], name: "index_items_on_qrlink", using: :btree
   add_index "items", ["user_id", "created_at"], name: "index_items_on_user_id_and_created_at", using: :btree
 

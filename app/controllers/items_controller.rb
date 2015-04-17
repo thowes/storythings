@@ -104,7 +104,7 @@ class ItemsController < ApplicationController
 
 	private
 		def item_params
-			params.require(:item).permit(:name, :is_a_box, :parent_id, :qrlink)
+			params.require(:item).permit(:name, :is_a_box, :parent_id, :qrlink, :is_component)
 		end
 
 		def correct_user
