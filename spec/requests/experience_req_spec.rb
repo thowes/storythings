@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "Experience pages" do
   subject { page }
-  let(:user) { FactoryGirl.create(:user, name: "Mr. Admin") }
-  let(:wrong) { FactoryGirl.create(:user, name: "Mr. Wrong") }
+  let(:user) { FactoryGirl.create(:user, name: "Mr. Admin", tester: true) }
+  let(:wrong) { FactoryGirl.create(:user, name: "Mr. Wrong", tester: true) }
   let!(:quest) { FactoryGirl.create(:quest, name: "The Testing Quest") }
   let!(:other_quest) { FactoryGirl.create(:quest, name: "The Other Quest") }
   let!(:u_xp) { FactoryGirl.create(:experience, name: "The Correct Experience", user: user, quest: quest) }

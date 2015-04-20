@@ -31,6 +31,7 @@ describe User do
 	it { should respond_to(:digicoll) }
 	it { should respond_to(:components_allowed) }
 	it { should respond_to(:tester) }
+	it { should respond_to(:tester?) }
 	it { should be_valid }
 	it { should_not be_admin }
 

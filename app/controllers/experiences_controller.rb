@@ -2,6 +2,7 @@ class ExperiencesController < ApplicationController
   before_action :signed_in_user
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:show, :destroy, :edit, :update]
+  before_action :tester_user
 
   # GET /experiences(.format)
   def index
@@ -82,5 +83,9 @@ class ExperiencesController < ApplicationController
 
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+
+    def tester_user
+      redirect_to(root_url) unless current_user.tester?
     end
 end

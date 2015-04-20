@@ -2,6 +2,7 @@ class QuestsController < ApplicationController
   before_action :signed_in_user
   before_action :set_quest, only: [:show, :edit, :update, :destroy]
   before_action :admin_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :tester_user
 
   # GET /quests (.json)
   def index
@@ -76,5 +77,9 @@ class QuestsController < ApplicationController
 
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+
+    def tester_user
+      redirect_to(root_url) unless current_user.tester?
     end
 end
