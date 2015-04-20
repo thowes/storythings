@@ -4,8 +4,11 @@
 <%= render 'shared/user_info' %>
     <hr/>
 <%= render 'shared/stats' %>
+
+<% if current_user.tester? %>
     <hr/>
-<%= render 'shared/micropost_form' %>
+ <%= render 'shared/micropost_form' %>
+<% end %>
    </div>
    <div class="small-12 large-8 columns">
     <h3>Item Collections</h3>
@@ -16,8 +19,10 @@
      <% end %>
     <% end %>
     </ul>
+    <% if current_user.tester? %>
      <h3>Activity</h3>
      <%= render 'shared/feed' %>
+    <% end %>
    </div>
   </div>
 <% else %>
