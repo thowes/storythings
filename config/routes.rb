@@ -25,6 +25,7 @@ Storythings::Application.routes.draw do
 			get 'boxes'
 			get 'export'
 			get 'help'
+			get 'summary'
 			get 'things'
 		end
 	end
@@ -35,11 +36,11 @@ Storythings::Application.routes.draw do
 	match '/coll',    to: 'items#coll',           via: 'get'
 	match '/components', to: 'items#components',  via: 'get'
 	match '/contact', to: 'static_pages#contact', via: 'get'
-	#match '/export',   to: 'static_pages#export',   via: 'get'
 	match '/help',    to: 'static_pages#help',    via: 'get'
 	match '/signin',  to: 'sessions#new',         via: 'get'
 	match '/signout', to: 'sessions#destroy',     via: 'delete'
 	match '/signup',  to: 'users#new',            via: 'get'
+	match '/summary', to: 'items#summary',           via: 'get'
 	match '/testing', to: 'static_pages#testing', via: 'get'
 	match '/things',  to: 'items#things',         via: 'get'
 

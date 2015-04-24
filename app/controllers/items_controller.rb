@@ -19,6 +19,14 @@ class ItemsController < ApplicationController
 		@items = current_user.items.where( is_a_box: true )
 	end
 
+	#GET /items/summary
+	def summary
+		@n_of_items = current_user.items.where( is_a_box: false, is_component: false ).count
+		@n_of_boxes = current_user.items.where( is_a_box: true, is_component: false ).count
+		@n_of_components = current_user.items.where( is_component: true ).count
+		@n_total = current_user.items.count
+	end
+
 	#GET /things
 	def things
 		@items = current_user.items.where( is_a_box: false )
