@@ -4,6 +4,7 @@ Storythings::Application.routes.draw do
   resources :quests
 	resources :users do
 		get 'admin'
+		get 'level'
 		member do
 			get :following, :followers
 		end

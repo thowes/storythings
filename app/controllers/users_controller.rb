@@ -83,7 +83,8 @@ class UsersController < ApplicationController
 		render 'show_follow'
 	end
 
-	def leveling
+	def level
+		@user = current_user
 		#if levelup(@user.level)
 			#sho 
 		#end
