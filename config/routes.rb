@@ -38,6 +38,7 @@ Storythings::Application.routes.draw do
 	match '/components', to: 'items#components',  via: 'get'
 	match '/contact', to: 'static_pages#contact', via: 'get'
 	match '/help',    to: 'static_pages#help',    via: 'get'
+	match '/level',   to: 'users#level',          via: 'get'
 	match '/signin',  to: 'sessions#new',         via: 'get'
 	match '/signout', to: 'sessions#destroy',     via: 'delete'
 	match '/signup',  to: 'users#new',            via: 'get'

@@ -1,10 +1,12 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, "Level") %>
 
 <div class="row">
  <div class="large-6 columns">
-  <%= render 'shared/user_info' %>
-  <hr/>
-  <%= render 'shared/stats' %>
-  <hr/>
+ 	<p>Your current level is <%= @user.player_level %>.</p>
+  <% if @counted_items > @user.player_level %>
+   <p>You meet the criteria for this level and could advance to next level.</p>
+  <% else %>
+   <p>You cannot advance to next level yet.</p>
+  <% end %>
  </div>
 </div>
