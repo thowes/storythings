@@ -87,9 +87,6 @@ class UsersController < ApplicationController
 	def level
 		@user = current_user
 		@counted_items = current_user.items.count
-		#if level_complete(@user.level)
-			#sho 
-		#end
 	end
 	
 	private

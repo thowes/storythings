@@ -7,6 +7,11 @@ module UsersHelper
     image_tag(gravatar_url, alt: user.name, class: "gravatar")
   end
 
-  def levelling(user)
+  def level_complete(user)
+  	if @counted_items > @user.player_level
+  		new_level = user.level + 1
+		else
+			new_level = user.level
+  	end
   end
 end
