@@ -86,6 +86,7 @@ class UsersController < ApplicationController
 	#GET /level
 	def level
 		@user = current_user
+		# now counting such things as collections and components
 		@counted_items = current_user.items.count
 	end
 	

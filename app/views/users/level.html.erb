@@ -3,7 +3,7 @@
 <div class="row">
  <div class="large-6 columns">
  	<p>Your current level is <%= @user.player_level %>.</p>
-  <% if @counted_items > @user.player_level %>
+  <% if level_complete(@user) %>
    <p>You meet the criteria for this level and could advance to next level.</p>
   <% else %>
    <p>You cannot advance to next level yet.</p>
