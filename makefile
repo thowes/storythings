@@ -13,11 +13,17 @@ orig:
 repo:
 	@git remote -v
 
+srv:
+	@rails server
+
 st:
 	@git status
 
 tls:
 	@todo.sh ls +sth
+
+tst:
+	rspec spec
 
 upd:
 	@git pull
