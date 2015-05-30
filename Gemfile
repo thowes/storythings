@@ -26,7 +26,6 @@ group :test do
 	gem 'factory_girl_rails', '4.2.1'
 	gem 'cucumber-rails', '1.4.0', :require => false
 	gem 'database_cleaner', '1.2.0'
-
   # notifications in linux
   # gem 'libnotify', '0.8.0'
   #notifications in windows
